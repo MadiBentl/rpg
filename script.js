@@ -8,11 +8,30 @@ var buildBoard = function(){
   });
 }
 
+var mailbox ={
+  position: "#t1515",
+  exist: function(){
+    $(document).ready(function(){
+      $(mailbox.position).text("\uD83D\uDCEC");
+    });
+  }
+}
+
+var tree = {
+  position: "#t2014",
+  exist: function(){
+    $(document).ready(function(){
+      $(tree.position).text("\uD83C\uDF32");
+    });
+  }
+}
+
 var sprite = {
   position: "#t1514",
   initializeSprite: function(){
     $(document).ready(function(){
       $("#t1514").addClass("visitedTile").text("@");
+      $("#t2222").addClass("visitedTile").text("\uD83D\uDCEC");
       console.log("works");
     });
   },
@@ -54,5 +73,7 @@ var sprite = {
 
 //buildInventory();
 buildBoard();
+tree.exist();
+mailbox.exist();
 sprite.initializeSprite();
 sprite.moveSprite();
