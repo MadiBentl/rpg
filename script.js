@@ -68,7 +68,7 @@ var sprite = {
   });
   }
 };
-
+//build a hash table with the locations of special items and what the special item is?
 
 
 //buildInventory();
