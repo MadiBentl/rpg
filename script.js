@@ -20,20 +20,27 @@ var sprite = {
     $(document).keydown(function(e) {
       switch(e.which) {
           case 37: // left
+          $(sprite.position).empty();
+          sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
+          $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 38: // up
+          $(sprite.position).empty();
+          sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
+          $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 39: // right
           $(sprite.position).empty();
-          console.log("right");
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
           $(sprite.position).addClass("visitedTile").text("@");
-          console.log(Number(sprite.position.slice(-4))+1);
           break;
 
           case 40: // down
+          $(sprite.position).empty();
+          sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
+          $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           default: return; // exit this handler for other keys
