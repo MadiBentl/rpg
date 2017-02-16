@@ -1,3 +1,15 @@
 .tile{
   background-color: black;
+  display: inline-block;
+  overflow:hidden;
+  font-size:large;
+  margin:0px;
+  padding:0px;
+  width:25px;
+  height:25px;
+}
+#board{
+  width: 750px;
+  display:inline-block;
+  font-size:0;
 }
