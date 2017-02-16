@@ -16,28 +16,35 @@ var sprite = {
       console.log("works");
     });
   },
+  moveSprite: function(){
+    $(document).keydown(function(e) {
+      switch(e.which) {
+          case 37: // left
+          break;
+
+          case 38: // up
+          break;
+
+          case 39: // right
+          console.log("right");
+          sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
+          $(sprite.position).css("background-color","grey");
+          console.log(Number(sprite.position.slice(-4))+1);
+          break;
+
+          case 40: // down
+          break;
+
+          default: return; // exit this handler for other keys
+      }
+      e.preventDefault(); // prevent the default action (scroll / move caret)
+  });
+  }
 };
 
-  $(document).keydown(function(e) {
-    switch(e.which) {
-        case 37: // left
-        break;
 
-        case 38: // up
-        break;
-
-        case 39: // right
-        console.log("right");
-        break;
-
-        case 40: // down
-        break;
-
-        default: return; // exit this handler for other keys
-    }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
-});
 
 //buildInventory();
 buildBoard();
-//sprite.initializeSprite();
+sprite.initializeSprite();
+sprite.moveSprite();
