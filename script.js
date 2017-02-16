@@ -12,7 +12,7 @@ var sprite = {
   position: "#t1514",
   initializeSprite: function(){
     $(document).ready(function(){
-      $("#t1514").css("background-color","grey").text("@");
+      $("#t1514").addClass("visitedTile").text("@");
       console.log("works");
     });
   },
@@ -26,9 +26,10 @@ var sprite = {
           break;
 
           case 39: // right
+          $(sprite.position).empty();
           console.log("right");
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
-          $(sprite.position).css("background-color","grey");
+          $(sprite.position).addClass("visitedTile").text("@");
           console.log(Number(sprite.position.slice(-4))+1);
           break;
 

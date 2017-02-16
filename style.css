@@ -13,4 +13,7 @@
   display: inline-block;
   font-size: 0; }
 
+.visitedTile {
+  background-color: grey !important; }
+
 /*# sourceMappingURL=style.css.map */
