@@ -27,7 +27,10 @@ var tree = {
     });
   }
 }
-var miscellaneous = 
+var miscellaneous = function(){
+  tree.exist();
+  mailbox.exist();
+}
 var sprite = {
   position: "#t1514",
   initializeSprite: function(){
@@ -42,28 +45,28 @@ var sprite = {
       switch(e.which) {
           case 37: // left
           $(sprite.position).empty();
-          tree.exist();
+          miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 38: // up
           $(sprite.position).empty();
-          tree.exist();
+          miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 39: // right
           $(sprite.position).empty();
-          tree.exist();
+          miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 40: // down
           $(sprite.position).empty();
-          tree.exist();
+          miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
