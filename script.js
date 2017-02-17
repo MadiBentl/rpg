@@ -12,7 +12,7 @@ var mailbox ={
   position: "#t1515",
   exist: function(){
     $(document).ready(function(){
-      $(mailbox.position).text("\uD83D\uDCEC");
+        $(mailbox.position).text("\uD83D\uDCEC");
     });
   }
 }
@@ -35,7 +35,9 @@ var tree = {
   exist: function(){
     $(document).ready(function(){
       for (var x =0; x<tree.positions.length; x++){
-        $(tree.positions[x]).text("\uD83C\uDF32");
+        if ($(tree.positions[x]).hasClass("visitedTile")){
+          $(tree.positions[x]).text("\uD83C\uDF32");
+        }
       }
     });
   }
