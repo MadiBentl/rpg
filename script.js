@@ -17,6 +17,19 @@ var mailbox ={
   }
 }
 
+var food = {
+  position: "#t3312",
+  exist: function(){
+    $(document).ready(function(){
+      $(food.position).text("\uD83C\uDF54");
+    });
+  },
+  changePosition: function(){
+    var randomNumber = Math.floor(Math.random() * 15) + 5;
+
+  }
+}
+
 var tree = {
   positions: ["#t2014","#t2015","#t2016","#t2017","#t2114","#t2115"],
   exist: function(){
@@ -83,6 +96,7 @@ var sprite = {
 //buildInventory();
 buildBoard();
 tree.exist();
+food.exist();
 mailbox.exist();
 sprite.initializeSprite();
 sprite.moveSprite();
