@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var buildBoard = function(){
   $( document ).ready(function() {
     for (var x = 10; x < 40; x++){
@@ -51,6 +53,9 @@ var miscellaneous = function(){
 var interact = function(){
   if (sprite.position == mailbox.position){
     console.log("You've Got Mail.");
+  }
+  if (tree.positions.indexOf(sprite.position) > -1){
+    console.log(sprite.position);
   }
 }
 var sprite = {
@@ -112,3 +117,4 @@ food.exist();
 mailbox.exist();
 sprite.initializeSprite();
 sprite.moveSprite();
+});
