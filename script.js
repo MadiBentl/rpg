@@ -21,7 +21,9 @@ var food = {
   position: "#t3312",
   exist: function(){
     $(document).ready(function(){
-      $(food.position).text("\uD83C\uDF54");
+      if ($(food.position).hasClass("visitedTile")){
+        $(food.position).text("\uD83C\uDF54");
+      }
     });
   },
   changePosition: function(){
@@ -46,12 +48,16 @@ var miscellaneous = function(){
   tree.exist();
   mailbox.exist();
 }
+var interact = function(){
+  if (sprite.position == mailbox.position){
+    console.log("You've Got Mail.");
+  }
+}
 var sprite = {
   position: "#t1514",
   initializeSprite: function(){
     $(document).ready(function(){
       $("#t1514").addClass("visitedTile").text("@");
-      $("#t2222").addClass("visitedTile").text("\uD83D\uDCEC");
       console.log("works");
     });
   },
@@ -63,6 +69,7 @@ var sprite = {
           miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
           $(sprite.position).addClass("visitedTile").text("@");
+          interact();
           break;
 
           case 38: // up
@@ -70,6 +77,7 @@ var sprite = {
           miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
           $(sprite.position).addClass("visitedTile").text("@");
+          interact();
           break;
 
           case 39: // right
@@ -77,6 +85,7 @@ var sprite = {
           miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
           $(sprite.position).addClass("visitedTile").text("@");
+          interact();
           break;
 
           case 40: // down
@@ -84,6 +93,7 @@ var sprite = {
           miscellaneous();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
           $(sprite.position).addClass("visitedTile").text("@");
+          interact();
           break;
 
           default: return; // exit this handler for other keys
