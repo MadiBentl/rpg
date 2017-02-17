@@ -55,7 +55,19 @@ var interact = function(){
     console.log("You've Got Mail.");
   }
   if (tree.positions.indexOf(sprite.position) > -1){
+    console.log("cut tree?");
     console.log(sprite.position);
+    $(document).keydown(function(e){
+      switch(e.which){
+        case 89: //y
+        console.log("You cut wood");
+        break;
+
+        case 78:
+        console.log("No wood for you");
+        break;
+      }
+    });
   }
 }
 var sprite = {
