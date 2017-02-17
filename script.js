@@ -18,14 +18,16 @@ var mailbox ={
 }
 
 var tree = {
-  position: "#t2014",
+  positions: ["#t2014","#t2015","#t2016","#t2017","#t2114","#t2115"],
   exist: function(){
     $(document).ready(function(){
-      $(tree.position).text("\uD83C\uDF32");
+      for (var x =0; x<tree.positions.length; x++){
+        $(tree.positions[x]).text("\uD83C\uDF32");
+      }
     });
   }
 }
-
+var miscellaneous = 
 var sprite = {
   position: "#t1514",
   initializeSprite: function(){
@@ -40,24 +42,28 @@ var sprite = {
       switch(e.which) {
           case 37: // left
           $(sprite.position).empty();
+          tree.exist();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 38: // up
           $(sprite.position).empty();
+          tree.exist();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 39: // right
           $(sprite.position).empty();
+          tree.exist();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
 
           case 40: // down
           $(sprite.position).empty();
+          tree.exist();
           sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
           $(sprite.position).addClass("visitedTile").text("@");
           break;
