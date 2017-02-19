@@ -94,19 +94,23 @@ var sprite = {
     $(document).keydown(function(e) {
       switch(e.which) {
           case 37: // left
-          $(sprite.position).empty();
-          miscellaneous();
-          sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
-          $(sprite.position).addClass("visitedTile").text("@");
-          interact();
+          if (sprite.position.slice(4,6) > 10){
+            $(sprite.position).empty();
+            miscellaneous();
+            sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
+            $(sprite.position).addClass("visitedTile").text("@");
+            interact();
+          }
           break;
 
           case 38: // up
-          $(sprite.position).empty();
-          miscellaneous();
-          sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
-          $(sprite.position).addClass("visitedTile").text("@");
-          interact();
+          if (sprite.position.slice(2,4) > 10){
+            $(sprite.position).empty();
+            miscellaneous();
+            sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
+            $(sprite.position).addClass("visitedTile").text("@");
+            interact();
+          }
           break;
 
           case 39: // right
