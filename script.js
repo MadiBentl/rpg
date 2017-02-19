@@ -118,11 +118,13 @@ var sprite = {
           break;
 
           case 40: // down
-          $(sprite.position).empty();
-          miscellaneous();
-          sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
-          $(sprite.position).addClass("visitedTile").text("@");
-          interact();
+            if (sprite.position.slice(2,4) < 39){
+            $(sprite.position).empty();
+            miscellaneous();
+            sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
+            $(sprite.position).addClass("visitedTile").text("@");
+            interact();
+          }
           break;
 
           default: return; // exit this handler for other keys
