@@ -93,11 +93,13 @@ var sprite = {
       console.log("works");
     });
   },
+  newPosition: "",
   moveSprite: function(){
     $(document).keydown(function(e) {
       switch(e.which) {
           case 37: // left
-          if (sprite.position.slice(4,6) > 10){
+          if ((sprite.position.slice(4,6) > 10)
+            && !$(sprite.position).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
@@ -107,18 +109,24 @@ var sprite = {
           break;
 
           case 38: // up
+          sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-100)
           if ((sprite.position.slice(2,4) > 10)
-              && !$(sprite.position).hasClass("isProhibited")){
+              && !$(sprite.newPosition).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
             $(sprite.position).addClass("visitedTile").text("@");
             interact();
           }
+          else if ($(sprite.newPosition).hasClass("isProhibited")){
+            $(sprite.newPosition).addClass("visitedTile");
+            miscellaneous();
+          }
           break;
 
           case 39: // right
-          if (sprite.position.slice(4,6) < 39){
+          if ((sprite.position.slice(4,6) < 39)
+            && !$(sprite.position).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
@@ -128,7 +136,8 @@ var sprite = {
           break;
 
           case 40: // down
-          if (sprite.position.slice(2,4) < 39){
+          if ((sprite.position.slice(2,4) < 39)
+            && !$(sprite.position).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
