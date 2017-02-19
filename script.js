@@ -21,11 +21,11 @@ var mailbox ={
   }
 }
 var rock = {
-  positions: ["#t1010","#t1011", "#t1012", "#t1013"],
+  positions: ["#t1010","#t1011", "#t1012", "#t1013", "#t1111", "#t1112", "#t1113"],
   exist: function(){
     $(document).ready(function(){
       for (var y =0; y<rock.positions.length; y++){
-        prohibit(rock.positions[y]);
+        $(rock.positions[y]).addClass("isProhibited");
         if ($(rock.positions[y]).hasClass("visitedTile")){
           $(rock.positions[y]).text("\u26F0");
         }
