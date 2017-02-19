@@ -9,7 +9,9 @@ var buildBoard = function(){
     }
   });
 }
-
+var prohibit = function(tile){
+  $(tile).addClass("isProhibited");
+}
 var mailbox ={
   position: "#t1515",
   exist: function(){
@@ -23,6 +25,7 @@ var rock = {
   exist: function(){
     $(document).ready(function(){
       for (var y =0; y<rock.positions.length; y++){
+        prohibit(rock.positions[y]);
         if ($(rock.positions[y]).hasClass("visitedTile")){
           $(rock.positions[y]).text("\u26F0");
         }
@@ -104,7 +107,8 @@ var sprite = {
           break;
 
           case 38: // up
-          if (sprite.position.slice(2,4) > 10){
+          if ((sprite.position.slice(2,4) > 10)
+              && !$(sprite.position).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
