@@ -98,13 +98,18 @@ var sprite = {
     $(document).keydown(function(e) {
       switch(e.which) {
           case 37: // left
+          sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-1);
           if ((sprite.position.slice(4,6) > 10)
-            && !$(sprite.position).hasClass("isProhibited")){
+            && !$(sprite.newPosition).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
             $(sprite.position).addClass("visitedTile").text("@");
             interact();
+          }
+          else if ($(sprite.newPosition).hasClass("isProhibited")) {
+            $(sprite.newPosition).addClass("visitedTile");
+            miscellaneous();
           }
           break;
 
@@ -125,24 +130,34 @@ var sprite = {
           break;
 
           case 39: // right
+          sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))+1);
           if ((sprite.position.slice(4,6) < 39)
-            && !$(sprite.position).hasClass("isProhibited")){
+            && !$(sprite.newPosition).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
             $(sprite.position).addClass("visitedTile").text("@");
             interact();
           }
+          else if ($(sprite.newPosition).hasClass("isProhibited")) {
+            $(sprite.newPosition).addClass("visitedTile");
+            miscellaneous();
+          }
           break;
 
           case 40: // down
+          sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))+100);
           if ((sprite.position.slice(2,4) < 39)
-            && !$(sprite.position).hasClass("isProhibited")){
+            && !$(sprite.newPosition).hasClass("isProhibited")){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
             $(sprite.position).addClass("visitedTile").text("@");
             interact();
+          }
+          else if ($(sprite.newPosition).hasClass("isProhibited")) {
+            $(sprite.newPosition).addClass("visitedTile");
+            miscellaneous();
           }
           break;
 
