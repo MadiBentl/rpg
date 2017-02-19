@@ -110,15 +110,17 @@ var sprite = {
           break;
 
           case 39: // right
-          $(sprite.position).empty();
-          miscellaneous();
-          sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
-          $(sprite.position).addClass("visitedTile").text("@");
-          interact();
+          if (sprite.position.slice(4,6) < 39){
+            $(sprite.position).empty();
+            miscellaneous();
+            sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
+            $(sprite.position).addClass("visitedTile").text("@");
+            interact();
+          }
           break;
 
           case 40: // down
-            if (sprite.position.slice(2,4) < 39){
+          if (sprite.position.slice(2,4) < 39){
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
