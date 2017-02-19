@@ -18,7 +18,18 @@ var mailbox ={
     });
   }
 }
-
+var rock = {
+  positions: ["#t1010","#t1011", "#t1012", "#t1013"],
+  exist: function(){
+    $(document).ready(function(){
+      for (var y =0; y<rock.positions.length; y++){
+        if ($(rock.positions[y]).hasClass("visitedTile")){
+          $(rock.positions[y]).text("\u26F0");
+        }
+      }
+    });
+  }
+}
 var food = {
   position: "#t3312",
   exist: function(){
@@ -49,6 +60,7 @@ var tree = {
 var miscellaneous = function(){
   tree.exist();
   mailbox.exist();
+  rock.exist();
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
@@ -126,6 +138,7 @@ var sprite = {
 buildBoard();
 tree.exist();
 food.exist();
+rock.exist();
 mailbox.exist();
 sprite.initializeSprite();
 sprite.moveSprite();
