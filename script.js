@@ -230,14 +230,23 @@ var inventory = {
   food: 0,
   ore: 0
 }
-
-var buildInventory= function(){
+var buildSideBar = function(){
   $("#gameInfo").append("<div id='inventory'></div>");
+}
+var buildStats = function(){
+  $("#inventory").append("<div id= 'stats'></div>");
+  $("#stats").append("<h2>Stats</h2>");
+  $("#stats").append("<div id = 'stats-data'></div>");
+  $("#stats-data").text("\u2764");
+}
+var buildInventory= function(){
   $("#inventory").append("<h2>Inventory</h2>").append("<div id='inventory-grid'></div>");
   for (var x = 0; x < 15; x++){
     $("#inventory-grid").append("<div class='inventory-item'></div>");
   }
 };
+buildSideBar();
+buildStats();
 buildInventory();
 buildBoard();
 initializeBoardElements();
