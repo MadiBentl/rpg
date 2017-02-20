@@ -231,7 +231,10 @@ var inventory = {
   ore: 0
 }
 
-//buildInventory();
+var buildInventory= function(){
+  $("#gameInfo").append("<div id='inventory'></div>");
+};
+buildInventory();
 buildBoard();
 initializeBoardElements();
 tree.exist();

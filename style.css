@@ -14,9 +14,13 @@
   display: inline-block;
   font-size: 0; }
 
+#inventory {
+  height: 750px;
+  width: 20px;
+  background-color: green;
+  float: left; }
+
 .visitedTile {
   background-color: grey !important; }
-.isProhibited {
-  
-}
+
 /*# sourceMappingURL=style.css.map */
