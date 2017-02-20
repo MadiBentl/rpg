@@ -224,15 +224,21 @@ var initializeBoardElements = function(){
 
   mailbox.exist();
 }
+var my_inv = {
+  wood: 4,
+  water: 3,
+  food: 0,
+  magic: 2,
+  apples: 1
+}
 var inventory = {
-  inventoryObject:{
-    wood: 0,
-    water: 0,
-    food: 0,
-    ore: 0
-  },
   assignInventory: function(){
     //put each inventory item in the Inventory
+    //var size = Object.keys(inventory.inventoryObject.length);
+    console.log(Object.keys(my_inv).length);
+    for (var x = 1; x <= Object.keys(my_inv).length; x++){
+      $("#i" + x).text("123");
+    }
   }
 }
 var buildSideBar = function(){
@@ -252,6 +258,7 @@ var buildInventory= function(){
 buildSideBar();
 buildStats();
 buildInventory();
+inventory.assignInventory();
 buildBoard();
 initializeBoardElements();
 tree.exist();
