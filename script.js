@@ -234,6 +234,9 @@ var inventory = {
 var buildInventory= function(){
   $("#gameInfo").append("<div id='inventory'></div>");
   $("#inventory").append("<h2>Inventory</h2>").append("<div id='inventory-grid'></div>");
+  for (var x = 0; x < 15; x++){
+    $("#inventory-grid").append("<div class='inventory-item'></div>");
+  }
 };
 buildInventory();
 buildBoard();

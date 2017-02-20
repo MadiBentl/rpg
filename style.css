@@ -23,6 +23,13 @@ h2 {
   background-color: green;
   float: left; }
 
+.inventory-item {
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  font-size: 0;
+  border: 2px solid black; }
+
 .visitedTile {
   background-color: grey !important; }
 
