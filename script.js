@@ -100,6 +100,7 @@ var oracle = {
     });
   }
 }
+//oracle tells you where you need to start your garden.
 var tree = {
   positions: ["#t2014","#t2015","#t2016","#t2017","#t2114","#t2115"],
   exist: function(){
@@ -124,13 +125,9 @@ var interact = function(){
   if (sprite.position == mailbox.position){
     console.log("You've Got Mail.");
   }
-  if (tree.positions.indexOf(sprite.position) > -1){
-    console.log("cut tree?");
-    console.log(sprite.position);
-    $(document).keydown(function(e){
-      switch(e.which){
+  $(document).keydown(function(e){
+    switch(e.which){
         case 89: //y
-        console.log("You cut wood");
         break;
 
         case 78:
@@ -138,7 +135,6 @@ var interact = function(){
         break;
       }
     });
-  }
 }
 var sprite = {
   position: "#t1514",
@@ -227,6 +223,12 @@ var initializeBoardElements = function(){
   rock.generateRocks();
 
   mailbox.exist();
+}
+var inventory = {
+  wood: 0,
+  water: 0,
+  food: 0,
+  ore: 0
 }
 
 //buildInventory();
