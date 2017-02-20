@@ -21,7 +21,31 @@ var mailbox ={
   }
 }
 var rock = {
-  positions: ["#t1010","#t1011", "#t1012", "#t1013", "#t1111", "#t1112", "#t1113"],
+  positions: [],
+  generateRocks: function(){
+    for (var x = 1010; x < 1040; x++){
+      rock.positions.push("#t" + x);
+    }
+    for (var x = 1110; x < 1119; x++){
+      rock.positions.push("#t" + x);
+    }
+    for (var x = 1123; x < 1125; x++){
+      rock.positions.push("#t" + x);
+    }
+    for (var x = 1210; x < 1217; x++){
+      rock.positions.push("#t" + x);
+    }
+    for (var x = 1310; x < 1316; x++){
+      rock.positions.push("#t" + x);
+    }
+    for (var x = 1410; x < 1414; x++){
+      rock.positions.push("#t" + x);
+    }
+    for (var x = 1510; x < 1513; x++){
+      rock.positions.push("#t" + x);
+    }
+    console.log(rock.positions);
+  },
   exist: function(){
     $(document).ready(function(){
       for (var y =0; y<rock.positions.length; y++){
@@ -182,10 +206,13 @@ var sprite = {
   }
 };
 //build a hash table with the locations of special items and what the special item is?
-
+var initializeBoardElements = function(){
+  rock.generateRocks();
+}
 
 //buildInventory();
 buildBoard();
+initializeBoardElements();
 tree.exist();
 food.exist();
 rock.exist();
