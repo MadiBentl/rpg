@@ -20,6 +20,14 @@ var mailbox ={
     });
   }
 }
+var house = {
+  position: "#t1516",
+  exist: function(){
+    $(document).ready(function(){
+      $(house.position).text("\uD83C\uDFE0");
+    })
+  }
+}
 var rock = {
   positions: [],
   generateRocks: function(){
@@ -84,7 +92,14 @@ var food = {
 
   }
 }
-
+var oracle = {
+  position: "#t3438",
+  exist: function(){
+    $(document).ready(function(){
+      $(oracle.position).text("\uD83D\uDC73");
+    });
+  }
+}
 var tree = {
   positions: ["#t2014","#t2015","#t2016","#t2017","#t2114","#t2115"],
   exist: function(){
@@ -102,6 +117,8 @@ var miscellaneous = function(){
   mailbox.exist();
   rock.exist();
   water.exist();
+  house.exist();
+  oracle.exist();
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
@@ -208,6 +225,8 @@ var sprite = {
 //build a hash table with the locations of special items and what the special item is?
 var initializeBoardElements = function(){
   rock.generateRocks();
+
+  mailbox.exist();
 }
 
 //buildInventory();
@@ -216,7 +235,6 @@ initializeBoardElements();
 tree.exist();
 food.exist();
 rock.exist();
-mailbox.exist();
 sprite.initializeSprite();
 sprite.moveSprite();
 });
