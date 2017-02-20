@@ -232,7 +232,7 @@ var inventory = {
     ore: 0
   },
   assignInventory: function(){
-
+    //put each inventory item in the Inventory
   }
 }
 var buildSideBar = function(){
@@ -245,8 +245,8 @@ var buildStats = function(){
 }
 var buildInventory= function(){
   $("#inventory").append("<h2>Inventory</h2>").append("<div id='inventory-grid'></div>");
-  for (var x = 0; x < 15; x++){
-    $("#inventory-grid").append("<div class='inventory-item'></div>");
+  for (var x = 1; x < 16; x++){
+    $("#inventory-grid").append("<div class='inventory-item' id = 'i"+ x + "'></div>");
   }
 };
 buildSideBar();
