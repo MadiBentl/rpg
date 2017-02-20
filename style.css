@@ -1,3 +1,6 @@
+h2 {
+  text-align: center; }
+
 .tile {
   background-color: black;
   display: inline-block;
@@ -16,7 +19,7 @@
 
 #inventory {
   height: 750px;
-  width: 20px;
+  width: 200px;
   background-color: green;
   float: left; }
 
