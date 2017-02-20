@@ -33,6 +33,19 @@ var rock = {
     });
   }
 }
+var water = {
+  positions: ["#t3910","#t3911","#t3912","#t3913","#t3914","#t3810","#t3811","#t3812"],
+  exist: function(){
+    $(document).ready(function(){
+      for (var x = 0; x< water.positions.length; x++){
+        $(water.positions[x]).addClass("isProhibited");
+        if ($(water.positions[x]).hasClass("visitedTile")){
+          $(water.positions[x]).text("\uD83C\uDF0A");
+        }
+      }
+    });
+  }
+}
 var food = {
   position: "#t3312",
   exist: function(){
@@ -64,6 +77,7 @@ var miscellaneous = function(){
   tree.exist();
   mailbox.exist();
   rock.exist();
+  water.exist();
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
