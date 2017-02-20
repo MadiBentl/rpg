@@ -225,18 +225,22 @@ var initializeBoardElements = function(){
   mailbox.exist();
 }
 var inventory = {
-  wood: 0,
-  water: 0,
-  food: 0,
-  ore: 0
+  inventoryObject:{
+    wood: 0,
+    water: 0,
+    food: 0,
+    ore: 0
+  },
+  assignInventory: function(){
+
+  }
 }
 var buildSideBar = function(){
   $("#gameInfo").append("<div id='inventory'></div>");
 }
 var buildStats = function(){
   $("#inventory").append("<div id= 'stats'></div>");
-  $("#stats").append("<h2>Stats</h2>");
-  $("#stats").append("<div id = 'stats-data'></div>");
+  $("#stats").append("<h2>Stats</h2>").append("<div id = 'stats-data'></div>");
   $("#stats-data").text("\u2764");
 }
 var buildInventory= function(){
