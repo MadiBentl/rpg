@@ -52,7 +52,6 @@ var rock = {
     for (var x = 1510; x < 1513; x++){
       rock.positions.push("#t" + x);
     }
-    console.log(rock.positions);
   },
   exist: function(){
     $(document).ready(function(){
@@ -66,8 +65,34 @@ var rock = {
   }
 }
 var water = {
-  positions: ["#t3910","#t3911","#t3912","#t3913","#t3914","#t3810","#t3811","#t3812"],
+  positions: ["#t3323","#t3223"],
+  generateWater: function(){
+    $(document).ready(function(){
+      for (var x = 3511; x < 3515; x++){
+        water.positions.push("#t" + x);
+      }
+      for (var x = 3610; x < 3612; x++){
+        water.positions.push("#t" + x);
+      }
+      for (var x = 3614; x < 3617; x++){
+        water.positions.push("#t" + x);
+      }
+      for (var x = 3615; x < 3619; x++){
+        water.positions.push("#t" + x);
+      }
+      for (var x = 3519; x < 3520; x++){
+        water.positions.push("#t" + x);
+      }
+      for (var x = 3420; x < 3423; x++){
+        water.positions.push("#t" + x);
+      }
+      for (var x = 3510; x < 3515; x++){
+        water.positions.push("#t" + x);
+      }
+    });
+  },
   exist: function(){
+    water.generateWater();
     $(document).ready(function(){
       for (var x = 0; x< water.positions.length; x++){
         $(water.positions[x]).addClass("isProhibited");
