@@ -12,6 +12,10 @@ var buildBoard = function(){
 
 var stats = {
   life: 30,
+  drainLife: function(qty){
+    stats.life = stats.life - qty;
+    console.log(stats.life);
+  }
 }
 var prohibit = function(tile){
   $(tile).addClass("isProhibited");
@@ -195,6 +199,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-1);
           if ((sprite.position.slice(4,6) > 10)
             && !$(sprite.newPosition).hasClass("isProhibited")){
+            stats.drainLife(1);
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
@@ -211,6 +216,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-100)
           if ((sprite.position.slice(2,4) > 10)
               && !$(sprite.newPosition).hasClass("isProhibited")){
+            stats.drainLife(1);
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
@@ -227,6 +233,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))+1);
           if ((sprite.position.slice(4,6) < 39)
             && !$(sprite.newPosition).hasClass("isProhibited")){
+            stats.drainLife(1);
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
@@ -241,6 +248,7 @@ var sprite = {
 
           case 40: // down
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))+100);
+          stats.drainLife(1);
           if ((sprite.position.slice(2,4) < 39)
             && !$(sprite.newPosition).hasClass("isProhibited")){
             $(sprite.position).empty();
