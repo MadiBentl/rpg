@@ -179,15 +179,33 @@ var miscellaneous = function(){
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
-    console.log("You've Got Mail.");
+    console.log("You've Got Mail. Read Mail?");
+  }
+  if (sprite.position == house.position){
+    console.log("Welcome home! Take a nap?");
   }
   $(document).keydown(function(e){
     switch(e.which){
         case 89: //y
+        if (sprite.position == house.position){
+          console.log("Zzz...zzz...zzz...");
+          break;
+        }
+        if (sprite.position == mailbox.position){
+          console.log("blah blah message");
+          break;
+        }
         break;
 
         case 78:
-        console.log("No wood for you");
+        if (sprite.position == mailbox.position){
+          console.log("No mail for you.");
+          break;
+        }
+        if (sprite.position == house.position){
+          console.log("I'll sleep when I'm dead.");
+          break;
+        }
         break;
       }
     });
