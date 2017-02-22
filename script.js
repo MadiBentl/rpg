@@ -9,6 +9,10 @@ var buildBoard = function(){
     }
   });
 }
+
+var stats = {
+  life: 30,
+}
 var prohibit = function(tile){
   $(tile).addClass("isProhibited");
 }
@@ -286,7 +290,7 @@ var buildSideBar = function(){
 var buildStats = function(){
   $("#inventory").append("<div id= 'stats'></div>");
   $("#stats").append("<h2>Stats</h2>").append("<div id = 'stats-data'></div>");
-  $("#stats-data").text("\u2764");
+  $("#stats-data").text("\u2764"+ " " +stats.life);
 }
 var buildInventory= function(){
   $("#inventory").append("<h2>Inventory</h2>").append("<div id='inventory-grid'></div>");
