@@ -176,10 +176,10 @@ var interact = function(){
     });
 }
 var sprite = {
-  position: "#t1514",
+  position: "#t1517",
   initializeSprite: function(){
     $(document).ready(function(){
-      $("#t1514").addClass("visitedTile").text("@");
+      $("#t1517").addClass("visitedTile").text("@");
       console.log("works");
     });
   },
