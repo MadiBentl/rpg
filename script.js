@@ -15,6 +15,7 @@ var stats = {
   drainLife: function(qty){
     stats.life = stats.life - qty;
     console.log(stats.life);
+    $("#stats-data").text("\u2764"+ " " +stats.life);
   }
 }
 var prohibit = function(tile){
