@@ -138,8 +138,22 @@ var tree = {
     });
   }
 }
+var buildGarden = function(){
+  $(document).ready(function(){
+    for (var x = 1715; x< 1720; x++){
+      $("#t"+x).removeClass("visitedTile").addClass("garden");
+    }
+    for (var x = 1515; x< 1520; x++){
+      $("#t"+x).removeClass("visitedTile").addClass("garden");
+    }
+    for (var x = 1615; x< 1620; x++){
+      $("#t"+x).removeClass("visitedTile").addClass("garden");
+    }
+  });
+};
 var miscellaneous = function(){
   tree.exist();
+  buildGarden();
   mailbox.exist();
   rock.exist();
   water.exist();
@@ -283,6 +297,7 @@ var buildInventory= function(){
 buildSideBar();
 buildStats();
 buildInventory();
+buildGarden();
 inventory.assignInventory();
 buildBoard();
 initializeBoardElements();
