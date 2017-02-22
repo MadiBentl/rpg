@@ -21,6 +21,9 @@ var stats = {
     stats.life= qty;
     console.log(stats.life);
     $("#stats-data").text("\u2764"+ " " +stats.life);
+  },
+  assessLife: function(){
+    $(sprite.newPosition).hasClass("garden") ? stats.resetLife(30) : stats.drainLife(1);
   }
 }
 var prohibit = function(tile){
@@ -205,7 +208,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-1);
           if ((sprite.position.slice(4,6) > 10)
             && !$(sprite.newPosition).hasClass("isProhibited")){
-            $(sprite.newPosition).hasClass("garden") ? stats.resetLife(30) : stats.drainLife(1);
+            stats.assessLife();
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
@@ -222,7 +225,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-100)
           if ((sprite.position.slice(2,4) > 10)
               && !$(sprite.newPosition).hasClass("isProhibited")){
-            $(sprite.newPosition).hasClass("garden") ? stats.resetLife(30) : stats.drainLife(1);
+            stats.assessLife();
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
@@ -239,7 +242,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))+1);
           if ((sprite.position.slice(4,6) < 39)
             && !$(sprite.newPosition).hasClass("isProhibited")){
-            $(sprite.newPosition).hasClass("garden") ? stats.resetLife(30) : stats.drainLife(1);
+            stats.assessLife();
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
@@ -256,7 +259,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))+100);
           if ((sprite.position.slice(2,4) < 39)
             && !$(sprite.newPosition).hasClass("isProhibited")){
-            $(sprite.newPosition).hasClass("garden") ? stats.resetLife(30) : stats.drainLife(1);
+            stats.assessLife();
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
