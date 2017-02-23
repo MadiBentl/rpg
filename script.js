@@ -215,7 +215,7 @@ var interact = function(){
         if (tree.positions.indexOf(sprite.position) > -1){
           console.log("Chop, Chop, Chop!");
           my_inv["wood"]["qty"] += 1;
-          console.log(my_inv["wood"]["qty"]);
+          inventory.displayInventory();
           break;
         }
         break;
