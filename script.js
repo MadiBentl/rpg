@@ -198,7 +198,10 @@ var interact = function(){
   if (sprite.position == house.position){
     console.log("Welcome home! Take a nap?");
   }
-  $(document).keydown(function(e){
+  if (tree.positions.indexOf(sprite.position) > -1){
+    console.log("Cut tree?")
+  }
+  $(document).one("keydown", function(e){
     switch(e.which){
         case 89: //y
         if (sprite.position == house.position){
@@ -207,6 +210,12 @@ var interact = function(){
         }
         if (sprite.position == mailbox.position){
           console.log("blah blah message");
+          break;
+        }
+        if (tree.positions.indexOf(sprite.position) > -1){
+          console.log("Chop, Chop, Chop!");
+          my_inv["wood"]["qty"] += 1;
+          console.log(my_inv["wood"]["qty"]);
           break;
         }
         break;
