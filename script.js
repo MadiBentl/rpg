@@ -15,6 +15,9 @@ var stats = {
     stats.life = stats.life - qty;
     console.log(stats.life);
     $("#stats-data").text("\u2764"+ " " +stats.life);
+    if (stats.life <= 0){
+      console.log("sorry, you died!");
+    }
   },
   resetLife: function(qty){
     stats.life= qty;
@@ -145,9 +148,22 @@ var tree = {
   positions: ["#t2014","#t2015","#t2016","#t2017","#t2114","#t2115"],
   exist: function(){
     $(document).ready(function(){
-      for (var x =0; x<tree.positions.length; x++){
-        if ($(tree.positions[x]).hasClass("visitedTile")){
-          $(tree.positions[x]).text("\uD83C\uDF32");
+      for (var x =2014; x<2018; x++){
+        if ($("#t" + x).hasClass("visitedTile")){
+          $(tree.positions).push("#t"+x);
+          $("#t" + x).text("\uD83C\uDF32");
+        }
+      }
+      for (var x =2115; x<2120; x++){
+        if ($("#t" + x).hasClass("visitedTile")){
+          $(tree.positions).push("#t"+x);
+          $("#t" + x).text("\uD83C\uDF32");
+        }
+      }
+      for (var x =2214; x<2221; x++){
+        if ($("#t" + x).hasClass("visitedTile")){
+          $(tree.positions).push("#t"+x);
+          $("#t" + x).text("\uD83C\uDF32");
         }
       }
     });
