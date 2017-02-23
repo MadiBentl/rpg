@@ -317,11 +317,18 @@ var initializeBoardElements = function(){
   mailbox.exist();
 }
 var my_inv = {
-  wood: 4,
-  water: 3,
-  food: 0,
-  magic: 2,
-  apples: 1
+  wood:{
+    qty: 4,
+    symbol: "\uD83C\uDF32"
+  },
+  water:{
+    qty: 3,
+    symbol: "\uD83C\uDF0A"
+  },
+  food:{
+    qty: 0,
+    symbol: "\uD83C\uDF54"
+  },
 }
 var inventory = {
   assignInventory: function(){
