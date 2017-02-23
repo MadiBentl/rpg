@@ -331,10 +331,12 @@ var my_inv = {
   },
 }
 var inventory = {
-  assignInventory: function(){
-    console.log(Object.keys(my_inv).length);
-    for (var x = 1; x <= Object.keys(my_inv).length; x++){
-      $("#i" + x).text("123");
+  displayInventory: function(){
+    var x = 1;
+    for (var prop in my_inv){
+      $("#i" + x).text(my_inv[prop]["symbol"] + my_inv[prop]["qty"]);
+      console.log(my_inv[prop]["qty"]);
+      x++;
     }
   }
 }
@@ -358,7 +360,7 @@ buildStats();
 buildInventory();
 buildGarden();
 miscellaneous();
-inventory.assignInventory();
+inventory.displayInventory();
 initializeBoardElements();
 sprite.initializeSprite();
 sprite.moveSprite();
