@@ -9,7 +9,6 @@ var buildBoard = function(){
     }
   });
 }
-
 var stats = {
   life: 30,
   drainLife: function(qty){
@@ -131,7 +130,6 @@ var food = {
   },
   changePosition: function(){
     var randomNumber = Math.floor(Math.random() * 15) + 5;
-
   }
 }
 var oracle = {
@@ -311,8 +309,6 @@ var my_inv = {
 }
 var inventory = {
   assignInventory: function(){
-    //put each inventory item in the Inventory
-    //var size = Object.keys(inventory.inventoryObject.length);
     console.log(Object.keys(my_inv).length);
     for (var x = 1; x <= Object.keys(my_inv).length; x++){
       $("#i" + x).text("123");
@@ -333,16 +329,14 @@ var buildInventory= function(){
     $("#inventory-grid").append("<div class='inventory-item' id = 'i"+ x + "'></div>");
   }
 };
+buildBoard();
 buildSideBar();
 buildStats();
 buildInventory();
 buildGarden();
+miscellaneous();
 inventory.assignInventory();
-buildBoard();
 initializeBoardElements();
-tree.exist();
-food.exist();
-rock.exist();
 sprite.initializeSprite();
 sprite.moveSprite();
 });
