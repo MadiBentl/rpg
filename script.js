@@ -13,7 +13,6 @@ var stats = {
   life: 30,
   drainLife: function(qty){
     stats.life = stats.life - qty;
-    console.log(stats.life);
     $("#stats-data").text("\u2764"+ " " +stats.life);
     if (stats.life <= 0){
       console.log("sorry, you died!");
@@ -21,7 +20,6 @@ var stats = {
   },
   resetLife: function(qty){
     stats.life= qty;
-    console.log(stats.life);
     $("#stats-data").text("\u2764"+ " " +stats.life);
   },
   assessLife: function(){
@@ -143,11 +141,22 @@ var oracle = {
     });
   }
 }
-//oracle tells you where you need to start your garden.
-var tree = {
-  positions: ["#t2014","#t2015","#t2016","#t2017","#t2114","#t2115"],
+var lumberjack = {
+  position: "#t2114",
   exist: function(){
     $(document).ready(function(){
+      if ($(lumberjack.position).hasClass("visitedTile")){
+        $(lumberjack.position).text("\uD83D\uDC68");
+      }
+    });
+  }
+}
+//oracle tells you where you need to start your garden.
+var tree = {
+  positions: ["#t2014","#t2015","#t2113","#t2016","#t2017","#t2114","#t2115"],
+  exist: function(){
+    $(document).ready(function(){
+      if ($("#t2113").hasClass("visitedTile")) $("#t2113").text("\uD83C\uDF32");
       for (var x =2014; x<2018; x++){
         if ($("#t" + x).hasClass("visitedTile")){
           $(tree.positions).push("#t"+x);
@@ -184,6 +193,7 @@ var buildGarden = function(){
 };
 var miscellaneous = function(){
   tree.exist();
+  lumberjack.exist();
   buildGarden();
   mailbox.exist();
   rock.exist();
@@ -238,7 +248,6 @@ var sprite = {
   initializeSprite: function(){
     $(document).ready(function(){
       $("#t1517").addClass("visitedTile").text("@");
-      console.log("works");
     });
   },
   newPosition: "",
@@ -344,7 +353,6 @@ var inventory = {
     var x = 1;
     for (var prop in my_inv){
       $("#i" + x).text(my_inv[prop]["symbol"] + my_inv[prop]["qty"]);
-      console.log(my_inv[prop]["qty"]);
       x++;
     }
   }
