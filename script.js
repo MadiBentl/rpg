@@ -149,6 +149,12 @@ var lumberjack = {
         $(lumberjack.position).text("\uD83D\uDC68");
       }
     });
+  },
+  stage: 1,
+  dialogue:{
+    1: "You there! What are you doing cutting MY trees? \
+    Get out of here before I throw my axe at you!",
+    2: "Quest:"
   }
 }
 //oracle tells you where you need to start your garden.
