@@ -389,7 +389,10 @@ var buildInventory= function(){
   }
 };
 var buildStoryLine = function(){
-  $("#gameCommunications").append("<div id = 'storyline'></div>");
+  $("#gameCommunications").append("<div id = 'storyline'></div>")
+                          .append("<div id = 'quests'></div>");
+  $("#storyline").append("<h2>Story Line</h2>");
+  $("#quests").append("<h2>Quests</h2>");
 }
 buildBoard();
 buildSideBar();
