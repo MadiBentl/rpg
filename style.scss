@@ -8,20 +8,20 @@ h2{
   font-size:large;
   margin:0px;
   padding:0px;
-  width:25px;
-  height:25px;
+  width:20px !important;
+  height:20px !important;
   color:black;
 }
 .garden{
   background-color: #8B4513 !important;
 }
 #board{
-  width: 750px;
+  width: 600px;
   display:inline-block;
   font-size:0;
 }
 #inventory{
-  height: 750px;
+  height: 600px;
   width: 200px;
   background-color: green;
   float:left;
