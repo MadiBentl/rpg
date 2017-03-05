@@ -15,7 +15,7 @@ var stats = {
     stats.life = stats.life - qty;
     $("#stats-data").text("\u2764"+ " " +stats.life);
     if (stats.life <= 0){
-      console.log("sorry, you died!");
+      $("#storyline").append("</br> sorry, you died!");
     }
   },
   resetLife: function(qty){
@@ -220,19 +220,19 @@ var miscellaneous = function(){
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
-    $("#storyline").append("You've Got Mail. Read Mail? Y/N");
+    $("#storyline").append("</br> You've Got Mail. Read Mail? Y/N");
   }
   if (sprite.position == house.position){
-    console.log("Welcome home! Take a nap? Y/N");
+    $("#storyline").append("</br> Welcome home! Take a nap? Y/N");
   }
   if (tree.positions.indexOf(sprite.position) > -1){
-    console.log("Cut tree? Y/N")
+    $("#storyline").append("</br> Cut tree? Y/N")
   }
   $(document).one("keydown", function(e){
     switch(e.which){
         case 89: //y
         if (sprite.position == house.position){
-          console.log("Zzz...zzz...zzz...");
+          $("#storyline").append("</br> Zzz...zzz...zzz...");
           break;
         }
         if (sprite.position == mailbox.position){
@@ -240,7 +240,7 @@ var interact = function(){
           break;
         }
         if (tree.positions.indexOf(sprite.position) > -1){
-          console.log("Chop, Chop, Chop!");
+          $("#storyline").append("</br> Chop, Chop, Chop!");
           my_inv["wood"]["qty"] += 1;
           inventory.displayInventory();
           break;
@@ -249,11 +249,11 @@ var interact = function(){
 
         case 78:
         if (sprite.position == mailbox.position){
-          console.log("No mail for you.");
+          $("#storyline").append("</br> No mail for you.");
           break;
         }
         if (sprite.position == house.position){
-          console.log("I'll sleep when I'm dead.");
+          $("#storyline").append("</br> I'll sleep when I'm dead.");
           break;
         }
         break;
