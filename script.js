@@ -15,7 +15,7 @@ var stats = {
     stats.life = stats.life - qty;
     $("#stats-data").text("\u2764"+ " " +stats.life);
     if (stats.life <= 0){
-      $("#storyline").append("</br> sorry, you died!");
+      $("#storyline").prepend("</br> sorry, you died!");
     }
   },
   resetLife: function(qty){
@@ -220,27 +220,27 @@ var miscellaneous = function(){
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
-    $("#storyline").append("</br> You've Got Mail. Read Mail? Y/N");
+    $("#storyline").prepend("</br> You've Got Mail. Read Mail? Y/N");
   }
   if (sprite.position == house.position){
-    $("#storyline").append("</br> Welcome home! Take a nap? Y/N");
+    $("#storyline").prepend("</br> Welcome home! Take a nap? Y/N");
   }
   if (tree.positions.indexOf(sprite.position) > -1){
-    $("#storyline").append("</br> Cut tree? Y/N")
+    $("#storyline").prepend("</br> Cut tree? Y/N")
   }
   $(document).one("keydown", function(e){
     switch(e.which){
         case 89: //y
         if (sprite.position == house.position){
-          $("#storyline").append("</br> Zzz...zzz...zzz...");
+          $("#storyline").prepend("</br> Zzz...zzz...zzz...");
           break;
         }
         if (sprite.position == mailbox.position){
-          $("#storyline").append("</br> Welcome to the game!");
+          $("#storyline").prepend("</br> Welcome to the game!");
           break;
         }
         if (tree.positions.indexOf(sprite.position) > -1){
-          $("#storyline").append("</br> Chop, Chop, Chop!");
+          $("#storyline").prepend("</br> Chop, Chop, Chop!");
           my_inv["wood"]["qty"] += 1;
           inventory.displayInventory();
           break;
@@ -249,11 +249,11 @@ var interact = function(){
 
         case 78:
         if (sprite.position == mailbox.position){
-          $("#storyline").append("</br> No mail for you.");
+          $("#storyline").prepend("</br> No mail for you.");
           break;
         }
         if (sprite.position == house.position){
-          $("#storyline").append("</br> I'll sleep when I'm dead.");
+          $("#storyline").prepend("</br> I'll sleep when I'm dead.");
           break;
         }
         break;
@@ -389,9 +389,10 @@ var buildInventory= function(){
   }
 };
 var buildStoryLine = function(){
-  $("#gameCommunications").append("<div id = 'storyline'></div>")
-                          .append("<div id = 'quests'></div>");
-  $("#storyline").append("<h2>Story Line</h2>");
+  $("#gameCommunications").append("<div id = 'story'></div>")
+                          .append("<div id = 'quests'></div>")
+                          .append("<h2>Story Line</h2>");
+  $("#story").append("<h2>Story</h2>").append("<div id= 'storyline'></div>")
   $("#quests").append("<h2>Quests</h2>");
 }
 var buildGui = function(){
