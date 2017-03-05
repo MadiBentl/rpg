@@ -133,6 +133,16 @@ var food = {
     var randomNumber = Math.floor(Math.random() * 15) + 5;
   }
 }
+let oldwoman = {
+  position: "#t1317",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(oldwoman.position).hasClass("visitedTile")){
+        $(oldwoman.position).text("\uD83D\uDC75");
+      }
+    });
+  }
+}
 var oracle = {
   position: "#t3438",
   exist: function(){
@@ -206,6 +216,7 @@ var miscellaneous = function(){
   water.exist();
   house.exist();
   oracle.exist();
+  oldwoman.exist();
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
@@ -377,10 +388,14 @@ var buildInventory= function(){
     $("#inventory-grid").append("<div class='inventory-item' id = 'i"+ x + "'></div>");
   }
 };
+var buildStoryLine = function(){
+  $("#gameCommunications").append("<div id = 'storyline'></div>");
+}
 buildBoard();
 buildSideBar();
 buildStats();
 buildInventory();
+buildStoryLine();
 buildGarden();
 miscellaneous();
 inventory.displayInventory();
