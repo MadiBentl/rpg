@@ -220,13 +220,13 @@ var miscellaneous = function(){
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
-    console.log("You've Got Mail. Read Mail?");
+    $("#storyline").append("You've Got Mail. Read Mail? Y/N");
   }
   if (sprite.position == house.position){
-    console.log("Welcome home! Take a nap?");
+    console.log("Welcome home! Take a nap? Y/N");
   }
   if (tree.positions.indexOf(sprite.position) > -1){
-    console.log("Cut tree?")
+    console.log("Cut tree? Y/N")
   }
   $(document).one("keydown", function(e){
     switch(e.which){
@@ -236,7 +236,7 @@ var interact = function(){
           break;
         }
         if (sprite.position == mailbox.position){
-          console.log("blah blah message");
+          $("#storyline").append("</br> Welcome to the game!");
           break;
         }
         if (tree.positions.indexOf(sprite.position) > -1){
@@ -394,12 +394,15 @@ var buildStoryLine = function(){
   $("#storyline").append("<h2>Story Line</h2>");
   $("#quests").append("<h2>Quests</h2>");
 }
-buildBoard();
-buildSideBar();
-buildStats();
-buildInventory();
-buildStoryLine();
-buildGarden();
+var buildGui = function(){
+  buildBoard();
+  buildSideBar();
+  buildStats();
+  buildInventory();
+  buildStoryLine();
+  buildGarden();
+}
+buildGui();
 miscellaneous();
 inventory.displayInventory();
 initializeBoardElements();
