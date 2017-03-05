@@ -34,7 +34,8 @@ h2 {
   float: left; }
 
 #storyline {
-  height: 400px; }
+  height: 400px;
+  overflow: auto; }
 
 .inventory-item {
   height: 60px;
