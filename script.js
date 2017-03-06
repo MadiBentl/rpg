@@ -136,6 +136,7 @@ let oldwoman = {
 }
 let woman = {
   position: "#t1422",
+  questGiven: false,
   exist: function(){
     $(document).ready(function(){
       if ($(woman.position).hasClass("visitedTile")){
@@ -144,9 +145,16 @@ let woman = {
     });
   },
   dialogue: function(){
-    //if (fruitTree.isSafe == false){
-      $("storyline").prepend("My orchard is full of bears! I need your protection - Here, take this sword!");
-    //}
+    if (fruitTree.isSafe == false && woman.questGiven == false){
+      $("#storyline").prepend("</br> Farmer: My orchard is full of bears! I need your protection - Here, take this sword!");
+      my_inv["sword"]["qty"] += 1;
+      inventory.displayInventory();
+      $("#quests").append("- Fight off the bears in the orchard!");
+      woman.questGiven = true;
+    }
+    else if (fruitTree.isSafe == false && woman.questGiven == true){
+      $("#storyline").prepend("</br> Farmer: Hurry up and kill the bears!");
+    }
   }
 }
 let fruitTree = {
@@ -405,7 +413,7 @@ var my_inv = {
     qty: 0,
     symbol: "\u26F0"
   },
-  knife:{
+  sword:{
     qty: 0,
     symbol: "\uD83D\uDDE1"
   },
