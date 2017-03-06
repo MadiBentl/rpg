@@ -37,8 +37,9 @@ var mailbox ={
     });
   },
   messages:{
-    1: "Welcome! Bew wary of black tiles, as the unknown world is full of monsters!"
-  }
+    1: "WARNING: Watch out for black tiles, as the unknown world is full of monsters!"
+  },
+  msgCount: 1
 }
 var house = {
   position: "#t1516",
@@ -121,19 +122,6 @@ var water = {
         }
       }
     });
-  }
-}
-var food = {
-  position: "#t3312",
-  exist: function(){
-    $(document).ready(function(){
-      if ($(food.position).hasClass("visitedTile")){
-        $(food.position).text("\uD83C\uDF54");
-      }
-    });
-  },
-  changePosition: function(){
-    var randomNumber = Math.floor(Math.random() * 15) + 5;
   }
 }
 let oldwoman = {
@@ -272,7 +260,7 @@ var interact = function(){
           break;
         }
         if (sprite.position == mailbox.position){
-          $("#storyline").prepend("</br>" + mailbox.messages[1]);
+          $("#storyline").prepend("</br>" + mailbox.messages[mailbox.msgCount]);
           break;
         }
         if (tree.positions.indexOf(sprite.position) > -1){
