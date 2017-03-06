@@ -142,10 +142,16 @@ let woman = {
         $(woman.position).text("\uD83D\uDC69");
       }
     });
+  },
+  dialogue: function(){
+    //if (fruitTree.isSafe == false){
+      $("storyline").prepend("My orchard is full of bears! I need your protection - Here, take this sword!");
+    //}
   }
 }
 let fruitTree = {
   position: "#t1423",
+  isSafe: false,
   exist: function(){
     $(document).ready(function(){
       if ($(fruitTree.position).hasClass("visitedTile")){
@@ -245,6 +251,9 @@ var miscellaneous = function(){
 var interact = function(){
   if (sprite.position == mailbox.position){
     $("#storyline").prepend("</br> You've Got Mail. Read Mail? Y/N");
+  }
+  if (sprite.position == woman.position){
+    woman.dialogue();
   }
   if (sprite.position == house.position){
     $("#storyline").prepend("</br> Welcome home! Take a nap? Y/N");
