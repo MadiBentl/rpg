@@ -143,6 +143,36 @@ let oldwoman = {
     });
   }
 }
+let woman = {
+  position: "#t1422",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(woman.position).hasClass("visitedTile")){
+        $(woman.position).text("\uD83D\uDC69");
+      }
+    });
+  }
+}
+let fruitTree = {
+  position: "#t1423",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(fruitTree.position).hasClass("visitedTile")){
+        $(fruitTree.position).text("\uD83C\uDF33");
+      }
+    });
+  }
+}
+let farmHouse = {
+  position: "#t1523",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(farmHouse.position).hasClass("visitedTile")){
+        $(farmHouse.position).text("\uD83C\uDFE1");
+      }
+    });
+  }
+}
 var oracle = {
   position: "#t3438",
   exist: function(){
@@ -217,6 +247,9 @@ var miscellaneous = function(){
   house.exist();
   oracle.exist();
   oldwoman.exist();
+  woman.exist();
+  farmHouse.exist();
+  fruitTree.exist();
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
