@@ -364,6 +364,50 @@ var my_inv = {
     qty: 0,
     symbol: "\uD83C\uDF54"
   },
+  pick:{
+    qty: 0,
+    symbol: "\u26CF"
+  },
+  rock:{
+    qty: 0,
+    symbol: "\u26F0"
+  },
+  knife:{
+    qty: 0,
+    symbol: "\uD83D\uDDE1"
+  },
+  fishingPole:{
+    qty: 0,
+    symbol: "\uD83C\uDFA3"
+  },
+  tuna: {
+    qty: 0,
+    symbol: "\uD83D\uDC1F"
+  },
+  angelfish:{
+    qty: 0,
+    symbol: "\uD83D\uDC20"
+  },
+  octopus: {
+    qty: 0,
+    symbol: "\uD83D\uDC19"
+  },
+  seed: {
+    qty: 0,
+    symbol: "\uD83C\uDF30"
+  },
+  mushroom: {
+    qty: 0,
+    symbol: "\uD83C\uDF44"
+  },
+  tomato: {
+    qty: 0,
+    symbol: "\uD83C\uDF45"
+  },
+  stew: {
+    qty: 0,
+    symbol: "\uD83C\uDF72"
+  }
 }
 var inventory = {
   displayInventory: function(){
@@ -391,7 +435,6 @@ var buildInventory= function(){
 var buildStoryLine = function(){
   $("#gameCommunications").append("<div id = 'story'></div>")
                           .append("<div id = 'quests'></div>")
-                          .append("<h2>Story Line</h2>");
   $("#story").append("<h2>Story</h2>").append("<div id= 'storyline'></div>")
   $("#quests").append("<h2>Quests</h2>");
 }
