@@ -35,6 +35,9 @@ var mailbox ={
     $(document).ready(function(){
         $(mailbox.position).text("\uD83D\uDCEC");
     });
+  },
+  messages:{
+    1: "Welcome! Bew wary of black tiles, as the unknown world is full of monsters!"
   }
 }
 var house = {
@@ -269,7 +272,7 @@ var interact = function(){
           break;
         }
         if (sprite.position == mailbox.position){
-          $("#storyline").prepend("</br> Welcome to the game!");
+          $("#storyline").prepend("</br>" + mailbox.messages[1]);
           break;
         }
         if (tree.positions.indexOf(sprite.position) > -1){
