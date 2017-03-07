@@ -33,9 +33,14 @@ var mailbox ={
   position: "#t1515",
   exist: function(){
     $(document).ready(function(){
+      if (mailbox.hasMsg == true){
         $(mailbox.position).text("\uD83D\uDCEC");
+      }
+      else
+        $(mailbox.position).text("\uD83D\uDCEA");
     });
   },
+  hasMsg:true,
   messages:{
     1: "WARNING: Watch out for black tiles, as the unknown world is full of monsters!"
   },
@@ -260,7 +265,12 @@ var miscellaneous = function(){
 }
 var interact = function(){
   if (sprite.position == mailbox.position){
-    $("#storyline").prepend("</br> You've Got Mail. Read Mail? Y/N");
+    if (mailbox.hasMsg == true)
+      $("#storyline").prepend("</br> You've Got Mail. Read Mail? Y/N");
+    else{
+      $("#storyline").prepend(`</br> You don't have any mail right now.
+      Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
+    }
   }
   if (sprite.position == woman.position){
     woman.dialogue();
@@ -280,6 +290,7 @@ var interact = function(){
         }
         if (sprite.position == mailbox.position){
           $("#storyline").prepend("</br>" + mailbox.messages[mailbox.msgCount]);
+          mailbox.hasMsg = false;
           break;
         }
         if (tree.positions.indexOf(sprite.position) > -1){
