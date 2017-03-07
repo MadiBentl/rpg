@@ -158,12 +158,14 @@ let woman = {
   }
 }
 let fruitTree = {
-  position: "#t1423",
+  position: ["#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   isSafe: false,
   exist: function(){
     $(document).ready(function(){
-      if ($(fruitTree.position).hasClass("visitedTile")){
-        $(fruitTree.position).text("\uD83C\uDF33");
+      for (var x = 0; x< fruitTree.position.length; x++){
+        if ($(fruitTree.position[x]).hasClass("visitedTile")){
+          $(fruitTree.position[x]).text("\uD83C\uDF33");
+        }
       }
     });
   }
@@ -204,7 +206,7 @@ var lumberjack = {
 }
 //oracle tells you where you need to start your garden.
 var tree = {
-  positions: ["#t2014","#t2015","#t2113","#t2016","#t2017","#t2114","#t2115"],
+  positions: ["#t2014","#t2015","#t2113","#t2016","#t2017","#t2114","#t2115", "#t1220", "#t3031"],
   exist: function(){
     $(document).ready(function(){
       if ($("#t2113").hasClass("visitedTile")) $("#t2113").text("\uD83C\uDF32");
