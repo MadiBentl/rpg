@@ -139,32 +139,38 @@ let oldwoman = {
     });
   }
 }
-let woman = {
+let farmer = {
   position: "#t1422",
   questGiven: false,
   exist: function(){
     $(document).ready(function(){
-      if ($(woman.position).hasClass("visitedTile")){
-        $(woman.position).text("\uD83D\uDC69");
+      if ($(farmer.position).hasClass("visitedTile")){
+        $(farmer.position).text("\uD83D\uDC69");
       }
     });
   },
   dialogue: function(){
-    if (fruitTree.isSafe == false && woman.questGiven == false){
+    if (fruitTree.isSafe == false && farmer.questGiven == false){
       $("#storyline").prepend("</br> Farmer: My orchard is full of bears! I need your protection - Here, take this sword!");
       my_inv["sword"]["qty"] += 1;
       inventory.displayInventory();
       $("#quests").append("- Fight off the bears in the orchard!");
-      woman.questGiven = true;
+      farmer.questGiven = true;
     }
-    else if (fruitTree.isSafe == false && woman.questGiven == true){
+    else if (fruitTree.isSafe == false && farmer.questGiven == true){
       $("#storyline").prepend("</br> Farmer: Hurry up and kill the bears!");
+    }
+    else if (fruitTree.isSafe == true){
+      $("#storyline").prepend(`</br> Farmer: Thank you so much for saving my orchard from
+        those evil bears - please feel free to pick peaches from my trees whenever you like!`);
+      fruitTree.canPick = true;
     }
   }
 }
 let fruitTree = {
   position: ["#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   isSafe: false,
+  canPick: false,
   exist: function(){
     $(document).ready(function(){
       for (var x = 0; x< fruitTree.position.length; x++){
@@ -259,7 +265,7 @@ var miscellaneous = function(){
   house.exist();
   oracle.exist();
   oldwoman.exist();
-  woman.exist();
+  farmer.exist();
   farmHouse.exist();
   fruitTree.exist();
 }
@@ -272,14 +278,21 @@ var interact = function(){
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
-  if (sprite.position == woman.position){
-    woman.dialogue();
+  if (sprite.position == farmer.position){
+    farmer.dialogue();
   }
   if (sprite.position == house.position){
     $("#storyline").prepend("</br> Welcome home! Take a nap? Y/N");
   }
   if (tree.positions.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br> Cut tree? Y/N")
+  }
+  if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
+    $("#storyline").prepend("</br> Pick Peach? Y/N");
+    if (my_inv["peach"]["qty"] < 5){
+      my_inv["peach"]["qty"] += 1;
+      inventory.displayInventory();
+    }
   }
   $(document).one("keydown", function(e){
     switch(e.which){
@@ -399,7 +412,6 @@ var sprite = {
   });
   }
 };
-//build a hash table with the locations of special items and what the special item is?
 var initializeBoardElements = function(){
   rock.generateRocks();
 
@@ -414,7 +426,7 @@ var my_inv = {
     qty: 3,
     symbol: "\uD83C\uDF0A"
   },
-  tangerine:{
+  peach:{
     qty: 0,
     symbol: "\uD83C\uDF4A"
   },
