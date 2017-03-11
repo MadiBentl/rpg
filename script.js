@@ -358,7 +358,13 @@ var sprite = {
           e.preventDefault();
           if (beast.positions.indexOf(sprite.position) > -1){
             determineHit(beast.hp)
-            $("#storyline").prepend("</br> Monster HP: " + beast.hp);
+            if (beast.hp > 0){
+              $("#storyline").prepend("</br> Monster HP: " + beast.hp);
+            }
+            else{
+              $("#storyline").prepend("</br> You killed the beast");
+              beast.positions.pop(beast.position);
+            }
           }
           break;
 
