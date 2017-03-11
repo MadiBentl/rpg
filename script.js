@@ -333,7 +333,14 @@ var interact = function(){
 }
 var beast = {
   positions: ["#t1417"],
-  hp: 10
+  hp: 30
+}
+var createHit = function(){
+  return Math.floor(Math.random()*5);
+}
+var determineHit = function(){
+  hit = createHit();
+  beast.hp = beast.hp - hit;
 }
 var sprite = {
   position: "#t1517",
@@ -350,7 +357,8 @@ var sprite = {
           case 32: //space bar
           e.preventDefault();
           if (beast.positions.indexOf(sprite.position) > -1){
-            $("#storyline").prepend("</br> Fight!");
+            determineHit(beast.hp)
+            $("#storyline").prepend("</br> Monster HP: " + beast.hp);
           }
           break;
 
