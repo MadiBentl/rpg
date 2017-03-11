@@ -341,7 +341,13 @@ var sprite = {
   newPosition: "",
   moveSprite: function(){
     $(document).keydown(function(e) {
+
       switch(e.which) {
+          case 32: //space bar
+          e.preventDefault();
+          $("#storyline").prepend("</br> Fight!");
+          break;
+
           case 37: // left
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-1);
           if ((sprite.position.slice(4,6) > 10)
