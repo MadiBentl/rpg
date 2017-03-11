@@ -47,10 +47,14 @@ var mailbox ={
   msgCount: 1
 }
 var house = {
-  position: "#t1516",
+  position: ["#t1516","#t2627","#t2829","#t2830","#t2828","#t2728","#t2628","#t2729"],
   exist: function(){
     $(document).ready(function(){
-      $(house.position).text("\uD83C\uDFE0");
+      for (let x = 0; x < house.position.length; x++){
+        if ($(house.position[x]).hasClass("visitedTile") || $(house.position[x]).hasClass("garden")){
+          $(house.position[x]).text("\uD83C\uDFE0");
+        }
+      }
     })
   }
 }
