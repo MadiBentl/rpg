@@ -282,6 +282,13 @@ var interact = function(){
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
+  if (beast.positions.indexOf(sprite.position) > -1){
+    $("#storyline").prepend("</br> You are being attacked!");
+    if (beast.hp > 0){
+      attackSprite();
+      clearInterval(interval);
+    }
+  }
   if (sprite.position == farmer.position){
     farmer.dialogue();
   }
@@ -341,6 +348,15 @@ var createHit = function(){
 var determineHit = function(){
   hit = createHit();
   beast.hp = beast.hp - hit;
+}
+var interval;
+var attackSprite = function(){
+  $(document).on('ready',function(){
+    interval = setInterval(function(){
+      stats.life = stats.life - createHit();
+      $("#storyline").prepend("</br> Your HP: " + stats.life);
+    }, 1000);
+  });
 }
 var sprite = {
   position: "#t1517",
