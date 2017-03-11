@@ -331,6 +331,10 @@ var interact = function(){
       }
     });
 }
+var beast = {
+  positions: ["#t1417"],
+  hp: 10
+}
 var sprite = {
   position: "#t1517",
   initializeSprite: function(){
@@ -345,7 +349,9 @@ var sprite = {
       switch(e.which) {
           case 32: //space bar
           e.preventDefault();
-          $("#storyline").prepend("</br> Fight!");
+          if (beast.positions.indexOf(sprite.position) > -1){
+            $("#storyline").prepend("</br> Fight!");
+          }
           break;
 
           case 37: // left
