@@ -286,7 +286,7 @@ var interact = function(){
     $("#storyline").prepend("</br> You are being attacked!");
     if (beast.hp > 0){
       attackSprite();
-      clearInterval(interval);
+      console.log("Attacking");
     }
   }
   if (sprite.position == farmer.position){
@@ -351,12 +351,13 @@ var determineHit = function(){
 }
 var interval;
 var attackSprite = function(){
-  $(document).on('ready',function(){
-    interval = setInterval(function(){
-      stats.life = stats.life - createHit();
-      $("#storyline").prepend("</br> Your HP: " + stats.life);
-    }, 1000);
-  });
+  //$(document).on('ready',function(){
+    interval = setInterval(attacking, 1000);
+  //});
+}
+var attacking = function(){
+  stats.life = stats.life - createHit();
+  $("#storyline").prepend("</br> Your HP: " + stats.life);
 }
 var sprite = {
   position: "#t1517",
@@ -380,6 +381,7 @@ var sprite = {
             else{
               $("#storyline").prepend("</br> You killed the beast");
               beast.positions.pop(beast.position);
+              clearInterval(interval);
             }
           }
           break;
