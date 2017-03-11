@@ -358,6 +358,10 @@ var attackSprite = function(){
 var attacking = function(){
   stats.life = stats.life - createHit();
   $("#storyline").prepend("</br> Your HP: " + stats.life);
+  if ((beast.positions[0]) != (sprite.position)){
+    clearInterval(interval);
+    console.log(beast.positions[0], sprite.position, "cleared");
+  }
 }
 var sprite = {
   position: "#t1517",
@@ -378,9 +382,13 @@ var sprite = {
             if (beast.hp > 0){
               $("#storyline").prepend("</br> Monster HP: " + beast.hp);
             }
-            else{
+            else if (beast.hp <= 0){
               $("#storyline").prepend("</br> You killed the beast");
               beast.positions.pop(beast.position);
+              clearInterval(interval);
+            }
+            else if (stats.life <= 0){
+              $("#storyline").prepend("</br> Sorry you died");
               clearInterval(interval);
             }
           }
