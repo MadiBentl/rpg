@@ -388,6 +388,8 @@ var sprite = {
             }
             else if (beast.hp <= 0){
               $("#storyline").prepend("</br> You killed the beast");
+              stats.monstersKilled = stats.monstersKilled + 1;
+              $("#stats-monsters").text("\uD83D\uDC3B" + "  " + stats.monstersKilled);
               beast.positions.pop(beast.position);
               clearInterval(interval);
             }
