@@ -358,6 +358,7 @@ var attackSprite = function(){
 var attacking = function(){
   stats.life = stats.life - createHit();
   $("#storyline").prepend("</br> Your HP: " + stats.life);
+  $("#stats-data").text("\u2764"+ " " +stats.life);
   if ((beast.positions.indexOf(sprite.position) <= -1)){
     clearInterval(interval);
     console.log(beast.positions[0], sprite.position, "cleared");
