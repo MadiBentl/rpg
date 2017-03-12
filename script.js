@@ -351,9 +351,7 @@ var determineHit = function(){
 }
 var interval;
 var attackSprite = function(){
-  //$(document).on('ready',function(){
-    interval = setInterval(attacking, 1000);
-  //});
+  interval = setInterval(attacking, 1000);
 }
 var attacking = function(){
   stats.life = stats.life - createHit();
