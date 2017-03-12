@@ -549,8 +549,8 @@ var buildSideBar = function(){
 }
 var buildStats = function(){
   $("#inventory").append("<div id= 'stats'></div>");
-  $("#stats").append("<h2>Stats</h2>").append("<div id = 'stats-data'></div>")
-                                      .append("<div id = 'stats-monsters'></div>");
+  $("#stats").append("<h2>Stats</h2>").append("<div class = 'stat' id = 'stats-data'></div>")
+                                      .append("<div class = 'stat' id = 'stats-monsters'></div>");
   $("#stats-monsters").text("\uD83D\uDC3B" + "  " + stats.monstersKilled);
   $("#stats-data").text("\u2764"+ " " +stats.life);
 }

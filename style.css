@@ -39,6 +39,10 @@ h2 {
   border: 2px solid black;
   margin: 5px; }
 
+.stat {
+  display: inline;
+  margin: 10px; }
+
 .inventory-item {
   height: 60px;
   width: 60px;
