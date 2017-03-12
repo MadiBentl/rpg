@@ -362,6 +362,10 @@ var attacking = function(){
     clearInterval(interval);
     console.log(beast.positions[0], sprite.position, "cleared");
   }
+  if (stats.life <= 0){
+    $("#storyline").prepend("</br> You died!");
+    clearInterval(interval);
+  }
 }
 var sprite = {
   position: "#t1517",
