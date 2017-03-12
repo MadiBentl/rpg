@@ -11,6 +11,7 @@ var buildBoard = function(){
 }
 var stats = {
   life: 30,
+  monstersKilled: 0,
   drainLife: function(qty){
     stats.life = stats.life - qty;
     $("#stats-data").text("\u2764"+ " " +stats.life);
@@ -548,7 +549,9 @@ var buildSideBar = function(){
 }
 var buildStats = function(){
   $("#inventory").append("<div id= 'stats'></div>");
-  $("#stats").append("<h2>Stats</h2>").append("<div id = 'stats-data'></div>");
+  $("#stats").append("<h2>Stats</h2>").append("<div id = 'stats-data'></div>")
+                                      .append("<div id = 'stats-monsters'></div>");
+  $("#stats-monsters").text("\uD83D\uDC3B" + "  " + stats.monstersKilled);
   $("#stats-data").text("\u2764"+ " " +stats.life);
 }
 var buildInventory= function(){
