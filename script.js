@@ -397,15 +397,15 @@ var sprite = {
               $("#storyline").prepend("</br> Monster HP: " + beast.hp);
             }
             else if (beast.hp <= 0){ //beast dead
-            //  if (bears.position.indexOf(sprite.position) > -1){
-              //  bears.bearsKilled += 1
-              //  bears.position.pop(sprite.position);
-                //$("#stats-bears").text("\uD83D\uDC3B" + " " + bears.bearsKilled + "/6");
-              //}
+              let beastLocation = beast.positions.indexOf(sprite.position)
+              if (bears.position.indexOf(sprite.position) > -1){
+                bears.bearsKilled += 1
+                bears.position.splice(beastLocation, 1);
+                $("#stats-bears").text("\uD83D\uDC3B" + " " + bears.bearsKilled + "/6");
+              }
               $("#storyline").prepend("</br> You killed the beast");
               stats.monstersKilled = stats.monstersKilled + 1;
-              $("#stats-monsters").text("\uD83D\uDC3B" + "  " + stats.monstersKilled);
-              let beastLocation = beast.positions.indexOf(sprite.position)
+              $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
               beast.positions.splice(beastLocation, 1);
               console.log(beast.positions);
               console.log("popped");
