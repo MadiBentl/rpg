@@ -144,6 +144,7 @@ let oldwoman = {
     });
   }
 }
+
 let farmer = {
   position: "#t1422",
   questGiven: false,
@@ -289,6 +290,9 @@ var interact = function(){
       attackSprite();
       console.log("Attacking");
     }
+    else{
+      console.log("You died");
+    }
   }
   if (sprite.position == farmer.position){
     farmer.dialogue();
@@ -340,7 +344,7 @@ var interact = function(){
     });
 }
 var beast = {
-  positions: ["#t1417"],
+  positions: ["#t1417","#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   hp: 30
 }
 var createHit = function(){
@@ -355,17 +359,23 @@ var attackSprite = function(){
   interval = setInterval(attacking, 1000);
 }
 var attacking = function(){
+  //beast.hp = 30;
+  console.log(beast.hp);
   stats.life = stats.life - createHit();
   $("#storyline").prepend("</br> Your HP: " + stats.life);
   $("#stats-data").text("\u2764"+ " " +stats.life);
-  if ((beast.positions.indexOf(sprite.position) <= -1)){
+  if ((beast.positions.indexOf(sprite.position) <= -1)){ //no longer on same tile
     clearInterval(interval);
     console.log(beast.positions[0], sprite.position, "cleared");
   }
-  if (stats.life <= 0){
+  if (stats.life <= 0){ //you die
     $("#storyline").prepend("</br> You died!");
     clearInterval(interval);
   }
+}
+var bears = {
+  position: ["#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
+  bearsKilled: 0
 }
 var sprite = {
   position: "#t1517",
@@ -381,17 +391,26 @@ var sprite = {
       switch(e.which) {
           case 32: //space bar
           e.preventDefault();
-          if (beast.positions.indexOf(sprite.position) > -1){
+          if (beast.positions.indexOf(sprite.position) > -1){ //if on a beast tile
             determineHit(beast.hp)
             if (beast.hp > 0){
               $("#storyline").prepend("</br> Monster HP: " + beast.hp);
             }
-            else if (beast.hp <= 0){
+            else if (beast.hp <= 0){ //beast dead
+            //  if (bears.position.indexOf(sprite.position) > -1){
+              //  bears.bearsKilled += 1
+              //  bears.position.pop(sprite.position);
+                //$("#stats-bears").text("\uD83D\uDC3B" + " " + bears.bearsKilled + "/6");
+              //}
               $("#storyline").prepend("</br> You killed the beast");
               stats.monstersKilled = stats.monstersKilled + 1;
               $("#stats-monsters").text("\uD83D\uDC3B" + "  " + stats.monstersKilled);
-              beast.positions.pop(beast.position);
+              let beastLocation = beast.positions.indexOf(sprite.position)
+              beast.positions.splice(beastLocation, 1);
+              console.log(beast.positions);
+              console.log("popped");
               clearInterval(interval);
+              beast.hp = 30;
             }
             else if (stats.life <= 0){
               $("#storyline").prepend("</br> Sorry you died");
@@ -552,8 +571,10 @@ var buildSideBar = function(){
 var buildStats = function(){
   $("#inventory").append("<div id= 'stats'></div>");
   $("#stats").append("<h2>Stats</h2>").append("<div class = 'stat' id = 'stats-data'></div>")
-                                      .append("<div class = 'stat' id = 'stats-monsters'></div>");
-  $("#stats-monsters").text("\uD83D\uDC3B" + "  " + stats.monstersKilled);
+                                      .append("<div class = 'stat' id = 'stats-monsters'></div>")
+                                      .append("<div class = 'stat' id = 'stats-bears'></div>")
+  $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
+  $("#stats-bears").text("\uD83D\uDC3B" + " " + bears.bearsKilled + "/6");
   $("#stats-data").text("\u2764"+ " " +stats.life);
 }
 var buildInventory= function(){
