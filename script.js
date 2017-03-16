@@ -202,7 +202,9 @@ var oracle = {
   position: "#t3438",
   exist: function(){
     $(document).ready(function(){
-      $(oracle.position).text("\uD83D\uDC73");
+      if ($(oracle.position).hasClass("visitedTile")){
+        $(oracle.position).text("\uD83D\uDC73");
+      }
     });
   }
 }
