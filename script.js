@@ -168,7 +168,8 @@ let farmer = {
     }
     else if (fruitTree.isSafe == true){
       $("#storyline").prepend(`</br> Farmer: Thank you so much for saving my orchard from
-        those evil bears - please feel free to pick peaches from my trees whenever you like!`);
+        those evil bears - please feel free to pick peaches from my trees whenever you like!
+        You can keep the sword too!`);
       fruitTree.canPick = true;
     }
   }
@@ -360,7 +361,6 @@ var attackSprite = function(){
 }
 var attacking = function(){
   //beast.hp = 30;
-  console.log(beast.hp);
   stats.life = stats.life - createHit();
   $("#storyline").prepend("</br> Your HP: " + stats.life);
   $("#stats-data").text("\u2764"+ " " +stats.life);
@@ -397,17 +397,23 @@ var sprite = {
               $("#storyline").prepend("</br> Monster HP: " + beast.hp);
             }
             else if (beast.hp <= 0){ //beast dead
-              let beastLocation = beast.positions.indexOf(sprite.position)
-              if (bears.position.indexOf(sprite.position) > -1){
+              let beastLocation = beast.positions.indexOf(sprite.position);
+              let bearLocation = bears.position.indexOf(sprite.position);
+              if (bears.position.indexOf(sprite.position) > -1){ //bears
                 bears.bearsKilled += 1
-                bears.position.splice(beastLocation, 1);
+                bears.position.splice(bearLocation, 1);
+                console.log("spliced ", sprite.position, bears.position);
                 $("#stats-bears").text("\uD83D\uDC3B" + " " + bears.bearsKilled + "/6");
+                if (bears.position.length == 0){
+                  fruitTree.isSafe = true;
+                }
               }
               $("#storyline").prepend("</br> You killed the beast");
               stats.monstersKilled = stats.monstersKilled + 1;
               $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
               beast.positions.splice(beastLocation, 1);
-              console.log(beast.positions);
+              console.log("beast", beast.positions);
+              console.log("bear", bears.position);
               console.log("popped");
               clearInterval(interval);
               beast.hp = 30;
