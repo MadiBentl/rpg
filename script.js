@@ -423,6 +423,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-1);
           if ((sprite.position.slice(4,6) > 10)
             && !$(sprite.newPosition).hasClass("isProhibited")){
+            clearInterval(interval);
             stats.assessLife();
             $(sprite.position).empty();
             miscellaneous();
@@ -440,6 +441,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))-100)
           if ((sprite.position.slice(2,4) > 10)
               && !$(sprite.newPosition).hasClass("isProhibited")){
+            clearInterval(interval);
             stats.assessLife();
             $(sprite.position).empty();
             miscellaneous();
@@ -457,6 +459,7 @@ var sprite = {
           sprite.newPosition = "#t"+ (Number(sprite.position.slice(-4))+1);
           if ((sprite.position.slice(4,6) < 39)
             && !$(sprite.newPosition).hasClass("isProhibited")){
+            clearInterval(interval);
             stats.assessLife();
             $(sprite.position).empty();
             miscellaneous();
@@ -475,6 +478,7 @@ var sprite = {
           if ((sprite.position.slice(2,4) < 39)
             && !$(sprite.newPosition).hasClass("isProhibited")){
             stats.assessLife();
+            clearInterval(interval);
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
