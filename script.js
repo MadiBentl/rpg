@@ -393,7 +393,8 @@ var sprite = {
       switch(e.which) {
           case 32: //space bar
           e.preventDefault();
-          if (beast.positions.indexOf(sprite.position) > -1){ //if on a beast tile
+          if (beast.positions.indexOf(sprite.position) > -1 && my_inv["sword"]["qty"] > 0){ //if on a beast tile
+console.log("sword words");
             determineHit(beast.hp)
             if (beast.hp > 0){
               $("#storyline").prepend("</br> Monster HP: " + beast.hp);
