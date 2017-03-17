@@ -48,7 +48,8 @@ var mailbox ={
   msgCount: 1
 }
 var house = {
-  position: ["#t1516","#t2627","#t2829","#t2830","#t2828","#t2728","#t2628","#t2729"],
+  position: ["#t1516","#t2627","#t2829","#t2830","#t2828","#t2728","#t2628","#t2729",
+             "#t2912", "#t2813", "#t3211", "#t3113"],
   exist: function(){
     $(document).ready(function(){
       for (let x = 0; x < house.position.length; x++){
