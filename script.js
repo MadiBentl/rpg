@@ -96,6 +96,33 @@ var rock = {
     });
   }
 }
+var riverman = {
+  position: "#t3411",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(riverman.position).hasClass("visitedTile")){
+        $(riverman.position).text("\uD83D\uDC72");
+      }
+    });
+    console.log("activated");
+  },
+  questGiven: false,
+  dialogue: function(){
+    if (riverman.questGiven == false){
+      $("#storyline").prepend("</br> Riverman: The bridge broke and my family lives on the other side! Can you help me build a brige?");
+      $("#quests").append("- Help the Riverman build a bridge");
+      riverman.questGiven = true;
+    }
+    else if (riverman.questGiven == true && my_inv["wood"]["qty"] <= 15){
+      $("#storyline").prepend("</br> You: I don't know anything about building bridges!");
+      $("#storyline").prepend("</br> Riverman: Find the lumberjack! He knows a lot about wood.");
+    }
+    else if (riverman.questGiven == true && my_inv["wood"]["qty"] >= 15){
+      $("#storyline").prepend("</br> You: I got all the wood I need!");
+      $("#storyline").prepend("</br> Riverman: It takes more than that to build a bridge!");
+    }
+  }
+}
 var water = {
   positions: ["#t3323","#t3223", "#t3123", "#t3122", "#t3022", "#t2922",
               "#t2821", "#t2720", "#t2620", "#t2519", "#t2520", "#t2419",
@@ -270,6 +297,7 @@ var buildGarden = function(){
   });
 };
 var miscellaneous = function(){
+  riverman.exist();
   tree.exist();
   lumberjack.exist();
   buildGarden();
