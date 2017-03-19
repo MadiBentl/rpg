@@ -104,7 +104,6 @@ var riverman = {
         $(riverman.position).text("\uD83D\uDC72");
       }
     });
-    console.log("activated");
   },
   questGiven: false,
   dialogue: function(){
@@ -333,11 +332,16 @@ var interact = function(){
   if (sprite.position == farmer.position){
     farmer.dialogue();
   }
+  if (sprite.position == riverman.position){
+    riverman.dialogue();
+  }
   if (sprite.position == house.position){
     $("#storyline").prepend("</br> Welcome home! Take a nap? Y/N");
   }
   if (tree.positions.indexOf(sprite.position) > -1){
-    $("#storyline").prepend("</br> Cut tree? Y/N")
+    $("#storyline").prepend("</br> Cut tree? Y/N");
+    console.log(tree.positions);
+    console.log(sprite.position);
   }
   if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
     $("#storyline").prepend("</br> Pick Peach? Y/N");
@@ -353,12 +357,12 @@ var interact = function(){
           $("#storyline").prepend("</br> Zzz...zzz...zzz...");
           break;
         }
-        if (sprite.position == mailbox.position){
+        else if (sprite.position == mailbox.position){
           $("#storyline").prepend("</br>" + mailbox.messages[mailbox.msgCount]);
           mailbox.hasMsg = false;
           break;
         }
-        if (tree.positions.indexOf(sprite.position) > -1){
+        else if (tree.positions.indexOf(sprite.position) >= 0){
           $("#storyline").prepend("</br> Chop, Chop, Chop!");
           my_inv["wood"]["qty"] += 1;
           inventory.displayInventory();
