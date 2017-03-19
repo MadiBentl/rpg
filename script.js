@@ -319,7 +319,7 @@ var interact = function(){
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
-  if (beast.positions.indexOf(sprite.position) > -1){
+  else if (beast.positions.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br> You are being attacked!");
     if (beast.hp > 0){
       attackSprite();
@@ -329,21 +329,21 @@ var interact = function(){
       console.log("You died");
     }
   }
-  if (sprite.position == farmer.position){
+  else if (sprite.position == farmer.position){
     farmer.dialogue();
   }
-  if (sprite.position == riverman.position){
+  else if (sprite.position == riverman.position){
     riverman.dialogue();
   }
-  if (sprite.position == house.position){
+  else if (sprite.position == house.position){
     $("#storyline").prepend("</br> Welcome home! Take a nap? Y/N");
   }
-  if (tree.positions.indexOf(sprite.position) > -1){
+  else if (tree.positions.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br> Cut tree? Y/N");
     console.log(tree.positions);
     console.log(sprite.position);
   }
-  if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
+  else if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
     $("#storyline").prepend("</br> Pick Peach? Y/N");
     if (my_inv["peach"]["qty"] < 5){
       my_inv["peach"]["qty"] += 1;
@@ -375,7 +375,7 @@ var interact = function(){
           $("#storyline").prepend("</br> No mail for you.");
           break;
         }
-        if (sprite.position == house.position){
+        else if (sprite.position == house.position){
           $("#storyline").prepend("</br> I'll sleep when I'm dead.");
           break;
         }
