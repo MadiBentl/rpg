@@ -112,13 +112,22 @@ var riverman = {
       $("#quests").append("- Help the Riverman build a bridge");
       riverman.questGiven = true;
     }
-    else if (riverman.questGiven == true && my_inv["wood"]["qty"] <= 15){
-      $("#storyline").prepend("</br> You: I don't know anything about building bridges!");
-      $("#storyline").prepend("</br> Riverman: Find the lumberjack! He knows a lot about wood.");
+    else if (riverman.questGiven == true && lumberjack.chatted == false){
+      $("#storyline").prepend("</br> You: I don't know where to start");
+      $("#storyline").prepend("</br> Riverman: Head to the forest South of your house!");
+    }
+    else if (riverman.questGiven == true && lumberjack.chatted == true ){
+      $("#storyline").prepend("</br> You: That's one grumpy lumberjack!");
+      $("#storyline").prepend("</br> Riverman: He's the only one who knows how to build a bridge! Ask around and see if you can find something to sweeten him up!");
+      lumberjack.questGiven = true;
     }
     else if (riverman.questGiven == true && my_inv["wood"]["qty"] >= 15){
       $("#storyline").prepend("</br> You: I got all the wood I need!");
       $("#storyline").prepend("</br> Riverman: It takes more than that to build a bridge!");
+    }
+    else if (lumberjack.soup == true){
+      $("#storyline").prepend("</br> You: I need to make the lumberjack a Fisherman's Stew! Do you know the recipe?");
+      $("#storyline").prepend("</br> Riverman: Fisherman's Stew! Now there's a meal I haven't tasted in years! They lost the recipe in a fire.");
     }
   }
 }
@@ -250,6 +259,7 @@ var lumberjack = {
   },
   questGiven: false,
   chatted: false,
+  soup: false,
   dialogue:function(){
     if (lumberjack.questGiven == false && riverman.questGiven == false){
       $("#storyline").prepend("Lumberjack: You there! Get away from my trees!");
@@ -261,6 +271,7 @@ var lumberjack = {
     else if (lumberjack.questGiven == true && riverman.questGiven == true){
       $("#storyline").prepend("You: When was the last time you had Fisherman's Stew?");
       $("#storyline").prepend("Lumberjack: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
+      lumberjack.soup = true;
     }
   }
 }
