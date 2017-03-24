@@ -248,11 +248,20 @@ var lumberjack = {
       }
     });
   },
-  stage: 1,
-  dialogue:{
-    1: "You there! What are you doing cutting MY trees? \
-    Get out of here before I throw my axe at you!",
-    2: "Quest:"
+  questGiven: false,
+  chatted: false,
+  dialogue:function(){
+    if (lumberjack.questGiven == false && riverman.questGiven == false){
+      $("#storyline").prepend("Lumberjack: You there! Get away from my trees!");
+    }
+    else if (lumberjack.questGiven == false && riverman.questGiven == true){
+      $("#storyline").prepend("Lumberjack: Hrumph! Why do you think I'd want ta talk to the likes of you!");
+      lumberjack.chatted = true;
+    }
+    else if (lumberjack.questGiven == true && riverman.questGiven == true){
+      $("#storyline").prepend("You: When was the last time you had Fisherman's Stew?");
+      $("#storyline").prepend("Lumberjack: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
+    }
   }
 }
 //oracle tells you where you need to start your garden.
@@ -318,6 +327,9 @@ var interact = function(){
       $("#storyline").prepend(`</br> You don't have any mail right now.
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
+  }
+  else if (sprite.position == lumberjack.position){
+    lumberjack.dialogue();
   }
   else if (beast.positions.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br> You are being attacked!");
