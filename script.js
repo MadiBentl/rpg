@@ -109,7 +109,7 @@ var riverman = {
   dialogue: function(){
     if (riverman.questGiven == false){
       $("#storyline").prepend("</br> Riverman: The bridge broke and my family lives on the other side! Can you help me build a brige?");
-      $("#quests").append("- Help the Riverman build a bridge");
+      $("#quests").append("</br> - Help the Riverman build a bridge");
       riverman.questGiven = true;
     }
     else if (riverman.questGiven == true && lumberjack.chatted == false){
@@ -218,7 +218,7 @@ let ghost = {
     }
     else if (ghost.questGiven == false && oldwoman.bookGiven == true){
       $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.");
-      
+      $("#quests").append("</br> - Make Fish Stew: 1 Octopus, 3 Tunas, 10 Tangs, 8 Mushrooms, 1 hot pepper.");
     }
   }
 }
