@@ -182,6 +182,20 @@ let oldwoman = {
         $(oldwoman.position).text("\uD83D\uDC75");
       }
     });
+  },
+  bookGiven: false,
+  questGiven: false,
+  dialogue: function(){
+    if (lumberjack.questGiven != true){
+      $("#storyline").prepend("</br> Old Woman: Hello dear, I am the guardian of these mountains!");
+    }
+    else if (lumberjack.questGiven == true && oldwoman.bookGiven == false){
+      $("#storyline").prepend("</br> You: Do you know anything about Fisherman's Stew?");
+      $("#storyline").prepend("</br> Old Woman: I haven't heard about Fisherman's Stew in years! I believe I have a RiverPeople Recipe Book right here! Unfortunately it's not written in English. Maybe it'll help you out!");
+      $("#storyline").prepend("</br> The Old Woman gives you a book written in a strange language.");
+      oldwoman.bookGiven = true;
+      my_inv["book"]["qty"] += 1;
+    }
   }
 }
 
@@ -338,6 +352,10 @@ var interact = function(){
       $("#storyline").prepend(`</br> You don't have any mail right now.
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
+  }
+  else if (sprite.position == oldwoman.position){
+    oldwoman.dialogue();
+    console.log("dialogues");
   }
   else if (sprite.position == lumberjack.position){
     lumberjack.dialogue();
@@ -575,6 +593,10 @@ var my_inv = {
   wood:{
     qty: 4,
     symbol: "\uD83C\uDF32"
+  },
+  book:{
+    qty: 0,
+    symbol: "\uD83D\uDCD5"
   },
   water:{
     qty: 3,
