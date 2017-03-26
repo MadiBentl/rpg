@@ -195,6 +195,8 @@ let oldwoman = {
       $("#storyline").prepend("</br> The Old Woman gives you a book written in a strange language.");
       oldwoman.bookGiven = true;
       my_inv["book"]["qty"] += 1;
+      inventory.displayInventory();
+
     }
   }
 }
