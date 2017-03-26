@@ -262,15 +262,15 @@ var lumberjack = {
   soup: false,
   dialogue:function(){
     if (lumberjack.questGiven == false && riverman.questGiven == false){
-      $("#storyline").prepend("Lumberjack: You there! Get away from my trees!");
+      $("#storyline").prepend("</br> Lumberjack: You there! Get away from my trees!");
     }
     else if (lumberjack.questGiven == false && riverman.questGiven == true){
-      $("#storyline").prepend("Lumberjack: Hrumph! Why do you think I'd want ta talk to the likes of you!");
+      $("#storyline").prepend("</br> Lumberjack: Hrumph! Why do you think I'd want ta talk to the likes of you!");
       lumberjack.chatted = true;
     }
     else if (lumberjack.questGiven == true && riverman.questGiven == true){
-      $("#storyline").prepend("You: When was the last time you had Fisherman's Stew?");
-      $("#storyline").prepend("Lumberjack: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
+      $("#storyline").prepend("</br> You: When was the last time you had Fisherman's Stew?");
+      $("#storyline").prepend("</br> Lumberjack: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
       lumberjack.soup = true;
     }
   }
