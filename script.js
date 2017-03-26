@@ -517,6 +517,8 @@ console.log("sword words");
               }
               $("#storyline").prepend("</br> You killed the beast");
               stats.monstersKilled = stats.monstersKilled + 1;
+              my_inv["money"]["qty"] += 1;
+              inventory.displayInventory();
               $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
               beast.positions.splice(beastLocation, 1);
               console.log("beast", beast.positions);
@@ -619,6 +621,10 @@ var my_inv = {
   wood:{
     qty: 4,
     symbol: "\uD83C\uDF32"
+  },
+  money: {
+    qty: 0,
+    symbol: "\uD83D\uDCB0"
   },
   book:{
     qty: 0,
