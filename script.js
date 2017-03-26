@@ -216,6 +216,10 @@ let ghost = {
     if (ghost.questGiven == false && oldwoman.bookGiven == false){
       $("#storyline").prepend("</br> Ghost: OOooooo OOooooOOoOOO!")
     }
+    else if (ghost.questGiven == false && oldwoman.bookGiven == true){
+      $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.");
+      
+    }
   }
 }
 let farmer = {
