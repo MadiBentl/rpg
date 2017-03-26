@@ -200,7 +200,24 @@ let oldwoman = {
     }
   }
 }
-
+let ghost = {
+  positions: ["#t3320"],
+  exist: function(){
+    $(document).ready(function(){
+      for (let x = 0; x< ghost.positions.length; x++){
+        if($(ghost.positions[x]).hasClass("visitedTile")){
+          $(ghost.positions[x]).text("\uD83D\uDC7B");
+        }
+      }
+    });
+  },
+  questGiven:false,
+  dialogue: function(){
+    if (ghost.questGiven == false && oldwoman.bookGiven == false){
+      $("#storyline").prepend("</br> Ghost: OOooooo OOooooOOoOOO!")
+    }
+  }
+}
 let farmer = {
   position: "#t1422",
   questGiven: false,
@@ -332,6 +349,7 @@ var buildGarden = function(){
   });
 };
 var miscellaneous = function(){
+  ghost.exist();
   riverman.exist();
   tree.exist();
   lumberjack.exist();
@@ -357,7 +375,9 @@ var interact = function(){
   }
   else if (sprite.position == oldwoman.position){
     oldwoman.dialogue();
-    console.log("dialogues");
+  }
+  else if (ghost.positions.indexOf(sprite.position) > -1){
+    ghost.dialogue();
   }
   else if (sprite.position == lumberjack.position){
     lumberjack.dialogue();
