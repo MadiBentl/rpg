@@ -38,6 +38,12 @@ h2{
 #storyline{
   height: 400px;
   overflow: auto;
+}
+#quests{
+  height: 100px;
+}
+#gameCommunications > div{
+  overflow: auto;
   border: 2px solid black;
   margin:5px;
 }
