@@ -212,13 +212,19 @@ let ghost = {
     });
   },
   questGiven:false,
+  bookTranslated: false,
   dialogue: function(){
     if (ghost.questGiven == false && oldwoman.bookGiven == false){
       $("#storyline").prepend("</br> Ghost: OOooooo OOooooOOoOOO!")
     }
-    else if (ghost.questGiven == false && oldwoman.bookGiven == true){
+    else if (ghost.questGiven == false && oldwoman.bookGiven == true && ghost.bookTranslated == false){
       $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.");
       $("#quests").append("</br> - Make Fish Stew: 1 Octopus, 3 Tunas, 10 Tangs, 8 Mushrooms, 1 hot pepper.");
+      ghost.bookTranslated = true;
+    }
+    else if (ghost.bookTranslated == true && ghost.questGiven == false){
+      $("#storyline").prepend("</br> Ghost: BOO! OooOOooO Ooo! ooO!! OO!!")
+                     .prepend("</br> You: I think he's trying to tell me something...");
     }
   }
 }
