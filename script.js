@@ -359,6 +359,7 @@ var buildGarden = function(){
   });
 };
 var miscellaneous = function(){
+  bug.exist();
   mushroom.exist();
   ghost.exist();
   riverman.exist();
@@ -472,8 +473,20 @@ var beast = {
   positions: ["#t1417","#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   hp: 30
 }
+let bug = {
+  position: ["#t2415", "#t3310"],
+  exist: function(){
+    $(document).ready(function(){
+      for (let x = 0; x <= bug.position.length; x++){
+        if ($(bug.position[x]).hasClass("visitedTile")){
+          $(bug.position[x]).text("\uD83D\uDC1B");
+        }
+      }
+    });
+  }
+}
 var mushroom = {
-  position: ["#t1710", "#t1713", "#t1811", "#t2010","#t2214"],
+  position: ["#t1710", "#t1713", "#t1811", "#t2010","#t2211"],
   exist: function(){
     $(document).ready(function(){
       for (let x = 0; x <= mushroom.position.length; x++){
