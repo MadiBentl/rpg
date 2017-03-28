@@ -359,6 +359,7 @@ var buildGarden = function(){
   });
 };
 var miscellaneous = function(){
+  mushroom.exist();
   ghost.exist();
   riverman.exist();
   tree.exist();
@@ -377,11 +378,14 @@ var miscellaneous = function(){
 var interact = function(){
   if (sprite.position == mailbox.position){
     if (mailbox.hasMsg == true)
-      $("#storyline").prepend("</br> You've Got Mail. Read Mail? Y/N");
+      $("#storyline").prepend("</br> You've Got Mail. Read Mail?");
     else{
       $("#storyline").prepend(`</br> You don't have any mail right now.
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
+  }
+  else if (mushroom.position.indexOf(sprite.position) > -1){
+    $("#storyline").prepend("</br> Pick Mushroom? Y?N");
   }
   else if (sprite.position == oldwoman.position){
     oldwoman.dialogue();
@@ -430,6 +434,14 @@ var interact = function(){
           $("#storyline").prepend("</br> Zzz...zzz...zzz...");
           break;
         }
+        else if (mushroom.position.indexOf(sprite.position) >= 0){
+          $("#storyline").prepend("</br> You picked a mushroom!");
+          my_inv["mushroom"]["qty"] += 1;
+          inventory.displayInventory();
+          let mushroomPosition = mushroom.position.indexOf(sprite.position);
+          mushroom.position.splice(mushroomPosition, 1);
+          break;
+        }
         else if (sprite.position == mailbox.position){
           $("#storyline").prepend("</br>" + mailbox.messages[mailbox.msgCount]);
           mailbox.hasMsg = false;
@@ -459,6 +471,19 @@ var interact = function(){
 var beast = {
   positions: ["#t1417","#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   hp: 30
+}
+var mushroom = {
+  position: ["#t1710", "#t1713", "#t1811", "#t2010","#t2214"],
+  exist: function(){
+    $(document).ready(function(){
+      for (let x = 0; x <= mushroom.position.length; x++){
+        if ($(mushroom.position[x]).hasClass("visitedTile")){
+          $(mushroom.position[x]).text("\uD83C\uDF44");
+          console.log("existing");
+        }
+      }
+    });
+  }
 }
 var createHit = function(){
   return Math.floor(Math.random()*5);
