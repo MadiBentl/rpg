@@ -101,33 +101,33 @@ var riverman = {
   exist: function(){
     $(document).ready(function(){
       if ($(riverman.position).hasClass("visitedTile")){
-        $(riverman.position).text("\uD83D\uDC72");
+        $(riverman.position).text("\uD83D\uDC66");
       }
     });
   },
   questGiven: false,
   dialogue: function(){
     if (riverman.questGiven == false){
-      $("#storyline").prepend("</br> Riverman: The bridge broke and my family lives on the other side! Can you help me build a brige?");
+      $("#storyline").prepend("</br> \uD83D\uDC66: The bridge broke and my family lives on the other side! Can you help me build a brige?");
       $("#quests").append("</br> - Help the Riverman build a bridge");
       riverman.questGiven = true;
     }
     else if (riverman.questGiven == true && lumberjack.chatted == false){
-      $("#storyline").prepend("</br> You: I don't know where to start");
-      $("#storyline").prepend("</br> Riverman: Head to the forest South of your house!");
+      $("#storyline").prepend("</br> \uD83D\uDC72: I don't know where to start");
+      $("#storyline").prepend("</br> \uD83D\uDC66: Head to the forest South of your house!");
     }
     else if (riverman.questGiven == true && lumberjack.chatted == true ){
-      $("#storyline").prepend("</br> You: That's one grumpy lumberjack!");
-      $("#storyline").prepend("</br> Riverman: He's the only one who knows how to build a bridge! Ask around and see if you can find something to sweeten him up!");
+      $("#storyline").prepend("</br> \uD83D\uDC72: That's one grumpy lumberjack!");
+      $("#storyline").prepend("</br> \uD83D\uDC66: He's the only one who knows how to build a bridge! Ask around and see if you can find something to sweeten him up!");
       lumberjack.questGiven = true;
     }
     else if (riverman.questGiven == true && my_inv["wood"]["qty"] >= 15){
-      $("#storyline").prepend("</br> You: I got all the wood I need!");
-      $("#storyline").prepend("</br> Riverman: It takes more than that to build a bridge!");
+      $("#storyline").prepend("</br> \uD83D\uDC72: I got all the wood I need!");
+      $("#storyline").prepend("</br> \uD83D\uDC66: It takes more than that to build a bridge!");
     }
     else if (lumberjack.soup == true){
-      $("#storyline").prepend("</br> You: I need to make the lumberjack a Fisherman's Stew! Do you know the recipe?");
-      $("#storyline").prepend("</br> Riverman: Fisherman's Stew! Now there's a meal I haven't tasted in years! They lost the recipe in a fire.");
+      $("#storyline").prepend("</br> \uD83D\uDC72: I need to make the lumberjack a Fisherman's Stew! Do you know the recipe?");
+      $("#storyline").prepend("</br> \uD83D\uDC66: Fisherman's Stew! Now there's a meal I haven't tasted in years! They lost the recipe in a fire.");
     }
   }
 }
@@ -190,7 +190,7 @@ let oldwoman = {
       $("#storyline").prepend("</br> Old Woman: Hello dear, I am the guardian of these mountains!");
     }
     else if (lumberjack.questGiven == true && oldwoman.bookGiven == false){
-      $("#storyline").prepend("</br> You: Do you know anything about Fisherman's Stew?");
+      $("#storyline").prepend("</br> \uD83D\uDC72: Do you know anything about Fisherman's Stew?");
       $("#storyline").prepend("</br> Old Woman: I haven't heard about Fisherman's Stew in years! I believe I have a RiverPeople Recipe Book right here! Unfortunately it's not written in English. Maybe it'll help you out!");
       $("#storyline").prepend("</br> The Old Woman gives you a book written in a strange language.");
       oldwoman.bookGiven = true;
@@ -224,7 +224,7 @@ let ghost = {
     }
     else if (ghost.bookTranslated == true && ghost.questGiven == false){
       $("#storyline").prepend("</br> Ghost: BOO! OooOOooO Ooo! ooO!! OO!!")
-                     .prepend("</br> You: I think he's trying to tell me something...");
+                     .prepend("</br> \uD83D\uDC72: I think he's trying to tell me something...");
     }
   }
 }
@@ -312,7 +312,7 @@ var lumberjack = {
       lumberjack.chatted = true;
     }
     else if (lumberjack.questGiven == true && riverman.questGiven == true){
-      $("#storyline").prepend("</br> You: When was the last time you had Fisherman's Stew?");
+      $("#storyline").prepend("</br> \uD83D\uDC72: When was the last time you had Fisherman's Stew?");
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
       lumberjack.soup = true;
     }
@@ -531,7 +531,7 @@ var sprite = {
   position: "#t1517",
   initializeSprite: function(){
     $(document).ready(function(){
-      $("#t1517").addClass("visitedTile").text("\uD83D\uDC66");
+      $("#t1517").addClass("visitedTile").text("\uD83D\uDC72");
     });
   },
   newPosition: "",
@@ -590,7 +590,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
@@ -608,7 +608,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")){
@@ -626,7 +626,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
@@ -644,7 +644,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
