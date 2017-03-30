@@ -531,7 +531,7 @@ var sprite = {
   position: "#t1517",
   initializeSprite: function(){
     $(document).ready(function(){
-      $("#t1517").addClass("visitedTile").text("@");
+      $("#t1517").addClass("visitedTile").text("\uD83D\uDC66");
     });
   },
   newPosition: "",
@@ -590,7 +590,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
-            $(sprite.position).addClass("visitedTile").text("@");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
@@ -608,7 +608,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
-            $(sprite.position).addClass("visitedTile").text("@");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")){
@@ -626,7 +626,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
-            $(sprite.position).addClass("visitedTile").text("@");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
@@ -644,7 +644,7 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
-            $(sprite.position).addClass("visitedTile").text("@");
+            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC66");
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
