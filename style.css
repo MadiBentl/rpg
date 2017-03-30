@@ -34,11 +34,11 @@ h2 {
   float: left; }
 
 #storyline {
-  height: 400px;
+  height: 320px;
   overflow: auto; }
 
 #quests {
-  height: 100px; }
+  height: 180px; }
 
 #gameCommunications > div {
   overflow: auto;
