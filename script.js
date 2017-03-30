@@ -108,26 +108,26 @@ var riverman = {
   questGiven: false,
   dialogue: function(){
     if (riverman.questGiven == false){
-      $("#storyline").prepend("</br> \uD83D\uDC66: The bridge broke and my family lives on the other side! Can you help me build a brige?");
+      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: The bridge broke and my family lives on the other side! Can you help me build a brige?");
       $("#quests").append("</br> - Help the Riverman build a bridge");
       riverman.questGiven = true;
     }
     else if (riverman.questGiven == true && lumberjack.chatted == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: I don't know where to start");
-      $("#storyline").prepend("</br> \uD83D\uDC66: Head to the forest South of your house!");
+      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: Head to the forest South of your house!");
     }
     else if (riverman.questGiven == true && lumberjack.chatted == true ){
       $("#storyline").prepend("</br> \uD83D\uDC72: That's one grumpy lumberjack!");
-      $("#storyline").prepend("</br> \uD83D\uDC66: He's the only one who knows how to build a bridge! Ask around and see if you can find something to sweeten him up!");
+      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: He's the only one who knows how to build a bridge! Ask around and see if you can find something to sweeten him up!");
       lumberjack.questGiven = true;
     }
     else if (riverman.questGiven == true && my_inv["wood"]["qty"] >= 15){
       $("#storyline").prepend("</br> \uD83D\uDC72: I got all the wood I need!");
-      $("#storyline").prepend("</br> \uD83D\uDC66: It takes more than that to build a bridge!");
+      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: It takes more than that to build a bridge!");
     }
     else if (lumberjack.soup == true){
       $("#storyline").prepend("</br> \uD83D\uDC72: I need to make the lumberjack a Fisherman's Stew! Do you know the recipe?");
-      $("#storyline").prepend("</br> \uD83D\uDC66: Fisherman's Stew! Now there's a meal I haven't tasted in years! They lost the recipe in a fire.");
+      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: Fisherman's Stew! Now there's a meal I haven't tasted in years! They lost the recipe in a fire.");
     }
   }
 }
