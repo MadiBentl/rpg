@@ -187,12 +187,12 @@ let oldwoman = {
   questGiven: false,
   dialogue: function(){
     if (lumberjack.questGiven != true){
-      $("#storyline").prepend("</br> Old Woman: Hello dear, I am the guardian of these mountains!");
+      $("#storyline").prepend("</br> \uD83D\uDC75 \u26F0: Hello dear, I am the guardian of these mountains!");
     }
     else if (lumberjack.questGiven == true && oldwoman.bookGiven == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: Do you know anything about Fisherman's Stew?");
-      $("#storyline").prepend("</br> Old Woman: I haven't heard about Fisherman's Stew in years! I believe I have a RiverPeople Recipe Book right here! Unfortunately it's not written in English. Maybe it'll help you out!");
-      $("#storyline").prepend("</br> The Old Woman gives you a book written in a strange language.");
+      $("#storyline").prepend("</br> \uD83D\uDC75 \u26F0: I haven't heard about Fisherman's Stew in years! I believe I have a RiverPeople Recipe Book right here! Unfortunately it's not written in English. Maybe it'll help you out!");
+      $("#storyline").prepend("</br> The Old Woman gives you a book written in a strange language \uD83D\uDCD5");
       oldwoman.bookGiven = true;
       my_inv["book"]["qty"] += 1;
       inventory.displayInventory();
