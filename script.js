@@ -215,7 +215,7 @@ let ghost = {
   bookTranslated: false,
   dialogue: function(){
     if (ghost.questGiven == false && oldwoman.bookGiven == false){
-      $("#storyline").prepend("</br> Ghost: OOooooo OOooooOOoOOO!")
+      $("#storyline").prepend("</br> \uD83D\uDC7B : OOooooo OOooooOOoOOO!")
     }
     else if (ghost.questGiven == false && oldwoman.bookGiven == true && ghost.bookTranslated == false){
       $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.");
@@ -223,7 +223,7 @@ let ghost = {
       ghost.bookTranslated = true;
     }
     else if (ghost.bookTranslated == true && ghost.questGiven == false){
-      $("#storyline").prepend("</br> Ghost: BOO! OooOOooO Ooo! ooO!! OO!!")
+      $("#storyline").prepend("</br> \uD83D\uDC7B : BOO! OooOOooO Ooo! ooO!! OO!!")
                      .prepend("</br> \uD83D\uDC72: I think he's trying to tell me something...");
     }
   }
