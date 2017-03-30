@@ -240,17 +240,17 @@ let farmer = {
   },
   dialogue: function(){
     if (fruitTree.isSafe == false && farmer.questGiven == false){
-      $("#storyline").prepend("</br> Farmer: My orchard is full of bears! I need your protection - Here, take this sword!");
+      $("#storyline").prepend("</br>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1");
       my_inv["sword"]["qty"] += 1;
       inventory.displayInventory();
       $("#quests").append("- Fight off the bears in the orchard!");
       farmer.questGiven = true;
     }
     else if (fruitTree.isSafe == false && farmer.questGiven == true){
-      $("#storyline").prepend("</br> Farmer: Hurry up and kill the bears!");
+      $("#storyline").prepend("</br>\uD83D\uDC69 \uD83C\uDF3E: Hurry up and kill the bears!");
     }
     else if (fruitTree.isSafe == true){
-      $("#storyline").prepend(`</br> Farmer: Thank you so much for saving my orchard from
+      $("#storyline").prepend(`</br> \uD83D\uDC69 \uD83C\uDF3E: Thank you so much for saving my orchard from
         those evil bears - please feel free to pick peaches from my trees whenever you like!
         You can keep the sword too!`);
       fruitTree.canPick = true;
@@ -305,15 +305,15 @@ var lumberjack = {
   soup: false,
   dialogue:function(){
     if (lumberjack.questGiven == false && riverman.questGiven == false){
-      $("#storyline").prepend("</br> Lumberjack: You there! Get away from my trees!");
+      $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: You there! Get away from my trees!");
     }
     else if (lumberjack.questGiven == false && riverman.questGiven == true){
-      $("#storyline").prepend("</br> Lumberjack: Hrumph! Why do you think I'd want ta talk to the likes of you!");
+      $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: Hrumph! Why do you think I'd want ta talk to the likes of you!");
       lumberjack.chatted = true;
     }
     else if (lumberjack.questGiven == true && riverman.questGiven == true){
       $("#storyline").prepend("</br> You: When was the last time you had Fisherman's Stew?");
-      $("#storyline").prepend("</br> Lumberjack: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
+      $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
       lumberjack.soup = true;
     }
   }
@@ -379,14 +379,14 @@ var miscellaneous = function(){
 var interact = function(){
   if (sprite.position == mailbox.position){
     if (mailbox.hasMsg == true)
-      $("#storyline").prepend("</br> You've Got Mail. Read Mail?");
+      $("#storyline").prepend("</br>\uD83D\uDCEC You've Got Mail. Read Mail?");
     else{
       $("#storyline").prepend(`</br> You don't have any mail right now.
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
   else if (mushroom.position.indexOf(sprite.position) > -1){
-    $("#storyline").prepend("</br> Pick Mushroom? Y?N");
+    $("#storyline").prepend("</br>\uD83C\uDF44 Pick Mushroom?  Y/N");
   }
   else if (sprite.position == oldwoman.position){
     oldwoman.dialogue();
@@ -414,15 +414,15 @@ var interact = function(){
     riverman.dialogue();
   }
   else if (sprite.position == house.position){
-    $("#storyline").prepend("</br> Welcome home! Take a nap? Y/N");
+    $("#storyline").prepend("</br>\uD83C\uDFE0 Welcome home! Take a nap? Y/N");
   }
   else if (tree.positions.indexOf(sprite.position) > -1){
-    $("#storyline").prepend("</br> Cut tree? Y/N");
+    $("#storyline").prepend("</br>\uD83C\uDF32 Cut tree? Y/N");
     console.log(tree.positions);
     console.log(sprite.position);
   }
   else if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
-    $("#storyline").prepend("</br> Pick Peach? Y/N");
+    $("#storyline").prepend("</br>\uD83C\uDF51 Pick Peach? Y/N");
     if (my_inv["peach"]["qty"] < 5){
       my_inv["peach"]["qty"] += 1;
       inventory.displayInventory();
