@@ -257,6 +257,18 @@ let farmer = {
     }
   }
 }
+let store = {
+  position: "#t3016",
+  isOpen: false,
+  itemsForSale: ["1: Coffee", "2: Hot Pepper", "3: Balloon"],
+  exist: function(){
+    $(document).ready(function(){
+      if($(store.position).hasClass("visitedTile")){
+        $(store.position).text("\uD83C\uDFE3");
+      }
+    });
+  }
+}
 let fruitTree = {
   position: ["#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   isSafe: false,
@@ -359,6 +371,7 @@ var buildGarden = function(){
   });
 };
 var miscellaneous = function(){
+  store.exist();
   bug.exist();
   mushroom.exist();
   ghost.exist();
@@ -387,6 +400,14 @@ var interact = function(){
   }
   else if (mushroom.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDF44 Pick Mushroom?  Y/N");
+  }
+  else if (sprite.position == store.position){
+    if (store.isOpen == false){
+      $("#storyline").prepend("</br>\uD83C\uDFE3 The Store is Closed. Come Back Later");
+    }
+    else{
+      $("#storyline").prepend("</br>\uD83C\uDFE3 The Store is Open. Would you like to Buy (B) or Sell (S)?");
+    }
   }
   else if (sprite.position == oldwoman.position){
     oldwoman.dialogue();
