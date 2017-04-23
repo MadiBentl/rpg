@@ -453,7 +453,7 @@ var interact = function(){
     switch(e.which){
         case 89: //y
         if (house.position.indexOf(sprite.position) >= 0){
-          $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz...");
+          $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
           if (store.isOpen == false){
             store.isOpen = true;
           }
