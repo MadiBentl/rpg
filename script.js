@@ -371,6 +371,7 @@ var buildGarden = function(){
   });
 };
 var miscellaneous = function(){
+  bag.exist();
   store.exist();
   bug.exist();
   mushroom.exist();
@@ -512,6 +513,18 @@ let bug = {
     });
   }
 }
+var bag = {
+  position: ["#t2920"],
+  exist: function(){
+    $(document).ready(function(){
+      for (let x = 0; x<= bag.position.length; x++){
+        if ($(bag.position[x]).hasClass("visitedTile")){
+          $(bag.position[x]).text("\uD83D\uDC5B");
+        }
+      }
+    });
+  }
+}
 var mushroom = {
   position: ["#t1710", "#t1713", "#t1811", "#t2010","#t2211"],
   exist: function(){
@@ -519,7 +532,6 @@ var mushroom = {
       for (let x = 0; x <= mushroom.position.length; x++){
         if ($(mushroom.position[x]).hasClass("visitedTile")){
           $(mushroom.position[x]).text("\uD83C\uDF44");
-          console.log("existing");
         }
       }
     });
