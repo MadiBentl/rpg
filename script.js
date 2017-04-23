@@ -61,36 +61,36 @@ var house = {
   }
 }
 var rock = {
-  positions: [],
+  position: [],
   generateRocks: function(){
     for (var x = 1010; x < 1040; x++){
-      rock.positions.push("#t" + x);
+      rock.position.push("#t" + x);
     }
     for (var x = 1110; x < 1119; x++){
-      rock.positions.push("#t" + x);
+      rock.position.push("#t" + x);
     }
     for (var x = 1123; x < 1125; x++){
-      rock.positions.push("#t" + x);
+      rock.position.push("#t" + x);
     }
     for (var x = 1210; x < 1217; x++){
-      rock.positions.push("#t" + x);
+      rock.position.push("#t" + x);
     }
     for (var x = 1310; x < 1316; x++){
-      rock.positions.push("#t" + x);
+      rock.position.push("#t" + x);
     }
     for (var x = 1410; x < 1414; x++){
-      rock.positions.push("#t" + x);
+      rock.position.push("#t" + x);
     }
     for (var x = 1510; x < 1513; x++){
-      rock.positions.push("#t" + x);
+      rock.position.push("#t" + x);
     }
   },
   exist: function(){
     $(document).ready(function(){
-      for (var y =0; y<rock.positions.length; y++){
-        $(rock.positions[y]).addClass("isProhibited");
-        if ($(rock.positions[y]).hasClass("visitedTile")){
-          $(rock.positions[y]).text("\u26F0");
+      for (var y =0; y<rock.position.length; y++){
+        $(rock.position[y]).addClass("isProhibited");
+        if ($(rock.position[y]).hasClass("visitedTile")){
+          $(rock.position[y]).text("\u26F0");
         }
       }
     });
@@ -132,7 +132,7 @@ var riverman = {
   }
 }
 var water = {
-  positions: ["#t3323","#t3223", "#t3123", "#t3122", "#t3022", "#t2922",
+  position: ["#t3323","#t3223", "#t3123", "#t3122", "#t3022", "#t2922",
               "#t2821", "#t2720", "#t2620", "#t2519", "#t2520", "#t2419",
               "#t2320", "#t2221", "#t2122", "#t2123", "#t2224", "#t2125",
               "#t2025", "#t1925", "#t1825", "#t1726", "#t1626", "#t1527",
@@ -140,35 +140,35 @@ var water = {
   generateWater: function(){
     $(document).ready(function(){
       for (var x = 3511; x < 3515; x++){
-        water.positions.push("#t" + x);
+        water.position.push("#t" + x);
       }
       for (var x = 3610; x < 3612; x++){
-        water.positions.push("#t" + x);
+        water.position.push("#t" + x);
       }
       for (var x = 3614; x < 3617; x++){
-        water.positions.push("#t" + x);
+        water.position.push("#t" + x);
       }
       for (var x = 3615; x < 3619; x++){
-        water.positions.push("#t" + x);
+        water.position.push("#t" + x);
       }
       for (var x = 3519; x < 3520; x++){
-        water.positions.push("#t" + x);
+        water.position.push("#t" + x);
       }
       for (var x = 3420; x < 3423; x++){
-        water.positions.push("#t" + x);
+        water.position.push("#t" + x);
       }
       for (var x = 3510; x < 3515; x++){
-        water.positions.push("#t" + x);
+        water.position.push("#t" + x);
       }
     });
   },
   exist: function(){
     water.generateWater();
     $(document).ready(function(){
-      for (var x = 0; x< water.positions.length; x++){
-        $(water.positions[x]).addClass("isProhibited");
-        if ($(water.positions[x]).hasClass("visitedTile")){
-          $(water.positions[x]).text("\uD83C\uDF0A");
+      for (var x = 0; x< water.position.length; x++){
+        $(water.position[x]).addClass("isProhibited");
+        if ($(water.position[x]).hasClass("visitedTile")){
+          $(water.position[x]).text("\uD83C\uDF0A");
         }
       }
     });
@@ -201,12 +201,12 @@ let oldwoman = {
   }
 }
 let ghost = {
-  positions: ["#t3320"],
+  position: ["#t3320"],
   exist: function(){
     $(document).ready(function(){
-      for (let x = 0; x< ghost.positions.length; x++){
-        if($(ghost.positions[x]).hasClass("visitedTile")){
-          $(ghost.positions[x]).text("\uD83D\uDC7B");
+      for (let x = 0; x< ghost.position.length; x++){
+        if($(ghost.position[x]).hasClass("visitedTile")){
+          $(ghost.position[x]).text("\uD83D\uDC7B");
         }
       }
     });
@@ -332,25 +332,25 @@ var lumberjack = {
 }
 //oracle tells you where you need to start your garden.
 var tree = {
-  positions: ["#t2014","#t2015","#t2113","#t2016","#t2017","#t2114","#t2115", "#t1220", "#t3031"],
+  position: ["#t2014","#t2015","#t2113","#t2016","#t2017","#t2114","#t2115", "#t1220", "#t3031"],
   exist: function(){
     $(document).ready(function(){
       if ($("#t2113").hasClass("visitedTile")) $("#t2113").text("\uD83C\uDF32");
       for (var x =2014; x<2018; x++){
         if ($("#t" + x).hasClass("visitedTile")){
-          $(tree.positions).push("#t"+x);
+          $(tree.position).push("#t"+x);
           $("#t" + x).text("\uD83C\uDF32");
         }
       }
       for (var x =2115; x<2120; x++){
         if ($("#t" + x).hasClass("visitedTile")){
-          $(tree.positions).push("#t"+x);
+          $(tree.position).push("#t"+x);
           $("#t" + x).text("\uD83C\uDF32");
         }
       }
       for (var x =2214; x<2221; x++){
         if ($("#t" + x).hasClass("visitedTile")){
-          $(tree.positions).push("#t"+x);
+          $(tree.position).push("#t"+x);
           $("#t" + x).text("\uD83C\uDF32");
         }
       }
@@ -399,6 +399,9 @@ var interact = function(){
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
+  else if (bug.position.indexOf(sprite.position) > -1){
+    $("#storyline").prepend("</br>\uD83D\uDC1B Pick Up Bug? Y/N");
+  }
   else if (mushroom.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDF44 Pick Mushroom?  Y/N");
   }
@@ -413,13 +416,13 @@ var interact = function(){
   else if (sprite.position == oldwoman.position){
     oldwoman.dialogue();
   }
-  else if (ghost.positions.indexOf(sprite.position) > -1){
+  else if (ghost.position.indexOf(sprite.position) > -1){
     ghost.dialogue();
   }
   else if (sprite.position == lumberjack.position){
     lumberjack.dialogue();
   }
-  else if (beast.positions.indexOf(sprite.position) > -1){
+  else if (beast.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br> You are being attacked!");
     if (beast.hp > 0){
       attackSprite();
@@ -438,9 +441,9 @@ var interact = function(){
   else if (house.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDFE0 Welcome home! Take a nap? Y/N");
   }
-  else if (tree.positions.indexOf(sprite.position) > -1){
+  else if (tree.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDF32 Cut tree? Y/N");
-    console.log(tree.positions);
+    console.log(tree.position);
     console.log(sprite.position);
   }
   else if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
@@ -463,6 +466,14 @@ var interact = function(){
           }
           break;
         }
+        else if (bug.position.indexOf(sprite.position) > -1){
+          $("#storyline").prepend("</br>\uD83D\uDC1B You picked up a bug");
+          my_inv["bug"]["qty"] += 1;
+          inventory.displayInventory();
+          let bugPosition = bug.position.indexOf(sprite.position);
+           bug.position.splice(bugPosition, 1);
+          break;
+        }
         else if (mushroom.position.indexOf(sprite.position) >= 0){
           $("#storyline").prepend("</br> You picked a mushroom!");
           my_inv["mushroom"]["qty"] += 1;
@@ -476,7 +487,7 @@ var interact = function(){
           mailbox.hasMsg = false;
           break;
         }
-        else if (tree.positions.indexOf(sprite.position) >= 0){
+        else if (tree.position.indexOf(sprite.position) >= 0){
           $("#storyline").prepend("</br> Chop, Chop, Chop!");
           my_inv["wood"]["qty"] += 1;
           inventory.displayInventory();
@@ -498,7 +509,7 @@ var interact = function(){
     });
 }
 var beast = {
-  positions: ["#t1417","#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
+  position: ["#t1417","#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   hp: 30
 }
 let bug = {
@@ -553,9 +564,9 @@ var attacking = function(){
   stats.life = stats.life - createHit();
   $("#storyline").prepend("</br> Your HP: " + stats.life);
   $("#stats-data").text("\u2764"+ " " +stats.life);
-  if ((beast.positions.indexOf(sprite.position) <= -1)){ //no longer on same tile
+  if ((beast.position.indexOf(sprite.position) <= -1)){ //no longer on same tile
     clearInterval(interval);
-    console.log(beast.positions[0], sprite.position, "cleared");
+    console.log(beast.position[0], sprite.position, "cleared");
   }
   if (stats.life <= 0){ //you die
     $("#storyline").prepend("</br> You died!");
@@ -580,17 +591,17 @@ var sprite = {
       switch(e.which) {
           case 32: //space bar
           e.preventDefault();
-          if (beast.positions.indexOf(sprite.position) > -1 && my_inv["sword"]["qty"] == 0){
+          if (beast.position.indexOf(sprite.position) > -1 && my_inv["sword"]["qty"] == 0){
             $("#storyline").prepend("</br> Your attack is futile - if only you had a weapon of some kind.");
           }
-          else if (beast.positions.indexOf(sprite.position) > -1 && my_inv["sword"]["qty"] > 0){ //if on a beast tile
+          else if (beast.position.indexOf(sprite.position) > -1 && my_inv["sword"]["qty"] > 0){ //if on a beast tile
 console.log("sword words");
             determineHit(beast.hp)
             if (beast.hp > 0){
               $("#storyline").prepend("</br> Monster HP: " + beast.hp);
             }
             else if (beast.hp <= 0){ //beast dead
-              let beastLocation = beast.positions.indexOf(sprite.position);
+              let beastLocation = beast.position.indexOf(sprite.position);
               let bearLocation = bears.position.indexOf(sprite.position);
               if (bears.position.indexOf(sprite.position) > -1){ //bears
                 bears.bearsKilled += 1
@@ -606,8 +617,8 @@ console.log("sword words");
               my_inv["money"]["qty"] += 1;
               inventory.displayInventory();
               $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
-              beast.positions.splice(beastLocation, 1);
-              console.log("beast", beast.positions);
+              beast.position.splice(beastLocation, 1);
+              console.log("beast", beast.position);
               console.log("bear", bears.position);
               console.log("popped");
               clearInterval(interval);
@@ -723,6 +734,10 @@ var my_inv = {
   peach:{
     qty: 0,
     symbol: "\uD83C\uDF4A"
+  },
+  bug:{
+    qty:0,
+    symbol: "\uD83D\uDC1B"
   },
   pick:{
     qty: 0,
