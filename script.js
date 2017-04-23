@@ -434,7 +434,7 @@ var interact = function(){
   else if (sprite.position == riverman.position){
     riverman.dialogue();
   }
-  else if (sprite.position == house.position){
+  else if (house.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDFE0 Welcome home! Take a nap? Y/N");
   }
   else if (tree.positions.indexOf(sprite.position) > -1){
@@ -452,8 +452,14 @@ var interact = function(){
   $(document).one("keydown", function(e){
     switch(e.which){
         case 89: //y
-        if (sprite.position == house.position){
+        if (house.position.indexOf(sprite.position) >= 0){
           $("#storyline").prepend("</br> Zzz...zzz...zzz...");
+          if (store.isOpen == false){
+            store.isOpen = true;
+          }
+          else{
+            store.isOpen = false;
+          }
           break;
         }
         else if (mushroom.position.indexOf(sprite.position) >= 0){
