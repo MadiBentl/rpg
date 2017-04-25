@@ -402,6 +402,9 @@ var interact = function(){
   else if (bug.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83D\uDC1B Pick Up Bug? Y/N");
   }
+  else if (bag.position.indexOf(sprite.position) > -1){
+    $("#storyline").prepend("</br>\uD83D\uDC5B You found a bag. Looks inside? Y/N");
+  }
   else if (mushroom.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDF44 Pick Mushroom?  Y/N");
   }
@@ -465,6 +468,12 @@ var interact = function(){
             store.isOpen = false;
           }
           break;
+        }
+        else if (bag.position.indexOf(sprite.position) > -1){
+          $("#storyline").prepend("</br>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0");
+          my_inv["money"]["qty"] += 5;
+          bag.position = [];
+          inventory.displayInventory();
         }
         else if (bug.position.indexOf(sprite.position) > -1){
           $("#storyline").prepend("</br>\uD83D\uDC1B You picked up a bug");
