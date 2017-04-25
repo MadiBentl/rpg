@@ -536,7 +536,7 @@ let bug = {
   newDay: function(){
     console.log(bug.position);
     let bugArrays =[["#t2415", "#t3310"],["#t2921", "#t2516"],["#t1910", "#t1911"]];
-    let x = Math.floor(Math.random() * (3))
+    let x = Math.floor(Math.random() * (3));
     bug.position.splice(0, 2, bugArrays[x][0], bugArrays[x][1]);
     console.log(Array.isArray(bug.position));
     console.log(bug.position, x);
