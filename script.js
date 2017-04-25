@@ -461,6 +461,7 @@ var interact = function(){
         case 89: //y
         if (house.position.indexOf(sprite.position) >= 0){
           $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
+          bug.position = bug.newDay();
           if (store.isOpen == false){
             store.isOpen = true;
           }
@@ -531,6 +532,14 @@ let bug = {
         }
       }
     });
+  },
+  newDay: function(){
+    console.log(bug.position);
+    let bugArrays =[["#t2415", "#t3310"],["#t2921", "#t2516"],["#t1910", "#t1911"]];
+    let x = Math.floor(Math.random() * (3))
+    bug.position.splice(0, 2, bugArrays[x][0], bugArrays[x][1]);
+    console.log(Array.isArray(bug.position));
+    console.log(bug.position, x);
   }
 }
 var bag = {
