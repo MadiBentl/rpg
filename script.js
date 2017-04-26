@@ -525,6 +525,7 @@ var beast = {
 let bug = {
   position: ["#t2415", "#t3310"],
   exist: function(){
+    console.log(bug.position);
     $(document).ready(function(){
       for (let x = 0; x <= bug.position.length; x++){
         if ($(bug.position[x]).hasClass("visitedTile")){
@@ -537,9 +538,12 @@ let bug = {
     console.log(bug.position);
     let bugArrays =[["#t2415", "#t3310"],["#t2921", "#t2516"],["#t1910", "#t1911"]];
     let x = Math.floor(Math.random() * (3));
-    bug.position.splice(0, 2, bugArrays[x][0], bugArrays[x][1]);
-    console.log(Array.isArray(bug.position));
+    console.log(x);
+    bug.position = bugArrays[x];
+    //get rid of bugs that already exist. 
     console.log(bug.position);
+    //bug.position.splice(0, 2, bugArrays[x][0], bugArrays[x][1]);
+    bug.exist();
   }
 }
 var bag = {
