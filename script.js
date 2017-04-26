@@ -461,7 +461,7 @@ var interact = function(){
         case 89: //y
         if (house.position.indexOf(sprite.position) >= 0){
           $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
-          bug.position = bug.newDay();
+          bug.newDay();
           if (store.isOpen == false){
             store.isOpen = true;
           }
@@ -539,7 +539,7 @@ let bug = {
     let x = Math.floor(Math.random() * (3));
     bug.position.splice(0, 2, bugArrays[x][0], bugArrays[x][1]);
     console.log(Array.isArray(bug.position));
-    console.log(bug.position, x);
+    console.log(bug.position);
   }
 }
 var bag = {
