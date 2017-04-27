@@ -24,13 +24,13 @@ h2 {
 #inventory {
   height: 600px;
   width: 200px;
-  background-color: green;
+  background-color: #32a5fc;
   float: left; }
 
 #gameCommunications {
   height: 600px;
   width: 200px;
-  background-color: orange;
+  background-color: #32a5fc;
   float: left; }
 
 #storyline {
@@ -59,6 +59,6 @@ h2 {
   overflow: hidden; }
 
 .visitedTile {
-  background-color: grey !important; }
+  background-color: #e5e5ea !important; }
 
 /*# sourceMappingURL=style.css.map */

@@ -27,12 +27,12 @@ h2{
 }
 #inventory{
   @include side-dimensions;
-  background-color: green;
+  background-color: #32a5fc;
   float:left;
 }
 #gameCommunications{
   @include side-dimensions;
-  background-color: orange;
+  background-color: #32a5fc;
   float:left;
 }
 #storyline{
@@ -61,7 +61,7 @@ h2{
   overflow: hidden;
 }
 .visitedTile {
-  background-color: grey !important;
+  background-color: #e5e5ea !important;
 }
 .currentLocation{
 
