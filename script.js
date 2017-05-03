@@ -515,7 +515,15 @@ var interact = function(){
           break;
         }
         break;
+      case 66: //b
+      if (sprite.position == store.position){
+        if (store.isOpen == true){
+          $("#storyline").prepend("</br> What would you like to buy?")
+                         .prepend("</br>" + store.itemsForSale);
+        }
       }
+      break;
+    }
     });
 }
 var beast = {
