@@ -809,8 +809,10 @@ var inventory = {
   displayInventory: function(){
     var x = 1;
     for (var prop in my_inv){
-      $("#i" + x).text(my_inv[prop]["symbol"] + my_inv[prop]["qty"]);
-      x++;
+      if (my_inv[prop]["qty"] > 0){
+        $("#i" + x).text(my_inv[prop]["symbol"] + my_inv[prop]["qty"]);
+        x++;
+      }
     }
   }
 }
