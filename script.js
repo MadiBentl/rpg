@@ -264,7 +264,7 @@ let store = {
   exist: function(){
     $(document).ready(function(){
       if($(store.position).hasClass("visitedTile")){
-        $(store.position).text("\uD83C\uDFE3");
+        $(store.position).text("\uD83C\uDFEA");
       }
     });
   }
