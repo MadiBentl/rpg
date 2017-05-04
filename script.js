@@ -827,6 +827,10 @@ var inventory = {
 var buildSideBar = function(){
   $("#gameInfo").append("<div id='inventory'></div>");
 }
+var buildLogo = function(){
+  $("#inventory").append("<div id= 'logo'></div>");
+  $("#logo").append("<h2>\u2694EmojiQuest\uD83D\uDCA9</h2>");
+}
 var buildStats = function(){
   $("#inventory").append("<div id= 'stats'></div>");
   $("#stats").append("<h2>Stats</h2>").append("<div class = 'stat' id = 'stats-data'></div>")
@@ -851,6 +855,7 @@ var buildStoryLine = function(){
 var buildGui = function(){
   buildBoard();
   buildSideBar();
+  buildLogo();
   buildStats();
   buildInventory();
   buildStoryLine();
