@@ -45,6 +45,9 @@ var mailbox ={
   messages:{
     1: "WARNING: Watch out for black tiles, as the unknown world is full of monsters!"
   },
+  remindMsg: function(){
+    $("#storyline").prepend("</br>\uD83D\uDCEC You've Got Mail. Checkout Your Mailbox to Read it.");
+  },
   msgCount: 1
 }
 var house = {
