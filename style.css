@@ -27,30 +27,30 @@ h2 {
 #inventory {
   height: 600px;
   width: 200px;
-  background: #32a5fc;
+  background: #40F9E7;
   /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#42b0fb, #32a5fc);
+  background: -webkit-linear-gradient(left top, #40F9E7, #F9BA25);
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#42b0fb, #32a5fc);
+  background: -o-linear-gradient(bottom right, #40F9E7, #F9BA25);
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#42b0fb, #32a5fc);
+  background: -moz-linear-gradient(bottom right, #40F9E7 #F9BA25);
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#42b0fb, #32a5fc);
+  background: linear-gradient(to bottom right, #40F9E7, #F9BA25);
   /* Standard syntax */
   float: left; }
 
 #gameCommunications {
   height: 600px;
   width: 200px;
-  background: #32a5fc;
+  background: #40F9E7;
   /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#42b0fb, #32a5fc);
+  background: -webkit-linear-gradient(left top, #40F9E7, #F9BA25);
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#42b0fb, #32a5fc);
+  background: -o-linear-gradient(bottom right, #40F9E7, #F9BA25);
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#42b0fb, #32a5fc);
+  background: -moz-linear-gradient(bottom right, #40F9E7 #F9BA25);
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#42b0fb, #32a5fc);
+  background: linear-gradient(to bottom right, #40F9E7, #F9BA25);
   /* Standard syntax */
   float: left; }
 
