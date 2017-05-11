@@ -465,6 +465,7 @@ var interact = function(){
         if (house.position.indexOf(sprite.position) >= 0){
           $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
           bug.newDay();
+          mushroom.newDay();
           if (store.isOpen == false){
             store.isOpen = true;
           }
@@ -570,6 +571,10 @@ var bag = {
 }
 var mushroom = {
   position: ["#t1710", "#t1713", "#t1811", "#t2010","#t2211"],
+  newDay: function(){
+    mushroom.position = ["#t1710", "#t1713", "#t1811", "#t2010","#t2211"];
+    mushroom.exist();
+  },
   exist: function(){
     $(document).ready(function(){
       for (let x = 0; x <= mushroom.position.length; x++){
@@ -594,7 +599,7 @@ var attackSprite = function(){
 var attacking = function(){
   //beast.hp = 30;
   stats.life = stats.life - createHit();
-  $("#storyline").prepend("</br> Your HP: " + stats.life);
+  $("#storyline").prepend("</br> \u2764 Your HP: " + stats.life);
   $("#stats-data").text("\u2764"+ " " +stats.life);
   if ((beast.position.indexOf(sprite.position) <= -1)){ //no longer on same tile
     clearInterval(interval);
@@ -630,7 +635,7 @@ var sprite = {
 console.log("sword words");
             determineHit(beast.hp)
             if (beast.hp > 0){
-              $("#storyline").prepend("</br> Monster HP: " + beast.hp);
+              $("#storyline").prepend("</br> \uD83D\uDC32 \u2764 Monster HP: " + beast.hp);
             }
             else if (beast.hp <= 0){ //beast dead
               let beastLocation = beast.position.indexOf(sprite.position);
