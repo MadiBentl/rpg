@@ -840,8 +840,8 @@ var buildLogo = function(){
   $("#logo").append("<h2>\u2694EmojiQuest\uD83D\uDCA9</h2>");
 }
 var buildStats = function(){
-  $("#inventory").append("<div id= 'stats'></div>");
-  $("#stats").append("<h3>Stats</h3>").append("<div class = 'stat' id = 'stats-data'></div>")
+  $("#inventory").append("<h3>Stats</h3>").append("<div id= 'stats'></div>");
+  $("#stats").append("<div class = 'stat' id = 'stats-data'></div>")
                                       .append("<div class = 'stat' id = 'stats-monsters'></div>")
                                       .append("<div class = 'stat' id = 'stats-bears'></div>")
   $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
