@@ -841,7 +841,7 @@ var buildLogo = function(){
 }
 var buildStats = function(){
   $("#inventory").append("<div id= 'stats'></div>");
-  $("#stats").append("<h2>Stats</h2>").append("<div class = 'stat' id = 'stats-data'></div>")
+  $("#stats").append("<h3>Stats</h3>").append("<div class = 'stat' id = 'stats-data'></div>")
                                       .append("<div class = 'stat' id = 'stats-monsters'></div>")
                                       .append("<div class = 'stat' id = 'stats-bears'></div>")
   $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
@@ -849,7 +849,7 @@ var buildStats = function(){
   $("#stats-data").text("\u2764"+ " " +stats.life);
 }
 var buildInventory= function(){
-  $("#inventory").append("<h2>Inventory</h2>").append("<div id='inventory-grid'></div>");
+  $("#inventory").append("<h3>Inventory</h3>").append("<div id='inventory-grid'></div>");
   for (var x = 1; x < 16; x++){
     $("#inventory-grid").append("<div class='inventory-item' id = 'i"+ x + "'></div>");
   }
@@ -857,8 +857,8 @@ var buildInventory= function(){
 var buildStoryLine = function(){
   $("#gameCommunications").append("<div id = 'story'></div>")
                           .append("<div id = 'quests'></div>")
-  $("#story").append("<h2>Story</h2>").append("<div id= 'storyline'></div>")
-  $("#quests").append("<h2>Quests</h2>");
+  $("#story").append("<h3>Story</h3>").append("<div id= 'storyline'></div>")
+  $("#quests").append("<h3>Quests</h3>");
 }
 var buildGui = function(){
   buildBoard();
