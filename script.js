@@ -429,7 +429,7 @@ var interact = function(){
     lumberjack.dialogue();
   }
   else if (beast.position.indexOf(sprite.position) > -1){
-    $("#storyline").prepend("</br> You are being attacked!");
+    $("#storyline").prepend("</br>\u2694 \uD83D\uDC32 You are being attacked!");
     if (beast.hp > 0){
       attackSprite();
       console.log("Attacking");
