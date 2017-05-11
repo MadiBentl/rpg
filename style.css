@@ -59,31 +59,32 @@ h2, h3 {
   overflow: auto; }
 
 #quests {
-  height: 180px; }
+  height: 152px; }
 
 #gameCommunications > div {
   overflow: auto;
-  border: 2px solid black;
-  margin: 5px; }
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 5px;
+  margin: 8px; }
 
 .stat {
   display: inline;
   margin: 10px; }
 
 .inventory-item {
-  height: 60px;
-  width: 60px;
+  height: 56px;
+  width: 56px;
   display: inline-block;
   font-size: xx-large;
   background-color: rgba(255, 255, 255, 0.6) !important;
   border-radius: 5px;
-  margin-left: 5px;
+  margin-left: 8px;
   overflow: hidden; }
 
 #stats {
   background-color: rgba(255, 255, 255, 0.6) !important;
   border-radius: 5px;
-  margin: 5px; }
+  margin: 8px; }
 
 .visitedTile {
   background-color: #e5e5ea !important; }

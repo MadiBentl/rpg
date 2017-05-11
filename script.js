@@ -855,10 +855,11 @@ var buildInventory= function(){
   }
 };
 var buildStoryLine = function(){
-  $("#gameCommunications").append("<div id = 'story'></div>")
+  $("#gameCommunications").append("<h3>Story</h3>")
+                          .append("<div id = 'story'></div>")
+                          .append("<h3>Quests</h3>")
                           .append("<div id = 'quests'></div>")
-  $("#story").append("<h3>Story</h3>").append("<div id= 'storyline'></div>")
-  $("#quests").append("<h3>Quests</h3>");
+  $("#story").append("<div id= 'storyline'></div>")
 }
 var buildGui = function(){
   buildBoard();
