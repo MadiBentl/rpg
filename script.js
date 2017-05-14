@@ -25,6 +25,10 @@ var stats = {
   },
   assessLife: function(){
     $(sprite.newPosition).hasClass("garden") ? stats.resetLife(30) : stats.drainLife(1);
+  },
+  boostHP: function(num){
+    stats.life += num;
+    $("#stats-data").text("\u2764"+ " " +stats.life);
   }
 }
 var prohibit = function(tile){
@@ -254,7 +258,7 @@ let farmer = {
     }
     else if (fruitTree.isSafe == true){
       $("#storyline").prepend(`</br> \uD83D\uDC69 \uD83C\uDF3E: Thank you so much for saving my orchard from
-        those evil bears - please feel free to pick peaches from my trees whenever you like!
+        those evil bears - please feel free to pick peaches from my trees whenever you like! Peaches will give you +10hp - press P to eat a peach.
         You can keep the sword too!`);
       fruitTree.canPick = true;
     }
@@ -570,6 +574,13 @@ var interact = function(){
           }
         break;
 
+        case 80: //p
+        if (my_inv["peach"]["qty"] > 0){
+          stats.boostHP(10);
+          my_inv["peach"]["qty"] -= 1;
+          inventory.displayInventory();
+        }
+        break;
 
 
       case 66: //b
