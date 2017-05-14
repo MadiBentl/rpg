@@ -700,12 +700,13 @@ var goFishing = function(){
   let chanceOfCatchingAFish = Math.floor(Math.random() * 3);
   let caughtOctopus = Math.floor(Math.random() * 10);
   if (my_inv["fishingPole"]["qty"] > 0 && my_inv["bug"]["qty"] > 0){//&& my_inv["bug"]["qty"] > 0){
+    console.log(caughtOctopus);
     if (caughtOctopus == 9){
       my_inv["octopus"]["qty"] += 1;
       my_inv["bug"]["qty"] -= 1;
       $("#storyline").prepend("<br> You caught an Octopus");
     }
-    else if (caughtOctopus <= 8 || caughtOctopus >= 5){
+    else if (caughtOctopus <= 8 && caughtOctopus >= 5){
       my_inv["tuna"]["qty"] += 1;
       my_inv["bug"]["qty"] -= 1;
       $("#storyline").prepend("<br> You caught a Tuna");
@@ -809,9 +810,10 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
-            //if ($(sprite.newPosition).text() == "\uD83C\uDF0A"){
+            if (!$(sprite.newPosition).hasClass("fished")){
               goFishing();
-            //}
+              $(sprite.newPosition).addClass("fished");
+            }
             miscellaneous();
           }
           break;
@@ -861,9 +863,10 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
-          //  if ($(sprite.newPosition).text() == "\uD83C\uDF0A"){
+            if (!$(sprite.newPosition).hasClass("fished")){
               goFishing();
-            //}
+              $(sprite.newPosition).addClass("fished");
+            }
             miscellaneous();
           }
           break;
@@ -887,6 +890,7 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
+            goFishing();
             miscellaneous();
           }
           break;
