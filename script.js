@@ -375,19 +375,14 @@ var generateRandomItem = function(){
       my_inv[possibleItems[randomItem]]["qty"] += 1;
       inventory.displayInventory();
     }
-    console.log(housesToSearch.length);
     housesToSearch.splice(housesToSearch.indexOf(sprite.position), 1);
-    console.log(housesToSearch.length);
   }
-  console.log(receivedItems, receivedItemsEmojis);
-  receivedItemsEmojis = receivedItemsEmojis.join("");
   if (receivedItems.length > 0){
-    $("#storyline").prepend("</br> You Find: " + receivedItemsEmojis);
+    $("#storyline").prepend("</br> You Find: " + receivedItemsEmojis.join(""));
   }
   else{
     $("#storyline").prepend("</br> You've already searched this house");
   }
-
 }
 var buildGarden = function(){
   $(document).ready(function(){
