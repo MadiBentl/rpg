@@ -449,7 +449,13 @@ var interact = function(){
     riverman.dialogue();
   }
   else if (house.position.indexOf(sprite.position) > -1){
-    $("#storyline").prepend("</br>\uD83C\uDFE0 Welcome home! Take a nap? Y/N");
+    console.log("actives");
+    if ($(sprite.position).hasClass("garden")){
+      $("#storyline").prepend("</br>\uD83C\uDFE0 Welcome home! Take a nap? Y/N");
+    }
+    else{
+      $("#storyline").prepend("</br>\uD83C\uDFE0 Search House? Y/N");
+    }
   }
   else if (tree.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDF32 Cut tree? Y/N");
