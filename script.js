@@ -370,11 +370,13 @@ var generateRandomItem = function(){
     let randomItem = Math.floor(Math.random() * 4)
     receivedItems.push(possibleItems[randomItem]);
     receivedItemsEmojis.push(my_inv[possibleItems[randomItem]]["symbol"]);
+    my_inv[possibleItems[randomItem]]["qty"] += 1;
+    inventory.displayInventory();
   }
 
-  console.log(receivedItems);
-  console.log(receivedItemsEmojis);
-  $("#storyline").prepend("</br> You Find: ");
+  console.log(receivedItems, receivedItemsEmojis);
+  receivedItemsEmojis = receivedItemsEmojis.join(",");
+  $("#storyline").prepend("</br> You Find: " + receivedItemsEmojis);
 }
 var buildGarden = function(){
   $(document).ready(function(){
