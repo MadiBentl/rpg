@@ -386,7 +386,7 @@ var generateRandomItem = function(){
       receivedItemsEmojis.push("\uD83C\uDFA3");
       my_inv["fishingPole"]["qty"] += 1;
       inventory.displayInventory();
-      $("#storyline").prepend("</br>\uD83C\uDFA3 You found a fishing rod! Press F to fish.");
+      $("#storyline").prepend("</br>\uD83C\uDFA3 You found a fishing rod! Now to find some bait.");
     }
     housesToSearch.splice(housesToSearch.indexOf(sprite.position), 1);
   }
