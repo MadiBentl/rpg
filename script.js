@@ -378,6 +378,7 @@ var miscellaneous = function(){
   store.exist();
   bug.exist();
   mushroom.exist();
+  seed.exist();
   ghost.exist();
   riverman.exist();
   tree.exist();
@@ -407,6 +408,9 @@ var interact = function(){
   }
   else if (bag.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83D\uDC5B You found a bag. Looks inside? Y/N");
+  }
+  else if (seed.position.indexOf(sprite.position) > -1){
+    $("#storyline").prepend("</br>\uD83C\uDF30 Take Seed?  Y/N");
   }
   else if (mushroom.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDF44 Pick Mushroom?  Y/N");
@@ -487,6 +491,13 @@ var interact = function(){
             let bugPosition = bug.position.indexOf(sprite.position);
              bug.position.splice(bugPosition, 1);
           //  break;
+          }
+          else if (seed.position.indexOf(sprite.position) > -1){
+            $("#storyline").prepend("</br>\uD83C\uDF30 You pick up the seed. I wonder what this is for!");
+            my_inv["seed"]["qty"] += 1;
+            inventory.displayInventory();
+            let seedPosition = seed.position.indexOf(sprite.position);
+            seed.position.splice(seedPosition, 1);
           }
           else if (mushroom.position.indexOf(sprite.position) >= 0){
             $("#storyline").prepend("</br> You picked a mushroom!");
@@ -577,6 +588,22 @@ var bag = {
       for (let x = 0; x<= bag.position.length; x++){
         if ($(bag.position[x]).hasClass("visitedTile")){
           $(bag.position[x]).text("\uD83D\uDC5B");
+        }
+      }
+    });
+  }
+}
+let seed = {
+  position: ["#t3419","#t3517"],
+  newDay: function(){
+    seed.position = ["#t3419","#t3517"],
+    seed.exist();
+  },
+  exist: function(){
+    $(document).ready(function(){
+      for (let x = 0; x <= seed.position.length; x++){
+        if ($(seed.position[x]).hasClass("visitedTile")){
+          $(seed.position[x]).text("\uD83C\uDF30");
         }
       }
     });
