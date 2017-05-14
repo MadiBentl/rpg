@@ -360,22 +360,34 @@ var tree = {
     });
   }
 }
+let housesToSearch = ["#t2627","#t2829","#t2830","#t2828","#t2728","#t2628","#t2729",
+             "#t2912", "#t2813", "#t3211", "#t3113"];
 var generateRandomItem = function(){
   let numberOfItems = Math.floor(Math.random() * (4)) + 1;
-  let housesToSearch = house.position;
   let possibleItems = ["seed", "money", "wood", "mushroom"];
   let receivedItems = [];
   let receivedItemsEmojis = [];
-  for (let x = 0; x < numberOfItems; x++){
-    let randomItem = Math.floor(Math.random() * 4)
-    receivedItems.push(possibleItems[randomItem]);
-    receivedItemsEmojis.push(my_inv[possibleItems[randomItem]]["symbol"]);
-    my_inv[possibleItems[randomItem]]["qty"] += 1;
-    inventory.displayInventory();
+  if (housesToSearch.indexOf(sprite.position) > -1){
+    for (let x = 0; x < numberOfItems; x++){
+      let randomItem = Math.floor(Math.random() * 4)
+      receivedItems.push(possibleItems[randomItem]);
+      receivedItemsEmojis.push(my_inv[possibleItems[randomItem]]["symbol"]);
+      my_inv[possibleItems[randomItem]]["qty"] += 1;
+      inventory.displayInventory();
+    }
+    console.log(housesToSearch.length);
+    housesToSearch.splice(housesToSearch.indexOf(sprite.position), 1);
+    console.log(housesToSearch.length);
   }
   console.log(receivedItems, receivedItemsEmojis);
-  receivedItemsEmojis = receivedItemsEmojis.join(",");
-  $("#storyline").prepend("</br> You Find: " + receivedItemsEmojis);
+  receivedItemsEmojis = receivedItemsEmojis.join("");
+  if (receivedItems.length > 0){
+    $("#storyline").prepend("</br> You Find: " + receivedItemsEmojis);
+  }
+  else{
+    $("#storyline").prepend("</br> You've already searched this house");
+  }
+
 }
 var buildGarden = function(){
   $(document).ready(function(){
