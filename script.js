@@ -462,70 +462,83 @@ var interact = function(){
   $(document).one("keydown", function(e){
     switch(e.which){
         case 89: //y
-        if (house.position.indexOf(sprite.position) >= 0){
-          $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
-          bug.newDay();
-          mushroom.newDay();
-          if (store.isOpen == false){
-            store.isOpen = true;
+          if (house.position.indexOf(sprite.position) >= 0){
+            $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
+            bug.newDay();
+            mushroom.newDay();
+            if (store.isOpen == false){
+              store.isOpen = true;
+            }
+            else{
+              store.isOpen = false;
+            }
+            //break;
           }
-          else{
-            store.isOpen = false;
+          else if (bag.position.indexOf(sprite.position) > -1){
+            $("#storyline").prepend("</br>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0");
+            my_inv["money"]["qty"] += 5;
+            bag.position = [];
+            inventory.displayInventory();
           }
-          break;
-        }
-        else if (bag.position.indexOf(sprite.position) > -1){
-          $("#storyline").prepend("</br>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0");
-          my_inv["money"]["qty"] += 5;
-          bag.position = [];
-          inventory.displayInventory();
-        }
-        else if (bug.position.indexOf(sprite.position) > -1){
-          $("#storyline").prepend("</br>\uD83D\uDC1B You picked up a bug");
-          my_inv["bug"]["qty"] += 1;
-          inventory.displayInventory();
-          let bugPosition = bug.position.indexOf(sprite.position);
-           bug.position.splice(bugPosition, 1);
-          break;
-        }
-        else if (mushroom.position.indexOf(sprite.position) >= 0){
-          $("#storyline").prepend("</br> You picked a mushroom!");
-          my_inv["mushroom"]["qty"] += 1;
-          inventory.displayInventory();
-          let mushroomPosition = mushroom.position.indexOf(sprite.position);
-          mushroom.position.splice(mushroomPosition, 1);
-          break;
-        }
-        else if (sprite.position == mailbox.position){
-          $("#storyline").prepend("</br>" + mailbox.messages[mailbox.msgCount]);
-          mailbox.hasMsg = false;
-          break;
-        }
-        else if (tree.position.indexOf(sprite.position) >= 0){
-          $("#storyline").prepend("</br> Chop, Chop, Chop!");
-          my_inv["wood"]["qty"] += 1;
-          inventory.displayInventory();
-          break;
-        }
+          else if (bug.position.indexOf(sprite.position) > -1){
+            $("#storyline").prepend("</br>\uD83D\uDC1B You picked up a bug");
+            my_inv["bug"]["qty"] += 1;
+            inventory.displayInventory();
+            let bugPosition = bug.position.indexOf(sprite.position);
+             bug.position.splice(bugPosition, 1);
+          //  break;
+          }
+          else if (mushroom.position.indexOf(sprite.position) >= 0){
+            $("#storyline").prepend("</br> You picked a mushroom!");
+            my_inv["mushroom"]["qty"] += 1;
+            inventory.displayInventory();
+            let mushroomPosition = mushroom.position.indexOf(sprite.position);
+            mushroom.position.splice(mushroomPosition, 1);
+            //break;
+          }
+          else if (sprite.position == mailbox.position){
+            $("#storyline").prepend("</br>" + mailbox.messages[mailbox.msgCount]);
+            mailbox.hasMsg = false;
+            //break;
+          }
+          else if (tree.position.indexOf(sprite.position) >= 0){
+            $("#storyline").prepend("</br> Chop, Chop, Chop!");
+            my_inv["wood"]["qty"] += 1;
+            inventory.displayInventory();
+            //break;
+          }
         break;
 
-        case 78:
-        if (sprite.position == mailbox.position){
-          $("#storyline").prepend("</br> No mail for you.");
-          break;
-        }
-        else if (sprite.position == house.position){
-          $("#storyline").prepend("</br> I'll sleep when I'm dead.");
-          break;
-        }
+        case 78: //N
+          if (sprite.position == mailbox.position){
+            $("#storyline").prepend("</br> No mail for you.");
+            //break;
+          }
+          else if (sprite.position == house.position){
+            $("#storyline").prepend("</br> I'll sleep when I'm dead.");
+        //    break;
+          }
         break;
+
+
+
       case 66: //b
-      if (sprite.position == store.position){
-        if (store.isOpen == true){
-          $("#storyline").prepend("</br> What would you like to buy?")
-                         .prepend("</br>" + store.itemsForSale);
+        if (sprite.position == store.position){
+          if (store.isOpen == true){
+            $("#storyline").prepend("</br> What would you like to buy?")
+                           .prepend("</br>" + store.itemsForSale);
+          }
         }
-      }
+      break;
+
+      case 83: //S
+        if (sprite.position == store.position){
+          if (store.isOpen == true){
+            $("#storyline").prepend("</br> What would you like to sell? \uD83C\uDF44 : " + my_inv["mushroom"]["qty"])
+                          // break;
+          }
+        //  break;
+        }
       break;
     }
     });
