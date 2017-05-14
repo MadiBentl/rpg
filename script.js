@@ -534,7 +534,7 @@ var interact = function(){
       case 83: //S
         if (sprite.position == store.position){
           if (store.isOpen == true){
-            $("#storyline").prepend("</br> What would you like to sell? \uD83C\uDF44 : " + my_inv["mushroom"]["qty"])
+            $("#storyline").prepend("</br> What would you like to sell ($1/each)? 1 : \uD83C\uDF44");
                           // break;
           }
         //  break;
@@ -690,7 +690,12 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            if ($(sprite.position).hasClass("garden")){
+              $(sprite.position).text("\uD83D\uDC72");
+            }
+            else{
+              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            }
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
@@ -708,7 +713,12 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            if ($(sprite.position).hasClass("garden")){
+              $(sprite.position).text("\uD83D\uDC72");
+            }
+            else{
+              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            }
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")){
@@ -726,7 +736,12 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            if ($(sprite.position).hasClass("garden")){
+              $(sprite.position).text("\uD83D\uDC72");
+            }
+            else{
+              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            }
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
@@ -744,7 +759,12 @@ console.log("sword words");
             $(sprite.position).empty();
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
-            $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            if ($(sprite.position).hasClass("garden")){
+              $(sprite.position).text("\uD83D\uDC72");
+            }
+            else{
+              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+            }
             interact();
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
