@@ -487,10 +487,6 @@ var interact = function(){
   }
   else if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
     $("#storyline").prepend("</br>\uD83C\uDF51 Pick Peach? Y/N");
-    if (my_inv["peach"]["qty"] < 5){
-      my_inv["peach"]["qty"] += 1;
-      inventory.displayInventory();
-    }
   }
   $(document).one("keydown", function(e){
     switch(e.which){
@@ -550,6 +546,16 @@ var interact = function(){
             my_inv["wood"]["qty"] += 1;
             inventory.displayInventory();
             //break;
+          }
+          else if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
+            if (my_inv["peach"]["qty"] < 5){
+              my_inv["peach"]["qty"] += 1;
+              inventory.displayInventory();
+              $("#storyline").prepend("</br> \uD83C\uDF51 You pick a peach.");
+            }
+            else{
+              $("#storyline").prepend("</br> I think that's enough peaches for now.");
+            }
           }
         break;
 
