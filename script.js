@@ -373,7 +373,6 @@ var generateRandomItem = function(){
     my_inv[possibleItems[randomItem]]["qty"] += 1;
     inventory.displayInventory();
   }
-
   console.log(receivedItems, receivedItemsEmojis);
   receivedItemsEmojis = receivedItemsEmojis.join(",");
   $("#storyline").prepend("</br> You Find: " + receivedItemsEmojis);
@@ -502,7 +501,7 @@ var interact = function(){
               }
             }
             else{
-              //addcontent
+              generateRandomItem();
             }
           }
           else if (bag.position.indexOf(sprite.position) > -1){
@@ -948,7 +947,6 @@ var buildStoryLine = function(){
                           .append("<div id = 'quests'></div>")
   $("#story").append("<div id= 'storyline'></div>")
 }
-generateRandomItem();
 var buildGui = function(){
   buildBoard();
   buildSideBar();
