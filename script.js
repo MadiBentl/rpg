@@ -360,6 +360,16 @@ var tree = {
     });
   }
 }
+var generateRandomItem = function(){
+  let numberOfItems = Math.floor(Math.random() * (4)) + 1;
+  let housesToSearch = house.position;
+  let possibleItems = ["seed", "money", "wood", "mushroom"];
+  let receivedItems = [];
+  for (let x = 0; x < numberOfItems; x++){
+    receivedItems.push(possibleItems[Math.floor(Math.random() * 4)]);
+  }
+  console.log(receivedItems);
+}
 var buildGarden = function(){
   $(document).ready(function(){
     for (var x = 1715; x< 1720; x++){
@@ -449,7 +459,6 @@ var interact = function(){
     riverman.dialogue();
   }
   else if (house.position.indexOf(sprite.position) > -1){
-    console.log("actives");
     if ($(sprite.position).hasClass("garden")){
       $("#storyline").prepend("</br>\uD83C\uDFE0 Welcome home! Take a nap? Y/N");
     }
@@ -473,16 +482,20 @@ var interact = function(){
     switch(e.which){
         case 89: //y
           if (house.position.indexOf(sprite.position) >= 0){
-            $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
-            bug.newDay();
-            mushroom.newDay();
-            if (store.isOpen == false){
-              store.isOpen = true;
+            if ($(sprite.position).hasClass("garden")){
+              $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
+              bug.newDay();
+              mushroom.newDay();
+              if (store.isOpen == false){
+                store.isOpen = true;
+              }
+              else{
+                store.isOpen = false;
+              }
             }
             else{
-              store.isOpen = false;
+              //addcontent
             }
-            //break;
           }
           else if (bag.position.indexOf(sprite.position) > -1){
             $("#storyline").prepend("</br>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0");
@@ -927,6 +940,7 @@ var buildStoryLine = function(){
                           .append("<div id = 'quests'></div>")
   $("#story").append("<div id= 'storyline'></div>")
 }
+generateRandomItem();
 var buildGui = function(){
   buildBoard();
   buildSideBar();
