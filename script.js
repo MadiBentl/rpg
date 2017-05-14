@@ -386,6 +386,7 @@ var generateRandomItem = function(){
       receivedItemsEmojis.push("\uD83C\uDFA3");
       my_inv["fishingPole"]["qty"] += 1;
       inventory.displayInventory();
+      $("#storyline").prepend("</br>\uD83C\uDFA3 You found a fishing rod! Press F to fish.");
     }
     housesToSearch.splice(housesToSearch.indexOf(sprite.position), 1);
   }
@@ -694,6 +695,29 @@ var interval;
 var attackSprite = function(){
   interval = setInterval(attacking, 1000);
 }
+var goFishing = function(){
+  console.log("going fishing");
+  let chanceOfCatchingAFish = Math.floor(Math.random() * 3);
+  let caughtOctopus = Math.floor(Math.random() * 10);
+  if (my_inv["fishingPole"]["qty"] > 0 && my_inv["bug"]["qty"] > 0){//&& my_inv["bug"]["qty"] > 0){
+    if (caughtOctopus == 9){
+      my_inv["octopus"]["qty"] += 1;
+      my_inv["bug"]["qty"] -= 1;
+      $("#storyline").prepend("<br> You caught an Octopus");
+    }
+    else if (caughtOctopus <= 8 || caughtOctopus >= 5){
+      my_inv["tuna"]["qty"] += 1;
+      my_inv["bug"]["qty"] -= 1;
+      $("#storyline").prepend("<br> You caught a Tuna");
+    }
+    else if (caughtOctopus >= 1){
+      my_inv["tang"]["qty"] += 1;
+      my_inv["bug"]["qty"] -= 1;
+      $("#storyline").prepend("<br> You caught a Tang");
+    }
+  inventory.displayInventory();
+  }
+}
 var attacking = function(){
   //beast.hp = 30;
   stats.life = stats.life - createHit();
@@ -785,6 +809,9 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
+            //if ($(sprite.newPosition).text() == "\uD83C\uDF0A"){
+              goFishing();
+            //}
             miscellaneous();
           }
           break;
@@ -808,6 +835,9 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")){
             $(sprite.newPosition).addClass("visitedTile");
+            //if ($(sprite.newPosition).text() == "\uD83C\uDF0A"){
+              goFishing();
+          //  }
             miscellaneous();
           }
           break;
@@ -831,6 +861,9 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
+          //  if ($(sprite.newPosition).text() == "\uD83C\uDF0A"){
+              goFishing();
+            //}
             miscellaneous();
           }
           break;
@@ -914,7 +947,7 @@ var my_inv = {
     qty: 0,
     symbol: "\uD83D\uDC1F"
   },
-  angelfish:{
+  tang:{
     qty: 0,
     symbol: "\uD83D\uDC20"
   },
