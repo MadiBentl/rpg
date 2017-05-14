@@ -696,11 +696,9 @@ var attackSprite = function(){
   interval = setInterval(attacking, 1000);
 }
 var goFishing = function(){
-  console.log("going fishing");
   let chanceOfCatchingAFish = Math.floor(Math.random() * 3);
   let caughtOctopus = Math.floor(Math.random() * 10);
   if (my_inv["fishingPole"]["qty"] > 0 && my_inv["bug"]["qty"] > 0){//&& my_inv["bug"]["qty"] > 0){
-    console.log(caughtOctopus);
     if (caughtOctopus == 9){
       my_inv["octopus"]["qty"] += 1;
       my_inv["bug"]["qty"] -= 1;
