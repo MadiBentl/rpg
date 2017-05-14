@@ -366,6 +366,7 @@ var tree = {
 }
 let housesToSearch = ["#t2627","#t2829","#t2830","#t2828","#t2728","#t2628","#t2729",
              "#t2912", "#t2813", "#t3211", "#t3113"];
+let housesSearched = 0;
 var generateRandomItem = function(){
   let numberOfItems = Math.floor(Math.random() * (4)) + 1;
   let possibleItems = ["seed", "money", "wood", "mushroom"];
@@ -377,6 +378,13 @@ var generateRandomItem = function(){
       receivedItems.push(possibleItems[randomItem]);
       receivedItemsEmojis.push(my_inv[possibleItems[randomItem]]["symbol"]);
       my_inv[possibleItems[randomItem]]["qty"] += 1;
+      inventory.displayInventory();
+    }
+    housesSearched += 1;
+    if (housesSearched == 2){
+      receivedItems.push("fishingPole");
+      receivedItemsEmojis.push("\uD83C\uDFA3");
+      my_inv["fishingPole"]["qty"] += 1;
       inventory.displayInventory();
     }
     housesToSearch.splice(housesToSearch.indexOf(sprite.position), 1);
