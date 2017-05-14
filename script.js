@@ -222,7 +222,7 @@ let ghost = {
     }
     else if (ghost.questGiven == false && oldwoman.bookGiven == true && ghost.bookTranslated == false){
       $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.");
-      $("#quests").append("</br> - Make Fish Stew: 1 Octopus, 3 Tunas, 10 Tangs, 8 Mushrooms, 1 hot pepper.");
+      $("#quests").append("</br> - \uD83C\uDF72 Make Fish Stew: 1 Octopus, 3 Tunas, 10 Tangs, 8 Mushrooms, 1 hot pepper.");
       ghost.bookTranslated = true;
     }
     else if (ghost.bookTranslated == true && ghost.questGiven == false){
@@ -246,7 +246,7 @@ let farmer = {
       $("#storyline").prepend("</br>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1");
       my_inv["sword"]["qty"] += 1;
       inventory.displayInventory();
-      $("#quests").append("- Fight off the bears in the orchard!");
+      $("#quests").append("- \uD83D\uDC3B Fight off the bears in the orchard!");
       farmer.questGiven = true;
     }
     else if (fruitTree.isSafe == false && farmer.questGiven == true){
@@ -618,7 +618,7 @@ var sprite = {
   position: "#t1517",
   initializeSprite: function(){
     $(document).ready(function(){
-      $("#t1517").addClass("visitedTile").text("\uD83D\uDC72");
+      $("#t1517").addClass("garden").text("\uD83D\uDC72");
     });
   },
   newPosition: "",
