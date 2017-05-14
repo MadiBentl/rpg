@@ -837,9 +837,10 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")){
             $(sprite.newPosition).addClass("visitedTile");
-            //if ($(sprite.newPosition).text() == "\uD83C\uDF0A"){
+            if (!$(sprite.newPosition).hasClass("fished")){
               goFishing();
-          //  }
+              $(sprite.newPosition).addClass("fished");
+            }
             miscellaneous();
           }
           break;
@@ -890,7 +891,10 @@ console.log("sword words");
           }
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
-            goFishing();
+            if (!$(sprite.newPosition).hasClass("fished")){
+              goFishing();
+              $(sprite.newPosition).addClass("fished");
+            }
             miscellaneous();
           }
           break;
