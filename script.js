@@ -365,10 +365,16 @@ var generateRandomItem = function(){
   let housesToSearch = house.position;
   let possibleItems = ["seed", "money", "wood", "mushroom"];
   let receivedItems = [];
+  let receivedItemsEmojis = [];
   for (let x = 0; x < numberOfItems; x++){
-    receivedItems.push(possibleItems[Math.floor(Math.random() * 4)]);
+    let randomItem = Math.floor(Math.random() * 4)
+    receivedItems.push(possibleItems[randomItem]);
+    receivedItemsEmojis.push(my_inv[possibleItems[randomItem]]["symbol"]);
   }
+
   console.log(receivedItems);
+  console.log(receivedItemsEmojis);
+  $("#storyline").prepend("</br> You Find: ");
 }
 var buildGarden = function(){
   $(document).ready(function(){
