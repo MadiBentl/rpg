@@ -867,8 +867,10 @@ console.log("sword words");
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
             if (!$(sprite.newPosition).hasClass("fished")){
-              goFishing();
-              $(sprite.newPosition).addClass("fished");
+              if (water.position.indexOf(sprite.newPosition) > -1){
+                goFishing();
+                $(sprite.newPosition).addClass("fished");
+              }
             }
             miscellaneous();
           }
@@ -894,8 +896,10 @@ console.log("sword words");
           else if ($(sprite.newPosition).hasClass("isProhibited")) {
             $(sprite.newPosition).addClass("visitedTile");
             if (!$(sprite.newPosition).hasClass("fished")){
-              goFishing();
-              $(sprite.newPosition).addClass("fished");
+              if (water.position.indexOf(sprite.newPosition) > -1){
+                goFishing();
+                $(sprite.newPosition).addClass("fished");
+              }
             }
             miscellaneous();
           }
