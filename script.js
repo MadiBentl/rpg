@@ -431,6 +431,51 @@ var miscellaneous = function(){
   farmHouse.exist();
   fruitTree.exist();
 }
+var purchase = function(){
+  $(document).one("keydown", function(e){
+    switch(e.which){
+      case 49: //1
+        if (store.isOpen && store.position == sprite.position){
+          if (my_inv["money"]["qty"] > 4){
+            $("#storyline").prepend("<br> \u2615 You drink your coffee and gain 40hp!");
+            stats.life += 40;
+            my_inv["money"]["qty"] -= 5;
+            inventory.displayInventory();
+          }
+          else
+            $("#storyline").prepend("<br> You don't have enough money...");
+        }
+      break;
+
+      case 50: //2
+        if (store.isOpen && store.position == sprite.position){
+          if (my_inv["money"]["qty"] > 9){
+            $("#storyline").prepend("<br> \uD83C\uDF36 You buy a hot pepper!");
+            my_inv["pepper"]["qty"] += 1;
+            my_inv["money"]["qty"] -= 10;
+            inventory.displayInventory();
+          }
+          else {
+            $("#storyline").prepend("<br> You don't have enough money...");
+          }
+        }
+      break;
+
+      case 51: //3
+      if (store.isOpen && (store.position == sprite.position)){
+        console.log("working");
+        if (my_inv["money"]["qty"] >= 1){
+          $("#storyline").prepend("<br> \uD83C\uDF88 The cashier hands your a balloon... which you accidentally release and watch float away. Oops.");
+          inventory.displayInventory();
+        }
+        else {
+          $("#storyline").prepend("<br> You don't have enough money...");
+        }
+      }
+      break;
+    }
+  });
+}
 var interact = function(){
   if (sprite.position == mailbox.position){
     if (mailbox.hasMsg == true)
@@ -591,12 +636,12 @@ var interact = function(){
         }
         break;
 
-
       case 66: //b
         if (sprite.position == store.position){
           if (store.isOpen == true){
             $("#storyline").prepend("</br> What would you like to buy?")
                            .prepend("</br>" + store.itemsForSale);
+            purchase();
           }
         }
       break;
@@ -696,7 +741,6 @@ var attackSprite = function(){
   interval = setInterval(attacking, 1000);
 }
 var goFishing = function(){
-  let chanceOfCatchingAFish = Math.floor(Math.random() * 3);
   let caughtOctopus = Math.floor(Math.random() * 10);
   if (my_inv["fishingPole"]["qty"] > 0 && my_inv["bug"]["qty"] > 0){//&& my_inv["bug"]["qty"] > 0){
     if (caughtOctopus == 9){
@@ -913,7 +957,6 @@ console.log("sword words");
 };
 var initializeBoardElements = function(){
   rock.generateRocks();
-
   mailbox.exist();
 }
 var my_inv = {
@@ -977,9 +1020,9 @@ var my_inv = {
     qty: 0,
     symbol: "\uD83C\uDF44"
   },
-  tomato: {
+  pepper: {
     qty: 0,
-    symbol: "\uD83C\uDF45"
+    symbol: "\uD83C\uDF36"
   },
   stew: {
     qty: 0,
