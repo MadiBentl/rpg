@@ -320,6 +320,16 @@ var fire = {
     });
   }
 }
+var camp = {
+  position: "#t2318",
+  exist: function(){
+  $(document).ready(function(){
+    if ($(camp.position).hasClass("visitedTile")){
+      $(camp.position).text("\uD83C\uDFD5");
+    }
+  });
+  }
+}
 var lumberjack = {
   position: "#t2114",
   exist: function(){
@@ -431,6 +441,7 @@ var miscellaneous = function(){
   tree.exist();
   lumberjack.exist();
   fire.exist();
+  camp.exist();
   buildGarden();
   mailbox.exist();
   rock.exist();
@@ -499,6 +510,9 @@ var interact = function(){
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
+  else if (camp.position == sprite.position){
+    $("#storyline").prepend("<br> \uD83C\uDFD5 Take Nap? Y/N");
+  }
   else if (bug.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83D\uDC1B Pick Up Bug? Y/N");
   }
@@ -563,24 +577,23 @@ var interact = function(){
   $(document).one("keydown", function(e){
     switch(e.which){
         case 89: //y
-          if (house.position.indexOf(sprite.position) >= 0){
-            if ($(sprite.position).hasClass("garden")){
-              $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
-              bug.newDay();
-              mushroom.newDay();
-              if (store.isOpen == false){
-                store.isOpen = true;
-              }
-              else{
-                store.isOpen = false;
-              }
+          if ((house.position.indexOf(sprite.position) >= 0 && $(sprite.position).hasClass("garden")) ||
+              sprite.position == camp.position){
+            $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
+            bug.newDay();
+            mushroom.newDay();
+            if (store.isOpen == false){
+              store.isOpen = true;
             }
             else{
-              generateRandomItem();
+              store.isOpen = false;
             }
           }
-          else if (bag.position.indexOf(sprite.position) > -1){
-            $("#storyline").prepend("</br>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0");
+        else if (house.position.indexOf(sprite.position)){
+            generateRandomItem();
+          }
+        else if (bag.position.indexOf(sprite.position) > -1){
+          $("#storyline").prepend("</br>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0");
             my_inv["money"]["qty"] += 5;
             bag.position = [];
             inventory.displayInventory();
