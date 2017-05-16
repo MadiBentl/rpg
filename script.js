@@ -582,14 +582,10 @@ var interact = function(){
             $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
             bug.newDay();
             mushroom.newDay();
-            if (store.isOpen == false){
-              store.isOpen = true;
-            }
-            else{
-              store.isOpen = false;
-            }
+            (store.isOpen == false) ? store.isOpen = true : store.isOpen = false;
           }
-        else if (house.position.indexOf(sprite.position)){
+        else if (house.position.indexOf(sprite.position) >= 0){
+          console.log(house.position, sprite.position);
             generateRandomItem();
           }
         else if (bag.position.indexOf(sprite.position) > -1){
