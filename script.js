@@ -1061,6 +1061,9 @@ var inventory = {
         x++;
       }
     }
+    for (var x; x<=15; x++){
+      $("#i" + x).text(" ");
+    }
   }
 }
 var buildSideBar = function(){
