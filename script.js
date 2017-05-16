@@ -310,6 +310,16 @@ var oracle = {
     });
   }
 }
+var fire = {
+  position: "#t2317",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(fire.position).hasClass("visitedTile")){
+        $(fire.position).text("\uD83D\uDD25");
+      }
+    });
+  }
+}
 var lumberjack = {
   position: "#t2114",
   exist: function(){
@@ -420,6 +430,7 @@ var miscellaneous = function(){
   riverman.exist();
   tree.exist();
   lumberjack.exist();
+  fire.exist();
   buildGarden();
   mailbox.exist();
   rock.exist();
@@ -466,7 +477,10 @@ var purchase = function(){
         console.log("working");
         if (my_inv["money"]["qty"] >= 1){
           $("#storyline").prepend("<br> \uD83C\uDF88 The cashier hands your a balloon... which you accidentally release and watch float away. Oops.");
+          my_inv["money"]["qty"] -= 1;
+          console.log(my_inv);
           inventory.displayInventory();
+          console.log(my_inv);
         }
         else {
           $("#storyline").prepend("<br> You don't have enough money...");
