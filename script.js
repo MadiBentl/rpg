@@ -511,7 +511,8 @@ var interact = function(){
     }
   }
   else if(sprite.position == fire.position){
-    if (my_inv["tang"]["qty"] >= 10 && my_inv["tuna"]["qty"] >= 3 && my_inv["pepper"]["qty"] >=1 && my_inv["octopus"]["qty"] >= 1){
+    if (my_inv["mushroom"]["qty"] >= 8 && my_inv["tang"]["qty"] >= 10 && my_inv["tuna"]["qty"] >= 3 && my_inv["pepper"]["qty"] >=1 && my_inv["octopus"]["qty"] >= 1){
+      my_inv["mushroom"]["qty"] -= 8;
       my_inv["tang"]["qty"] -= 10;
       my_inv["tuna"]["qty"] -= 3;
       my_inv["pepper"]["qty"] -= 1;
