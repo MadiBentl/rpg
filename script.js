@@ -510,6 +510,19 @@ var interact = function(){
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
+  else if(sprite.position == fire.position){
+    if (my_inv["tang"]["qty"] >= 10 && my_inv["tuna"]["qty"] >= 3 && my_inv["pepper"]["qty"] >=1 && my_inv["octopus"]["qty"] >= 1){
+      my_inv["tang"]["qty"] -= 10;
+      my_inv["tuna"]["qty"] -= 3;
+      my_inv["pepper"]["qty"] -= 1;
+      my_inv["octopus"]["qty"] -= 1;
+      inventory.displayInventory();
+      $("#storyline").prepend("<br> \uD83C\uDF72 You throw the tuna, tang, pepper and octopus on the fire and make a tasty Fish Soup!")
+    }
+    else{
+      $("#storyline").prepend("<br> \uD83D\uDD25 Ouch! That fire sure is toasty!");
+    }
+  }
   else if (camp.position == sprite.position){
     $("#storyline").prepend("<br> \uD83C\uDFD5 Take Nap? Y/N");
   }
