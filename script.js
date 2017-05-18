@@ -485,13 +485,10 @@ var purchase = function(){
 
       case 51: //3
       if (store.isOpen && (store.position == sprite.position)){
-        console.log("working");
         if (my_inv["money"]["qty"] >= 1){
           $("#storyline").prepend("<br> \uD83C\uDF88 The cashier hands your a balloon... which you accidentally release and watch float away. Oops.");
           my_inv["money"]["qty"] -= 1;
-          console.log(my_inv);
           inventory.displayInventory();
-          console.log(my_inv);
         }
         else {
           $("#storyline").prepend("<br> You don't have enough money...");
@@ -517,8 +514,9 @@ var interact = function(){
       my_inv["tuna"]["qty"] -= 3;
       my_inv["pepper"]["qty"] -= 1;
       my_inv["octopus"]["qty"] -= 1;
+      $("#storyline").prepend("<br> \uD83C\uDF72 You throw the tuna, tang, pepper and octopus on the fire and make a tasty Fish Stew!");
+      my_inv["stew"]["qty"] += 1;
       inventory.displayInventory();
-      $("#storyline").prepend("<br> \uD83C\uDF72 You throw the tuna, tang, pepper and octopus on the fire and make a tasty Fish Soup!")
     }
     else{
       $("#storyline").prepend("<br> \uD83D\uDD25 Ouch! That fire sure is toasty!");
