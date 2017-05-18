@@ -132,10 +132,6 @@ var riverman = {
       $("#storyline").prepend("</br> \uD83D\uDC72: I got all the wood I need!");
       $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: It takes more than that to build a bridge!");
     }
-    else if (lumberjack.soup == true){
-      $("#storyline").prepend("</br> \uD83D\uDC72: I need to make the lumberjack a Fisherman's Stew! Do you know the recipe?");
-      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: Fisherman's Stew! Now there's a meal I haven't tasted in years! They lost the recipe in a fire.");
-    }
   }
 }
 var water = {
@@ -342,6 +338,7 @@ var lumberjack = {
   questGiven: false,
   chatted: false,
   soup: false,
+  soupMade:false,
   dialogue:function(){
     if (lumberjack.questGiven == false && riverman.questGiven == false){
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: You there! Get away from my trees!");
@@ -354,6 +351,17 @@ var lumberjack = {
       $("#storyline").prepend("</br> \uD83D\uDC72: When was the last time you had Fisherman's Stew?");
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
       lumberjack.soup = true;
+    }
+    else if (my_inv["stew"]["qty"] >= 1){
+      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A \uD83C\uDF72: You made me Fisherman's Stew! Thank you, brave adventurer! Bring me 15 pieces of wood and I will make a bridge for you.");
+      my_inv["stew"]["qty"] -= 1;
+      lumberjack.soupMade = true;
+      inventory.displayInventory();
+    }
+    else if (my_inv["wood"]["qty"] >= 15 && lumberjack.soupMade == true){
+      $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: You give the lumberjack the wood, and he builds a bridge.");
+      my_inv["wood"]["qty"] -= 15;
+      inventory.displayInventory();
     }
   }
 }
