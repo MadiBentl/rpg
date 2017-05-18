@@ -544,7 +544,7 @@ var interact = function(){
       $("#storyline").prepend("</br>\uD83C\uDFE3 The Store is Closed. Come Back Later");
     }
     else{
-      $("#storyline").prepend("</br>\uD83C\uDFE3 The Store is Open. Would you like to Buy (B) or Sell (S)?");
+      $("#storyline").prepend("</br>\uD83C\uDFE3 The Store is Open. Would you like to Buy (B) or Sell Mushrooms (S)?");
     }
   }
   else if (sprite.position == oldwoman.position){
@@ -686,8 +686,18 @@ var interact = function(){
       case 83: //S
         if (sprite.position == store.position){
           if (store.isOpen == true){
-            $("#storyline").prepend("</br> What would you like to sell ($1/each)? 1 : \uD83C\uDF44");
-                          // break;
+            if (my_inv["mushroom"]["qty"] > 0){
+              $("#storyline").prepend("</br> \uD83C\uDF44 You sold 1 mushroom.");
+              my_inv["mushroom"]["qty"] -=1;
+              my_inv["money"]["qty"] += 1;
+              inventory.displayInventory();
+            }
+            else{
+              $("#storyline").prepend("You don't have any mushrooms.")
+            }
+          }
+          else{
+            $("#storyline").prepend("The store is closed.");
           }
         //  break;
         }
