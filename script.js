@@ -347,10 +347,10 @@ var lumberjack = {
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: Hrumph! Why do you think I'd want ta talk to the likes of you!");
       lumberjack.chatted = true;
     }
-    else if (lumberjack.questGiven == true && riverman.questGiven == true && lummberjack.soupMade == false){
+    else if (lumberjack.questGiven == true && riverman.questGiven == true && lumberjack.soupMade == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: When was the last time you had Fisherman's Stew?");
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
-      lumberjack.soup = true;
+      lumberjack.soupMade = true;
     }
     else if (my_inv["stew"]["qty"] >= 1){
       $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A \uD83C\uDF72: You made me Fisherman's Stew! Thank you, brave adventurer! Bring me 15 pieces of wood and I will make a bridge for you.");
@@ -596,6 +596,16 @@ var interact = function(){
   }
   $(document).one("keydown", function(e){
     switch(e.which){
+
+                case 86: //V
+                console.log("running");
+                my_inv["mushroom"]["qty"] += 8;
+                my_inv["tang"]["qty"] += 10;
+                my_inv["tuna"]["qty"] += 8;
+                my_inv["pepper"]["qty"] += 1;
+                my_inv["octopus"]["qty"] += 1;
+                inventory.displayInventory();
+                break;
         case 89: //y
           if ((house.position.indexOf(sprite.position) >= 0 && $(sprite.position).hasClass("garden")) ||
               sprite.position == camp.position){
