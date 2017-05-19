@@ -347,7 +347,7 @@ var lumberjack = {
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: Hrumph! Why do you think I'd want ta talk to the likes of you!");
       lumberjack.chatted = true;
     }
-    else if (lumberjack.questGiven == true && riverman.questGiven == true){
+    else if (lumberjack.questGiven == true && riverman.questGiven == true && lummberjack.soupMade == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: When was the last time you had Fisherman's Stew?");
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!");
       lumberjack.soup = true;
