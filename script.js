@@ -165,7 +165,7 @@ var water = {
       }
     });
   },
-  bridgeBuilt: false;
+  bridgeBuilt: false,
   buildBridge: function(){
     $(document).ready(function(){
       water.position.splice(water.position.indexOf("#t2620"), 1);
@@ -181,8 +181,8 @@ var water = {
           $(water.position[x]).text("\uD83C\uDF0A");
         }
       }
-      if (bridgeBuilt && $("#t2620").hasClass("visitedTile")){
-        $("#t2620").text("\uD83C\uDF09");
+      if (water.bridgeBuilt && $("#t2620").hasClass("visitedTile")){
+        $("#t2620").text("\uD83C\uDF09").removeClass("isProhibited");
       }
     });
   }
@@ -614,7 +614,7 @@ var interact = function(){
                 my_inv["tuna"]["qty"] += 8;
                 my_inv["pepper"]["qty"] += 1;
                 my_inv["octopus"]["qty"] += 1;
-                
+                my_inv["wood"]["qty"] += 15;
                 inventory.displayInventory();
                 break;
         case 89: //y
