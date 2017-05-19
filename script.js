@@ -361,6 +361,7 @@ var lumberjack = {
     else if (my_inv["wood"]["qty"] >= 15 && lumberjack.soupMade == true){
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: You give the lumberjack the wood, and he builds a bridge.");
       my_inv["wood"]["qty"] -= 15;
+      $("#t2620").text("\uD83C\uDF09");
       inventory.displayInventory();
     }
   }
