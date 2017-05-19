@@ -165,6 +165,13 @@ var water = {
       }
     });
   },
+  bridgeBuilt: false;
+  buildBridge: function(){
+    $(document).ready(function(){
+      water.position.splice(water.position.indexOf("#t2620"), 1);
+
+    });
+  },
   exist: function(){
     water.generateWater();
     $(document).ready(function(){
@@ -173,6 +180,9 @@ var water = {
         if ($(water.position[x]).hasClass("visitedTile")){
           $(water.position[x]).text("\uD83C\uDF0A");
         }
+      }
+      if (bridgeBuilt && $("#t2620").hasClass("visitedTile")){
+        $("#t2620").text("\uD83C\uDF09");
       }
     });
   }
@@ -361,8 +371,7 @@ var lumberjack = {
     else if (my_inv["wood"]["qty"] >= 15 && lumberjack.soupMade == true){
       $("#storyline").prepend("</br> \uD83D\uDC68 \uD83C\uDF32: You give the lumberjack the wood, and he builds a bridge.");
       my_inv["wood"]["qty"] -= 15;
-      $("#t2620").text("\uD83C\uDF09");
-      inventory.displayInventory();
+      water.bridgeBuilt = true;
     }
   }
 }
@@ -605,6 +614,7 @@ var interact = function(){
                 my_inv["tuna"]["qty"] += 8;
                 my_inv["pepper"]["qty"] += 1;
                 my_inv["octopus"]["qty"] += 1;
+                
                 inventory.displayInventory();
                 break;
         case 89: //y
