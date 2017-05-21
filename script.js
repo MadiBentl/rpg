@@ -134,6 +134,18 @@ var riverman = {
     }
   }
 }
+var urn = {
+  position: ["#t3925"],
+  exist: function(){
+    $(document).ready(function(){
+      for (var x = 0; x < urn.position.length; x++){
+        if ($(urn.position[x]).hasClass("visitedTile")){
+          $(urn.position[x]).text("\u26B1");
+        }
+      }
+    });
+  }
+}
 var water = {
   position: ["#t3323","#t3223", "#t3123", "#t3122", "#t3022", "#t2922",
               "#t2821", "#t2720", "#t2620", "#t2519", "#t2520", "#t2419",
@@ -462,6 +474,7 @@ var miscellaneous = function(){
   tree.exist();
   lumberjack.exist();
   fire.exist();
+  urn.exist();
   camp.exist();
   buildGarden();
   mailbox.exist();
