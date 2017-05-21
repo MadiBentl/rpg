@@ -609,13 +609,8 @@ var interact = function(){
 
                 case 86: //V
                 console.log("running");
-                my_inv["mushroom"]["qty"] += 8;
-                my_inv["tang"]["qty"] += 10;
-                my_inv["tuna"]["qty"] += 8;
-                my_inv["pepper"]["qty"] += 1;
-                my_inv["octopus"]["qty"] += 1;
-                my_inv["wood"]["qty"] += 15;
-                inventory.displayInventory();
+                water.position.splice(water.position.indexOf("#t2620"), 1);
+                $("#t2620").removeClass("isProhibited").text("");
                 break;
         case 89: //y
           if ((house.position.indexOf(sprite.position) >= 0 && $(sprite.position).hasClass("garden")) ||
