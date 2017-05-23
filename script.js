@@ -64,6 +64,17 @@ var church = {
     })
   }
 }
+var customsBuilding = {
+  position: "#t2827",
+  exist: function(){
+    $(document).ready(function(){
+      $(customsBuilding.position).addClass("isProhibited");
+      if ($(customsBuilding.position).hasClass("visitedTile")){
+        $(customsBuilding.position).text("\uD83C\uDFDB");
+      }
+    });
+  }
+}
 var house = {
   position: ["#t1516","#t2627","#t2829","#t2830","#t2828","#t2728","#t2628","#t2729",
              "#t2912", "#t2813", "#t3211", "#t3113"],
@@ -551,6 +562,7 @@ var miscellaneous = function(){
   water.exist();
   house.exist();
   church.exist();
+  customsBuilding.exist();
   oracle.exist();
   oldwoman.exist();
   farmer.exist();
