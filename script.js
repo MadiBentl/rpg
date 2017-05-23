@@ -138,8 +138,19 @@ let castle = {
   position: "#t3814",
   exist: function(){
     $(document).ready(function(){
+      $(castle.position).addClass("isProhibited");
       if ($(castle.position).hasClass("visitedTile")){
         $(castle.position).text("\uD83C\uDFF0");
+      }
+    });
+  }
+}
+let beach = {
+  position: "#t3521",
+  exist: function() {
+    $(document).ready(function(){
+      if($(beach.position).hasClass("visitedTile")){
+        $(beach.position).text("\u26F1")
       }
     });
   }
@@ -500,6 +511,7 @@ var miscellaneous = function(){
   urn.exist();
   castle.exist();
   guardsman.exist();
+  beach.exist();
   camp.exist();
   buildGarden();
   mailbox.exist();
