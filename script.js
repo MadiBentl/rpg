@@ -115,7 +115,7 @@ var riverman = {
   questGiven: false,
   dialogue: function(){
     if (riverman.questGiven == false){
-      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: The bridge broke and my family lives on the other side! Can you help me build a brige?");
+      $("#storyline").prepend("</br> \uD83D\uDC66 \uD83C\uDF0A: The bridge broke and my family lives on the other side! Can you help me build a bridge?");
       $("#quests").append("</br> - Help the Riverman build a bridge");
       riverman.questGiven = true;
     }
@@ -135,7 +135,7 @@ var riverman = {
   }
 }
 var urn = {
-  position: ["#t3925"],
+  position: ["#t3925", "#t3923", "#t3921", "#t3822", "#t3824"],
   exist: function(){
     $(document).ready(function(){
       for (var x = 0; x < urn.position.length; x++){
