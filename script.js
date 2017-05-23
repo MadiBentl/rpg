@@ -70,7 +70,7 @@ var house = {
 var rock = {
   position: [],
   generateRocks: function(){
-    for (var x = 1010; x < 1040; x++){
+    for (var x = 1011; x < 1040; x++){
       rock.position.push("#t" + x);
     }
     for (var x = 1110; x < 1119; x++){
