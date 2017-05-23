@@ -54,6 +54,16 @@ var mailbox ={
   },
   msgCount: 1
 }
+var church = {
+  position: "#t2629",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(church.position).hasClass("visitedTile")){
+        $(church.position).text("\u26EA");
+      }
+    })
+  }
+}
 var house = {
   position: ["#t1516","#t2627","#t2829","#t2830","#t2828","#t2728","#t2628","#t2729",
              "#t2912", "#t2813", "#t3211", "#t3113"],
@@ -540,6 +550,7 @@ var miscellaneous = function(){
   key.exist();
   water.exist();
   house.exist();
+  church.exist();
   oracle.exist();
   oldwoman.exist();
   farmer.exist();
