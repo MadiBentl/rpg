@@ -134,6 +134,16 @@ var riverman = {
     }
   }
 }
+let castle = {
+  position: "#t3814",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(castle.position).hasClass("visitedTile")){
+        $(castle.position).text("\uD83C\uDFF0");
+      }
+    });
+  }
+}
 var urn = {
   position: ["#t3925", "#t3923", "#t3921", "#t3822", "#t3824"],
   exist: function(){
@@ -475,6 +485,7 @@ var miscellaneous = function(){
   lumberjack.exist();
   fire.exist();
   urn.exist();
+  castle.exist();
   camp.exist();
   buildGarden();
   mailbox.exist();
