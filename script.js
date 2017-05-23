@@ -75,7 +75,7 @@ var holyMountains = {
   position: ["#t3939", "#t3838", "#t3837", "#t3736", "#t3636"],
   exist: function(){
     $(document).ready(function(){
-      for (var x = 0; x<holyMountains.position; x++){
+      for (var x = 0; x<holyMountains.position.length; x++){
         $(holyMountains.position[x]).addClass("isProhibited");
         if ($(holyMountains.position[x]).hasClass("visitedTile")){
           $(holyMountains.position[x]).text("\uD83D\uDDFB");
