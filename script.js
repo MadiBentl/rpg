@@ -144,6 +144,18 @@ let castle = {
     });
   }
 }
+let guardsman = {
+  position: ["#t3914", "#t3714"],
+  exist: function(){
+    $(document).ready(function(){
+      for (let x = 0; x<guardsman.position.length; x++){
+        if($(guardsman.position[x]).hasClass("visitedTile")){
+          $(guardsman.position[x]).text("\uD83D\uDC82");
+        }
+      }
+    });
+  }
+}
 var urn = {
   position: ["#t3925", "#t3923", "#t3921", "#t3822", "#t3824"],
   exist: function(){
@@ -486,6 +498,7 @@ var miscellaneous = function(){
   fire.exist();
   urn.exist();
   castle.exist();
+  guardsman.exist();
   camp.exist();
   buildGarden();
   mailbox.exist();
