@@ -66,6 +66,8 @@ var church = {
   dialogue: function(){
     if (my_inv["water"]["qty"] >= 15){
       $("#storyline").prepend("The priest gives you a bottle of Holy Water. \uD83C\uDF76");
+      my_inv["holywater"]["qty"] += 1;
+      inventory.displayInventory();
     }
   }
 }
