@@ -72,7 +72,8 @@ var church = {
   }
 }
 var holyMountains = {
-  position: ["#t3939", "#t3838", "#t3837", "#t3736", "#t3636"],
+  position: ["#t3939", "#t3838", "#t3837", "#t3736", "#t3636", "#t3536", "#t3436", "#t3335", "#t3235", "#t3134"
+            ,"#t3035", "#t2936", "#t2836", "#t2737", "#t2738", "#t2639", "#t2539", "#t2439", "#t2339"],
   exist: function(){
     $(document).ready(function(){
       for (var x = 0; x<holyMountains.position.length; x++){
