@@ -155,6 +155,16 @@ let beach = {
     });
   }
 }
+let beachbro = {
+  position: "#t3520",
+  exist: function(){
+    $(document).ready(function(){
+      if($(beachbro.position).hasClass("visitedTile")){
+        $(beachbro.position).text("\uD83D\uDE0E");
+      }
+    });
+  }
+}
 let guardsman = {
   position: ["#t3914", "#t3714"],
   exist: function(){
@@ -511,6 +521,7 @@ var miscellaneous = function(){
   urn.exist();
   castle.exist();
   guardsman.exist();
+  beachbro.exist();
   beach.exist();
   camp.exist();
   buildGarden();
