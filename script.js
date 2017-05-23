@@ -62,6 +62,11 @@ var church = {
         $(church.position).text("\u26EA");
       }
     })
+  },
+  dialogue: function(){
+    if (my_inv["water"]["qty"] >= 15){
+      $("#storyline").prepend("The priest gives you a bottle of Holy Water. \uD83C\uDF76");
+    }
   }
 }
 var customsBuilding = {
@@ -1178,6 +1183,10 @@ var my_inv = {
   pepper: {
     qty: 0,
     symbol: "\uD83C\uDF36"
+  },
+  holywater:{
+    qty: 0,
+    symbol: "\uD83C\uDF76"
   },
   stew: {
     qty: 0,
