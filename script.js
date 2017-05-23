@@ -640,10 +640,8 @@ var interact = function(){
     $("#storyline").prepend("</br>\u2694 \uD83D\uDC32 You are being attacked!");
     if (beast.hp > 0){
       attackSprite();
-      console.log("Attacking");
     }
     else{
-      console.log("You died");
     }
   }
   else if (sprite.position == farmer.position){
@@ -662,8 +660,6 @@ var interact = function(){
   }
   else if (tree.position.indexOf(sprite.position) > -1){
     $("#storyline").prepend("</br>\uD83C\uDF32 Cut tree? Y/N");
-    console.log(tree.position);
-    console.log(sprite.position);
   }
   else if ((fruitTree.position.indexOf(sprite.position) > -1) && fruitTree.canPick == true){
     $("#storyline").prepend("</br>\uD83C\uDF51 Pick Peach? Y/N");
@@ -672,7 +668,6 @@ var interact = function(){
     switch(e.which){
 
                 case 86: //V
-                console.log("running");
                 water.position.splice(water.position.indexOf("#t2620"), 1);
                 $("#t2620").removeClass("isProhibited").text("");
                 break;
@@ -685,7 +680,6 @@ var interact = function(){
             (store.isOpen == false) ? store.isOpen = true : store.isOpen = false;
           }
         else if (house.position.indexOf(sprite.position) >= 0){
-          console.log(house.position, sprite.position);
             generateRandomItem();
           }
         else if (bag.position.indexOf(sprite.position) > -1){
@@ -901,7 +895,6 @@ var attacking = function(){
   $("#stats-data").text("\u2764"+ " " +stats.life);
   if ((beast.position.indexOf(sprite.position) <= -1)){ //no longer on same tile
     clearInterval(interval);
-    console.log(beast.position[0], sprite.position, "cleared");
   }
   if (stats.life <= 0){ //you die
     $("#storyline").prepend("</br> You died!");
@@ -930,7 +923,6 @@ var sprite = {
             $("#storyline").prepend("</br> Your attack is futile - if only you had a weapon of some kind.");
           }
           else if (beast.position.indexOf(sprite.position) > -1 && my_inv["sword"]["qty"] > 0){ //if on a beast tile
-console.log("sword words");
             determineHit(beast.hp)
             if (beast.hp > 0){
               $("#storyline").prepend("</br> \uD83D\uDC32 \u2764 Monster HP: " + beast.hp);
@@ -941,7 +933,6 @@ console.log("sword words");
               if (bears.position.indexOf(sprite.position) > -1){ //bears
                 bears.bearsKilled += 1
                 bears.position.splice(bearLocation, 1);
-                console.log("spliced ", sprite.position, bears.position);
                 $("#stats-bears").text("\uD83D\uDC3B" + " " + bears.bearsKilled + "/6");
                 if (bears.position.length == 0){
                   fruitTree.isSafe = true;
@@ -953,9 +944,6 @@ console.log("sword words");
               inventory.displayInventory();
               $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
               beast.position.splice(beastLocation, 1);
-              console.log("beast", beast.position);
-              console.log("bear", bears.position);
-              console.log("popped");
               clearInterval(interval);
               beast.hp = 30;
             }
