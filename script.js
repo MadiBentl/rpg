@@ -67,6 +67,16 @@ var house = {
     })
   }
 }
+var key = {
+  position: "#t1010",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(key.position).hasClass("\uD83D\uDD11")){
+        $(key.position).text("\uD83D\uDD11");
+      }
+    });
+  }
+}
 var rock = {
   position: [],
   generateRocks: function(){
@@ -527,6 +537,7 @@ var miscellaneous = function(){
   buildGarden();
   mailbox.exist();
   rock.exist();
+  key.exist();
   water.exist();
   house.exist();
   oracle.exist();
