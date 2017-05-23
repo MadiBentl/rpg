@@ -149,6 +149,7 @@ let guardsman = {
   exist: function(){
     $(document).ready(function(){
       for (let x = 0; x<guardsman.position.length; x++){
+        $(guardsman.position[x]).addClass("isProhibited");
         if($(guardsman.position[x]).hasClass("visitedTile")){
           $(guardsman.position[x]).text("\uD83D\uDC82");
         }
