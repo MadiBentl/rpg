@@ -437,6 +437,16 @@ var fire = {
     });
   }
 }
+let goat = {
+  position: "#t1525",
+  exist: function(){
+    $(document).ready(function(){
+      if ($(goat.position).hasClass("visitedTile")){
+        $(goat.position).text("\uD83D\uDC10");
+      }
+    });
+  }
+}
 var camp = {
   position: "#t2318",
   exist: function(){
@@ -589,6 +599,7 @@ var miscellaneous = function(){
   oldwoman.exist();
   farmer.exist();
   farmHouse.exist();
+  goat.exist();
   fruitTree.exist();
 }
 var purchase = function(){
