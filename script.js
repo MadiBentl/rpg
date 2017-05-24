@@ -1153,6 +1153,10 @@ var my_inv = {
     qty: 3,
     symbol: "\uD83C\uDF0A"
   },
+  alembic:{
+    qty: 0,
+    symbol: "\u2697"
+  },
   peach:{
     qty: 0,
     symbol: "\uD83C\uDF4A"
