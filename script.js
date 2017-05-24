@@ -997,9 +997,10 @@ var bears = {
 }
 var sprite = {
   position: "#t1517",
+  symbol: "\uD83D\uDC72",
   initializeSprite: function(){
     $(document).ready(function(){
-      $("#t1517").addClass("garden").text("\uD83D\uDC72");
+      $("#t1517").addClass("garden").text(sprite.symbol);
     });
   },
   newPosition: "",
@@ -1054,10 +1055,10 @@ var sprite = {
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-1);
             if ($(sprite.position).hasClass("garden")){
-              $(sprite.position).text("\uD83D\uDC72");
+              $(sprite.position).text(sprite.symbol);
             }
             else{
-              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+              $(sprite.position).addClass("visitedTile").text(sprite.symbol);
             }
             interact();
           }
@@ -1083,10 +1084,10 @@ var sprite = {
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))-100);
             if ($(sprite.position).hasClass("garden")){
-              $(sprite.position).text("\uD83D\uDC72");
+              $(sprite.position).text(sprite.symbol);
             }
             else{
-              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+              $(sprite.position).addClass("visitedTile").text(sprite.symbol);
             }
             interact();
           }
@@ -1112,10 +1113,10 @@ var sprite = {
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+1);
             if ($(sprite.position).hasClass("garden")){
-              $(sprite.position).text("\uD83D\uDC72");
+              $(sprite.position).text(sprite.symbol);
             }
             else{
-              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+              $(sprite.position).addClass("visitedTile").text(sprite.symbol);
             }
             interact();
           }
@@ -1141,10 +1142,10 @@ var sprite = {
             miscellaneous();
             sprite.position = "#t"+ (Number(sprite.position.slice(-4))+100);
             if ($(sprite.position).hasClass("garden")){
-              $(sprite.position).text("\uD83D\uDC72");
+              $(sprite.position).text(sprite.symbol);
             }
             else{
-              $(sprite.position).addClass("visitedTile").text("\uD83D\uDC72");
+              $(sprite.position).addClass("visitedTile").text(sprite.symbol);
             }
             interact();
           }
