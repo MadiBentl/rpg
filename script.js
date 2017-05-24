@@ -832,9 +832,11 @@ var interact = function(){
         //    break;
           }
           else if (goat.byFarm == false){
-            goat.byFarm = true;
-            sprite.symbol = "\uD83D\uDC72";
-          }
+              goat.byFarm = true;
+              goat.position = sprite.position;
+              sprite.symbol = "\uD83D\uDC72";
+            }
+          
         break;
 
         case 80: //p
