@@ -671,6 +671,11 @@ var interact = function(){
       $("#storyline").prepend("<br> \uD83D\uDD25 Ouch! That fire sure is toasty!");
     }
   }
+  else if (goat.position == sprite.position){
+    if (water.bridgeBuilt == false){
+      $("#storyline").prepend("<br>\uD83D\uDC10 Steal goat?");
+    }
+  }
   else if (camp.position == sprite.position){
     $("#storyline").prepend("<br> \uD83C\uDFD5 Take Nap? Y/N");
   }
