@@ -486,7 +486,6 @@ var lumberjack = {
     }
   }
 }
-//oracle tells you where you need to start your garden.
 var tree = {
   position: ["#t2014","#t2015","#t2113","#t2016","#t2017","#t2114","#t2115", "#t1220", "#t3031"],
   exist: function(){
@@ -564,6 +563,7 @@ var miscellaneous = function(){
   store.exist();
   bug.exist();
   mushroom.exist();
+  alembic.exist();
   seed.exist();
   ghost.exist();
   riverman.exist();
@@ -844,6 +844,16 @@ var interact = function(){
 var beast = {
   position: ["#t1417","#t1423","#t1424", "#t1425", "#t1323", "#t1324", "#t1325"],
   hp: 30
+}
+let alembic = {
+  position: "#t3739",
+  exist: function(){
+    $(document).ready(function(){
+      if($(alembic.position).hasClass("visitedTile")){
+        $(alembic.position).text("\u2697");
+      }
+    });
+  }
 }
 let bug = {
   position: ["#t2415", "#t3310"],
