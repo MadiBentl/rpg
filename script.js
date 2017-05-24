@@ -759,7 +759,8 @@ var interact = function(){
             $("#storyline").prepend("<br> Why would you steal a goat?");
           }
           else if (water.bridgeBuilt == true){
-            $("#storyline").prepend("<br> \uD83D\uDC10 You jump on the goat.");
+            $("#storyline").prepend("<br> \uD83D\uDC10 You jump on the goat. Press N to get off the goat.");
+            sprite.symbol = "\uD83D\uDC10";
           }
         }
         else if (bag.position.indexOf(sprite.position) > -1){
