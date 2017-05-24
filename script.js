@@ -826,6 +826,10 @@ var interact = function(){
             $("#storyline").prepend("</br> I'll sleep when I'm dead.");
         //    break;
           }
+          else if (goat.byFarm == false){
+            goat.byFarm = true;
+            sprite.symbol = "\uD83D\uDC72";
+          }
         break;
 
         case 80: //p
