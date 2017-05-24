@@ -838,6 +838,9 @@ var interact = function(){
               goat.position = sprite.position;
               sprite.symbol = "\uD83D\uDC72";
             }
+            else{
+              $("#storyline").prepend("<br> \uD83D\uDDFB \uD83D\uDC10 You can't get off the goat while on the Holy Mountains!");
+            }
           }
 
         break;
