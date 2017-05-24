@@ -77,6 +77,7 @@ var holyMountains = {
   exist: function(){
     $(document).ready(function(){
       for (var x = 0; x<holyMountains.position.length; x++){
+        $(holyMountains.position[x]).addClass("holy");
         if (sprite.symbol == "\uD83D\uDC72"){
           $(holyMountains.position[x]).addClass("isProhibited");
         }
@@ -832,11 +833,13 @@ var interact = function(){
         //    break;
           }
           else if (goat.byFarm == false){
+            if (!($(sprite.position).hasClass("holy"))){
               goat.byFarm = true;
               goat.position = sprite.position;
               sprite.symbol = "\uD83D\uDC72";
             }
-          
+          }
+
         break;
 
         case 80: //p
