@@ -77,7 +77,12 @@ var holyMountains = {
   exist: function(){
     $(document).ready(function(){
       for (var x = 0; x<holyMountains.position.length; x++){
-        $(holyMountains.position[x]).addClass("isProhibited");
+        if (sprite.symbol == "\uD83D\uDC72"){
+          $(holyMountains.position[x]).addClass("isProhibited");
+        }
+        else{
+          $(holyMountains.position[x]).removeClass("isProhibited");
+        }
         if ($(holyMountains.position[x]).hasClass("visitedTile")){
           $(holyMountains.position[x]).text("\uD83D\uDDFB");
         }
