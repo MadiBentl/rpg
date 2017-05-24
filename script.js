@@ -438,9 +438,10 @@ var fire = {
 }
 let goat = {
   position: "#t1525",
+  byFarm: true,
   exist: function(){
     $(document).ready(function(){
-      if ($(goat.position).hasClass("visitedTile")){
+      if ($(goat.position).hasClass("visitedTile") && goat.byFarm == true){
         $(goat.position).text("\uD83D\uDC10");
       }
     });
@@ -761,6 +762,7 @@ var interact = function(){
           else if (water.bridgeBuilt == true){
             $("#storyline").prepend("<br> \uD83D\uDC10 You jump on the goat. Press N to get off the goat.");
             sprite.symbol = "\uD83D\uDC10";
+            goat.byFarm = false;
           }
         }
         else if (bag.position.indexOf(sprite.position) > -1){
