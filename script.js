@@ -280,7 +280,6 @@ var water = {
   buildBridge: function(){
     $(document).ready(function(){
       water.position.splice(water.position.indexOf("#t2620"), 1);
-
     });
   },
   exist: function(){
@@ -742,6 +741,7 @@ var interact = function(){
                 case 86: //V
                 water.position.splice(water.position.indexOf("#t2620"), 1);
                 $("#t2620").removeClass("isProhibited").text("");
+                water.bridgeBuilt = true;
                 break;
         case 89: //y
           if ((house.position.indexOf(sprite.position) >= 0 && $(sprite.position).hasClass("garden")) ||
@@ -754,6 +754,14 @@ var interact = function(){
         else if (house.position.indexOf(sprite.position) >= 0){
             generateRandomItem();
           }
+        else if (sprite.position == goat.position){
+          if (water.bridgeBuilt == false){
+            $("#storyline").prepend("<br> Why would you steal a goat?");
+          }
+          else if (water.bridgeBuilt == true){
+            $("#storyline").prepend("<br> \uD83D\uDC10 You jump on the goat.");
+          }
+        }
         else if (bag.position.indexOf(sprite.position) > -1){
           $("#storyline").prepend("</br>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0");
             my_inv["money"]["qty"] += 5;
