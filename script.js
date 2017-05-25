@@ -691,6 +691,9 @@ var interact = function(){
   else if (oracle.position == sprite.position){
     oracle.dialogue();
   }
+  else if (alembic.position == sprite.position){
+    $("#storyline").prepend("<br> \u2697 Take alembic? Y/N");
+  }
   else if (camp.position == sprite.position){
     $("#storyline").prepend("<br> \uD83C\uDFD5 Take Nap? Y/N");
   }
@@ -770,6 +773,12 @@ var interact = function(){
         else if (house.position.indexOf(sprite.position) >= 0){
             generateRandomItem();
           }
+        else if (alembic.position == sprite.position){
+            $("#storyline").prepend("<br> \u2697 I don't know how I could use this.");
+            my_inv["alembic"]["qty"] += 1;
+            alembic.isTaken = true;
+            inventory.displayInventory();
+        }
         else if (sprite.position == goat.position){
           if (water.bridgeBuilt == false){
             $("#storyline").prepend("<br> Why would you steal a goat?");
@@ -900,12 +909,15 @@ var beast = {
 }
 let alembic = {
   position: "#t3739",
+  isTaken: false,
   exist: function(){
-    $(document).ready(function(){
-      if($(alembic.position).hasClass("visitedTile")){
-        $(alembic.position).text("\u2697");
-      }
-    });
+    if (alembic.isTaken == false){
+      $(document).ready(function(){
+        if($(alembic.position).hasClass("visitedTile")){
+          $(alembic.position).text("\u2697");
+        }
+      });
+    }
   }
 }
 let bug = {
