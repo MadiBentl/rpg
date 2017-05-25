@@ -424,12 +424,18 @@ let farmHouse = {
 }
 var oracle = {
   position: "#t3438",
+  beadsGiven: false,
   exist: function(){
     $(document).ready(function(){
       if ($(oracle.position).hasClass("visitedTile")){
         $(oracle.position).text("\uD83D\uDC73");
       }
     });
+  },
+  dialogue: function(){
+    if (oracle.beadsGiven == false){
+      $("#storyline").prepend("<br>\uD83D\uDC72 Are you the oracle? Can you help me get home?");
+    }
   }
 }
 var fire = {
@@ -681,6 +687,9 @@ var interact = function(){
     if (water.bridgeBuilt == false){
       $("#storyline").prepend("<br>\uD83D\uDC10 Steal goat?");
     }
+  }
+  else if (oracle.position == sprite.position){
+    oracle.dialogue();
   }
   else if (camp.position == sprite.position){
     $("#storyline").prepend("<br> \uD83C\uDFD5 Take Nap? Y/N");
