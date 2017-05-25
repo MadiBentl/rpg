@@ -351,9 +351,16 @@ let ghost = {
       $("#quests").append("</br> - \uD83C\uDF72 Make Fish Stew: 1 Octopus, 3 Tunas, 10 Tangs, 8 Mushrooms, 1 hot pepper.");
       ghost.bookTranslated = true;
     }
-    else if (ghost.bookTranslated == true && ghost.questGiven == false){
+    else if (ghost.bookTranslated == true && oracle.beadsGiven == false){
       $("#storyline").prepend("</br> \uD83D\uDC7B : BOO! OooOOooO Ooo! ooO!! OO!!")
                      .prepend("</br> \uD83D\uDC72: I think he's trying to tell me something...");
+    }
+    else if (oracle.beadsGiven == true && ghost.questGiven == false){
+      $("#storyline").prepend("</br> \uD83D\uDC7B : I'm so lonely!!")
+                     .prepend("</br> \uD83D\uDC72: Do you know how I can get out of here?")
+                     .prepend("</br> \uD83D\uDC7B: You can understand me! Please help me cross over to the other side. If you do that for me, I'll tell you how to get out of here.");
+     ghost.questGiven = true;
+     $("#quest").prepend("<br> - Help the ghost cross over to the other side.")
     }
   }
 }
