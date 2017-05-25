@@ -424,6 +424,7 @@ let farmHouse = {
 }
 var oracle = {
   position: "#t3438",
+  questGiven: false,
   beadsGiven: false,
   exist: function(){
     $(document).ready(function(){
@@ -433,8 +434,17 @@ var oracle = {
     });
   },
   dialogue: function(){
-    if (oracle.beadsGiven == false){
+    if (oracle.beadsGiven == false && oracle.questGiven == false){
       $("#storyline").prepend("<br>\uD83D\uDC72 Are you the oracle? Can you help me get home?");
+      $("#storyline").prepend("<br>\uD83D\uDC73 Hello there! No one's spoken to me in over 50 years. No one knows how to leave! You should speak to the oldest inhabitants of the land - they will show you the way.");
+      $("#quests").prepend("<br> - Find the oldest inhabitants of the land.");
+      oracle.questGiven = true;
+    }
+    if (oracle.beadsGiven == false && oracle.questGiven == true){
+      $("#storyline").prepend("<br>\uD83D\uDC73 You've already met one our oldest inhabitants - try talking to him again.\uD83D\uDCFF Here, this might help makes what he says more clear.");
+      $("#storyline").prepend("<br>\uD83D\uDCFF The oracle hands you a set of mystic prayer beads.")
+      my_inv["beads"]["qty"] += 1;
+      oracle.beadsGiven = true;
     }
   }
 }
@@ -1256,6 +1266,10 @@ var my_inv = {
   fishingPole:{
     qty: 0,
     symbol: "\uD83C\uDFA3"
+  },
+  beads:{
+    qty: 0,
+    symbol: "\uD83D\uDCFF"
   },
   tuna: {
     qty: 0,
