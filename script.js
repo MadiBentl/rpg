@@ -1034,8 +1034,12 @@ var goFishing = function(){
       my_inv["bug"]["qty"] -= 1;
       $("#storyline").prepend("<br> You caught a Tang");
     }
-  inventory.displayInventory();
   }
+  else if (my_inv["alembic"]["qty"] >= 1){
+    my_inv["water"]["qty"] += 1;
+    $("#storyline").prepend("<br> You scoop some water up into the alembic");
+  }
+  inventory.displayInventory();
 }
 var attacking = function(){
   //beast.hp = 30;
