@@ -800,6 +800,11 @@ var interact = function(){
             $("#storyline").prepend("<br> \uD83D\uDC10 You jump on the goat. Press N to get off the goat.");
             sprite.symbol = "\uD83D\uDC10";
             goat.byFarm = false;
+            if (my_inv["fishingPole"]["qty"] > 0){
+              my_inv["fishingPole"]["qty"] = 0;
+              inventory.displayInventory();
+              $("#storyline").prepend("<br> As you jump on the goat you accidentally break your fishing pole!");
+            }
           }
         }
         else if (bag.position.indexOf(sprite.position) > -1){
