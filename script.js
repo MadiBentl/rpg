@@ -62,13 +62,6 @@ var church = {
         $(church.position).text("\u26EA");
       }
     })
-  },
-  dialogue: function(){
-    if (my_inv["water"]["qty"] >= 15){
-      $("#storyline").prepend("The priest gives you a bottle of Holy Water. \uD83C\uDF76");
-      my_inv["holywater"]["qty"] += 1;
-      inventory.displayInventory();
-    }
   }
 }
 var holyMountains = {
@@ -697,12 +690,16 @@ var interact = function(){
     }
   }
   else if (sprite.position == church.position){
+    console.log("activated");
     if (my_inv["water"]["qty"] >= 15){
-      holywater.dialogue();
+      $("#storyline").prepend("The priest gives you a bottle of Holy Water. \uD83C\uDF76");
+      my_inv["holywater"]["qty"] += 1;
+      my_inv["water"]["qty"] -= 15;
+      inventory.displayInventory();
     }
   }
   else if (goat.position == sprite.position){
-    if (water.bridgeBuilt == false){
+    if (water.bridgeBuilt == true){
       $("#storyline").prepend("<br>\uD83D\uDC10 Steal goat?");
     }
     else{
