@@ -335,6 +335,7 @@ let ghost = {
     });
   },
   questGiven:false,
+  questFinished: false,
   bookTranslated: false,
   dialogue: function(){
     if (ghost.questGiven == false && oldwoman.bookGiven == false){
@@ -801,6 +802,9 @@ var interact = function(){
           if (my_inv["holywater"]["qty"] >= 1){
               $("#storyline").prepend("</br> \uD83C\uDF76 You sprinkle holy water on the grave.");
               urn.unblessedGraves.splice(sprite.position, 1);
+              if (urn.unblessedGraves.length == 0){
+                $("#storyline").prepend("</br> \uD83C\uDF76 You've blessed all the graves. Maybe the ghost will be happy now.");
+              }
           }
         }
         else if (alembic.position == sprite.position){
