@@ -674,6 +674,11 @@ var interact = function(){
       Your last message said: ${mailbox.messages[mailbox.msgCount]}`);
     }
   }
+  else if (urn.position.indexOf(sprite.position) > -1){
+    if (my_inv["holywater"]["qty"] >= 1){
+      $("#storyline").prepend("\uD83C\uDF76 Sprinkle Holy Water?");
+    }
+  }
   else if(sprite.position == fire.position){
     if (my_inv["mushroom"]["qty"] >= 8 && my_inv["tang"]["qty"] >= 10 && my_inv["tuna"]["qty"] >= 3 && my_inv["pepper"]["qty"] >=1 && my_inv["octopus"]["qty"] >= 1){
       my_inv["mushroom"]["qty"] -= 8;
