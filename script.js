@@ -696,9 +696,17 @@ var interact = function(){
       $("#storyline").prepend("<br> \uD83D\uDD25 Ouch! That fire sure is toasty!");
     }
   }
+  else if (sprite.position == church.position){
+    if (my_inv["water"]["qty"] >= 15){
+      holywater.dialogue();
+    }
+  }
   else if (goat.position == sprite.position){
     if (water.bridgeBuilt == false){
       $("#storyline").prepend("<br>\uD83D\uDC10 Steal goat?");
+    }
+    else{
+      $("#storyline").prepend("<br>\uD83D\uDC10 That goat sure looks pretty bored...");
     }
   }
   else if (oracle.position == sprite.position){
