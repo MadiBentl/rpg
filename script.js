@@ -790,7 +790,7 @@ var interact = function(){
         case 89: //y
           if ((house.position.indexOf(sprite.position) >= 0 && $(sprite.position).hasClass("garden")) ||
               sprite.position == camp.position){
-            $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
+            $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day! \uD83C\uDF1E \uD83C\uDF1E \uD83C\uDF1E \uD83C\uDF1E");
             bug.newDay();
             mushroom.newDay();
             if (urn.unblessedGraves == 0 && ghost.questFinished == false) {
