@@ -231,6 +231,7 @@ let guardsman = {
 }
 var urn = {
   position: ["#t3925", "#t3923", "#t3921", "#t3822", "#t3824"],
+  unblessedGraves: ["#t3925", "#t3923", "#t3921", "#t3822", "#t3824"],
   exist: function(){
     $(document).ready(function(){
       for (var x = 0; x < urn.position.length; x++){
@@ -676,7 +677,7 @@ var interact = function(){
   }
   else if (urn.position.indexOf(sprite.position) > -1){
     if (my_inv["holywater"]["qty"] >= 1){
-      $("#storyline").prepend("\uD83C\uDF76 Sprinkle Holy Water?");
+      $("#storyline").prepend("\uD83C\uDF76 Sprinkle Holy Water? Y/N");
     }
   }
   else if(sprite.position == fire.position){
@@ -796,6 +797,12 @@ var interact = function(){
         else if (house.position.indexOf(sprite.position) >= 0){
             generateRandomItem();
           }
+        else if (urn.position.indexOf(sprite.position) > -1){
+          if (my_inv["holywater"]["qty"] >= 1){
+              $("#storyline").prepend("</br> \uD83C\uDF76 You sprinkle holy water on the grave.");
+              urn.unblessedGraves.splice(sprite.position, 1);
+          }
+        }
         else if (alembic.position == sprite.position){
             $("#storyline").prepend("<br> \u2697 I don't know how I could use this.");
             my_inv["alembic"]["qty"] += 1;
