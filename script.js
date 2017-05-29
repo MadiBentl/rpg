@@ -324,12 +324,12 @@ let oldwoman = {
   }
 }
 let ghost = {
-  position: ["#t3320"],
+  position: "#t3320",
   exist: function(){
     $(document).ready(function(){
       for (let x = 0; x< ghost.position.length; x++){
-        if($(ghost.position[x]).hasClass("visitedTile")){
-          $(ghost.position[x]).text("\uD83D\uDC7B");
+        if($(ghost.position).hasClass("visitedTile")){
+          $(ghost.position).text("\uD83D\uDC7B");
         }
       }
     });
@@ -793,6 +793,10 @@ var interact = function(){
             $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day!");
             bug.newDay();
             mushroom.newDay();
+            if (urn.unblessedGraves == 0 && ghost.questFinished == false) {
+              ghost.position = "#t2928";
+              ghost.questFinished = true;
+            }
             (store.isOpen == false) ? store.isOpen = true : store.isOpen = false;
           }
         else if (house.position.indexOf(sprite.position) >= 0){
