@@ -47,7 +47,7 @@ var mailbox ={
   },
   hasMsg:true,
   messages:{
-    1: "WARNING: Watch out for black tiles, as the unknown world is full of monsters!"
+    1: "</br> \u2620 WARNING: Watch out for black tiles, as the unknown world is full of monsters! \u2620"
   },
   remindMsg: function(){
     $("#storyline").prepend("</br>\uD83D\uDCEC You've Got Mail. Checkout Your Mailbox to Read it.");
