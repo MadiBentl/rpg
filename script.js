@@ -338,7 +338,7 @@ let ghost = {
   questFinished: false,
   bookTranslated: false,
   dialogue: function(){
-    if (ghost.questGiven == false && oldwoman.bookGiven == false){
+    if (ghost.questGiven == false && oldwoman.bookGiven == false && ghost.questFinished == false){
       $("#storyline").prepend("</br> \uD83D\uDC7B : OOooooo OOooooOOoOOO!")
     }
     else if (ghost.questGiven == false && oldwoman.bookGiven == true && ghost.bookTranslated == false){
@@ -356,6 +356,11 @@ let ghost = {
                      .prepend("</br> \uD83D\uDC7B: You can understand me! Please help me cross over to the other side. If you do that for me, I'll tell you how to get out of here.");
      ghost.questGiven = true;
      $("#quest").prepend("<br> - Help the ghost cross over to the other side.")
+    }
+    else if (ghost.questFinished == true && my_inv["key"]["qty"] == 0){
+      my_inv["key"]["qty"]+= 1;
+      $("#storyline").prepend("</br>\uD83D\uDC7B : Thank you for saving me! You can use this key \uD83D\uDDDD to help you get home.")
+      inventory.displayInventory();
     }
   }
 }
@@ -1322,6 +1327,10 @@ var my_inv = {
   octopus: {
     qty: 0,
     symbol: "\uD83D\uDC19"
+  },
+  key: {
+    qty: 0,
+    symbol: "\uD83D\uDDDD"
   },
   seed: {
     qty: 0,
