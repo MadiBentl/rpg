@@ -786,8 +786,8 @@ var interact = function(){
                 water.position.splice(water.position.indexOf("#t2620"), 1);
                 $("#t2620").removeClass("isProhibited").text("");
                 water.bridgeBuilt = true;
+                ghost.questFinished = false;
                 urn.unblessedGraves.length = 0;
-                ghost.questFinished = true;
                 break;
         case 89: //y
           if ((house.position.indexOf(sprite.position) >= 0 && $(sprite.position).hasClass("garden")) ||
@@ -796,6 +796,7 @@ var interact = function(){
             bug.newDay();
             mushroom.newDay();
             if (urn.unblessedGraves.length == 0 && ghost.questFinished == false) {
+              console.log("urn active");
               ghost.position = "#t3928";
               ghost.questFinished = true;
             }
