@@ -338,7 +338,7 @@ let ghost = {
   questFinished: false,
   bookTranslated: false,
   dialogue: function(){
-    if (ghost.questGiven == false && oldwoman.bookGiven == false && ghost.questFinished == false){
+    if (ghost.questGiven == false && oldwoman.bookGiven == false){
       $("#storyline").prepend("</br> \uD83D\uDC7B : OOooooo OOooooOOoOOO!")
     }
     else if (ghost.questGiven == false && oldwoman.bookGiven == true && ghost.bookTranslated == false){
@@ -801,7 +801,10 @@ var interact = function(){
             bug.newDay();
             mushroom.newDay();
             if (urn.unblessedGraves.length == 0 && ghost.questFinished == false) {
-              console.log("urn active");
+              $(document).ready(function(){
+                $("#t3320").text("");
+              });
+
               ghost.position = "#t3928";
               ghost.questFinished = true;
             }
