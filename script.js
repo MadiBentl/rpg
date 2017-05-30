@@ -47,7 +47,7 @@ var mailbox ={
   },
   hasMsg:true,
   messages:{
-    1: "</br> \u2620 WARNING: Watch out for black tiles, as the unknown world is full of monsters! \u2620"
+    1: "\u2620 WARNING: Watch out for black tiles, as the unknown world is full of monsters! \u2620"
   },
   remindMsg: function(){
     $("#storyline").prepend("</br>\uD83D\uDCEC You've Got Mail. Checkout Your Mailbox to Read it.");
@@ -786,6 +786,8 @@ var interact = function(){
                 water.position.splice(water.position.indexOf("#t2620"), 1);
                 $("#t2620").removeClass("isProhibited").text("");
                 water.bridgeBuilt = true;
+                urn.unblessedGraves.length = 0;
+                ghost.questFinished = true;
                 break;
         case 89: //y
           if ((house.position.indexOf(sprite.position) >= 0 && $(sprite.position).hasClass("garden")) ||
@@ -793,8 +795,8 @@ var interact = function(){
             $("#storyline").prepend("</br>\uD83D\uDECF Zzz...zzz...zzz... It's a new day! \uD83C\uDF1E \uD83C\uDF1E \uD83C\uDF1E \uD83C\uDF1E");
             bug.newDay();
             mushroom.newDay();
-            if (urn.unblessedGraves == 0 && ghost.questFinished == false) {
-              ghost.position = "#t2928";
+            if (urn.unblessedGraves.length == 0 && ghost.questFinished == false) {
+              ghost.position = "#t3928";
               ghost.questFinished = true;
             }
             (store.isOpen == false) ? store.isOpen = true : store.isOpen = false;
