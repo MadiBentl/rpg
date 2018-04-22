@@ -571,7 +571,7 @@ var generateRandomItem = function(){
       receivedItemsEmojis.push("\uD83C\uDFA3");
       my_inv["fishingPole"]["qty"] += 1;
       inventory.displayInventory();
-      $("#storyline").prepend("</br>\uD83C\uDFA3 You found a fishing rod! Now to find some bait.");
+      $("#storyline").prepend("</br><span class='objChange'>\uD83C\uDFA3 You found a fishing rod! Now to find some bait.</span>");
     }
     housesToSearch.splice(housesToSearch.indexOf(sprite.position), 1);
   }
@@ -852,7 +852,7 @@ var interact = function(){
             inventory.displayInventory();
           }
           else if (bug.position.indexOf(sprite.position) > -1){
-            $("#storyline").prepend("</br>\uD83D\uDC1B You picked up a bug");
+            $("#storyline").prepend("</br><span class='objChange'>\uD83D\uDC1B You picked up a bug</span>");
             my_inv["bug"]["qty"] += 1;
             inventory.displayInventory();
             let bugPosition = bug.position.indexOf(sprite.position);
