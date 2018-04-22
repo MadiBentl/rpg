@@ -376,7 +376,8 @@ let farmer = {
   },
   dialogue: function(){
     if (fruitTree.isSafe == false && farmer.questGiven == false){
-      $("#storyline").prepend("</br>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1");
+      $("#storyline").prepend("</br>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1")
+                     .prepend("</br><span style='background-color:black; color:white'> New Item: Sword \uD83D\uDDE1</span>");
       my_inv["sword"]["qty"] += 1;
       inventory.displayInventory();
       $("#quests").append("- \uD83D\uDC3B Fight off the bears in the orchard!");
