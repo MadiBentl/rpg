@@ -86,6 +86,10 @@ h2, h3 {
   border-radius: 5px;
   margin: 8px; }
 
+.objChange {
+  background-color: black;
+  color: white;
+}
 .visitedTile {
   background-color: #e5e5ea !important; }
 

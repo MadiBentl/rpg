@@ -315,7 +315,8 @@ let oldwoman = {
     else if (lumberjack.questGiven == true && oldwoman.bookGiven == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: Do you know anything about Fisherman's Stew?");
       $("#storyline").prepend("</br> \uD83D\uDC75 \u26F0: I haven't heard about Fisherman's Stew in years! I believe I have a RiverPeople Recipe Book right here! Unfortunately it's not written in English. Maybe it'll help you out!");
-      $("#storyline").prepend("</br> The Old Woman gives you a book written in a strange language \uD83D\uDCD5");
+      $("#storyline").prepend("</br> The Old Woman gives you a book written in a strange language \uD83D\uDCD5")
+      .prepend("</br><span class='objChange'>You get a mysterious book.</span>")
       oldwoman.bookGiven = true;
       my_inv["book"]["qty"] += 1;
       inventory.displayInventory();
@@ -377,7 +378,7 @@ let farmer = {
   dialogue: function(){
     if (fruitTree.isSafe == false && farmer.questGiven == false){
       $("#storyline").prepend("</br>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1")
-                     .prepend("</br><span style='background-color:black; color:white'> New Item: Sword \uD83D\uDDE1</span>");
+                     .prepend("</br><span class='objChange'> New Item: Sword \uD83D\uDDE1</span>");
       my_inv["sword"]["qty"] += 1;
       inventory.displayInventory();
       $("#quests").append("- \uD83D\uDC3B Fight off the bears in the orchard!");
@@ -866,7 +867,7 @@ var interact = function(){
             seed.position.splice(seedPosition, 1);
           }
           else if (mushroom.position.indexOf(sprite.position) >= 0){
-            $("#storyline").prepend("</br> You picked a mushroom!");
+            $("#storyline").prepend("</br><span class='objChange'> You picked a mushroom!</span>");
             my_inv["mushroom"]["qty"] += 1;
             inventory.displayInventory();
             let mushroomPosition = mushroom.position.indexOf(sprite.position);
@@ -879,7 +880,7 @@ var interact = function(){
             //break;
           }
           else if (tree.position.indexOf(sprite.position) >= 0){
-            $("#storyline").prepend("</br> Chop, Chop, Chop!");
+            $("#storyline").prepend("</br><span class='objChange'> Chop, Chop, Chop! You got some logs</span>");
             my_inv["wood"]["qty"] += 1;
             inventory.displayInventory();
             //break;
@@ -888,7 +889,7 @@ var interact = function(){
             if (my_inv["peach"]["qty"] < 5){
               my_inv["peach"]["qty"] += 1;
               inventory.displayInventory();
-              $("#storyline").prepend("</br> \uD83C\uDF51 You pick a peach.");
+              $("#storyline").prepend("</br><span class='objChange'> \uD83C\uDF51 You pick a peach.</span>");
             }
             else{
               $("#storyline").prepend("</br> I think that's enough peaches for now.");
@@ -1059,22 +1060,22 @@ var goFishing = function(){
     if (caughtOctopus == 9){
       my_inv["octopus"]["qty"] += 1;
       my_inv["bug"]["qty"] -= 1;
-      $("#storyline").prepend("<br> You caught an Octopus");
+      $("#storyline").prepend("<br><span class='objChange'> You caught an Octopus</span>");
     }
     else if (caughtOctopus <= 8 && caughtOctopus >= 5){
       my_inv["tuna"]["qty"] += 1;
       my_inv["bug"]["qty"] -= 1;
-      $("#storyline").prepend("<br> You caught a Tuna");
+      $("#storyline").prepend("<br><span class='objChange'> You caught a Tuna</span>");
     }
     else if (caughtOctopus >= 1){
       my_inv["tang"]["qty"] += 1;
       my_inv["bug"]["qty"] -= 1;
-      $("#storyline").prepend("<br> You caught a Tang");
+      $("#storyline").prepend("<br><span class='objChange'> You caught a Tang</span>");
     }
   }
   else if (my_inv["alembic"]["qty"] >= 1){
     my_inv["water"]["qty"] += 1;
-    $("#storyline").prepend("<br> You scoop some water up into the alembic");
+    $("#storyline").prepend("<br><span class='objChange'> You scoop some water up into the alembic</span>");
   }
   inventory.displayInventory();
 }
