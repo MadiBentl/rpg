@@ -90,6 +90,13 @@ h2, h3 {
   background-color: black;
   color: white;
 }
+.attacked {
+  background-color: red;
+  color:white;
+}
+.conversation{
+  background-color: white;
+}
 .visitedTile {
   background-color: #e5e5ea !important; }
 
