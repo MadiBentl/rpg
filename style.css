@@ -97,6 +97,9 @@ h2, h3 {
 .conversation{
   background-color: white;
 }
+.questEvent{
+  background-color:#40F9E7;
+}
 .visitedTile {
   background-color: #e5e5ea !important; }
 

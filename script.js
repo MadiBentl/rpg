@@ -166,7 +166,8 @@ var riverman = {
   questGiven: false,
   dialogue: function(){
     if (riverman.questGiven == false){
-      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC66 \uD83C\uDF0A: The bridge broke and my family lives on the other side! Can you help me build a bridge?</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC66 \uD83C\uDF0A: The bridge broke and my family lives on the other side! Can you help me build a bridge?</span>")
+      .prepend("</br><span class='questEvent'> NEW QUEST: Help the Riverman build a bridge</span>");
       $("#quests").append("</br> - Help the Riverman build a bridge");
       riverman.questGiven = true;
     }
@@ -342,7 +343,8 @@ let ghost = {
       $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC7B : OOooooo OOooooOOoOOO!</span>")
     }
     else if (ghost.questGiven == false && oldwoman.bookGiven == true && ghost.bookTranslated == false){
-      $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.");
+      $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.")
+      .prepend("</br><span class='questEvent'>NEW QUEST: Make Fish Stew</span>");
       $("#quests").append("</br> - \uD83C\uDF72 Make Fish Stew: 1 Octopus, 3 Tunas, 10 Tangs, 8 Mushrooms, 1 hot pepper.");
       ghost.bookTranslated = true;
     }
@@ -353,7 +355,8 @@ let ghost = {
     else if (oracle.beadsGiven == true && ghost.questGiven == false){
       $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC7B : I'm so lonely!!</span>")
                      .prepend("</br> \uD83D\uDC72: Do you know how I can get out of here?")
-                     .prepend("</br><span class='conversation'> \uD83D\uDC7B: You can understand me! Please help me cross over to the other side. If you do that for me, I'll tell you how to get out of here.</span>");
+                     .prepend("</br><span class='conversation'> \uD83D\uDC7B: You can understand me! Please help me cross over to the other side. If you do that for me, I'll tell you how to get out of here.</span>")
+                     .prepend("</br><span class='questEvent'>NEW QUEST: Help the Ghost Cross Over</span>");
      ghost.questGiven = true;
      $("#quest").prepend("<br> - Help the ghost cross over to the other side.")
     }
@@ -377,7 +380,8 @@ let farmer = {
   dialogue: function(){
     if (fruitTree.isSafe == false && farmer.questGiven == false){
       $("#storyline").prepend("</br><span class='conversation'>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1</span>")
-                     .prepend("</br><span class='objChange'> New Item: Sword \uD83D\uDDE1</span>");
+                     .prepend("</br><span class='objChange'> New Item: Sword \uD83D\uDDE1</span>")
+                     .prepend("</br><span class='questEvent'>NEW QUEST: Fight off the bears in the Orchard!</span>");
       my_inv["sword"]["qty"] += 1;
       inventory.displayInventory();
       $("#quests").append("- \uD83D\uDC3B Fight off the bears in the orchard!");
@@ -445,6 +449,7 @@ var oracle = {
       $("#storyline").prepend("<br>\uD83D\uDC72 Are you the oracle? Can you help me get home?");
       $("#storyline").prepend("<br>\uD83D\uDC73 Hello there! Only the oldest inhabitants of this land know how to leave - here's a gift to make communicating with them easier.");
       $("#storyline").prepend("<br>\uD83D\uDCFF The oracle hands you a set of mystic prayer beads.")
+      .prepend("<br><span class='questEvent'>NEW QUEST: Find the Oldest inhabitants of the land</span>");
       my_inv["beads"]["qty"] += 1;
       inventory.displayInventory();
       oracle.beadsGiven = true;
