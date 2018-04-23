@@ -14,21 +14,21 @@ var stats = {
   monstersKilled: 0,
   drainLife: function(qty){
     stats.life = stats.life - qty;
-    $("#stats-data").text("\u2764"+ " " +stats.life);
+    $("#stats-data").text("\uD83D\uDC9B"+ " " +stats.life);
     if (stats.life <= 0){
       $("#storyline").prepend("</br><span class='attacked'> sorry, you died!</span>");
     }
   },
   resetLife: function(qty){
     stats.life= qty;
-    $("#stats-data").text("\u2764"+ " " +stats.life);
+    $("#stats-data").text("\uD83D\uDC9B"+ " " +stats.life);
   },
   assessLife: function(){
     $(sprite.newPosition).hasClass("garden") ? stats.resetLife(30) : stats.drainLife(1);
   },
   boostHP: function(num){
     stats.life += num;
-    $("#stats-data").text("\u2764"+ " " +stats.life);
+    $("#stats-data").text("\uD83D\uDC9B"+ " " +stats.life);
   }
 }
 var prohibit = function(tile){
@@ -1086,8 +1086,8 @@ var goFishing = function(){
 var attacking = function(){
   //beast.hp = 30;
   stats.life = stats.life - createHit();
-  $("#storyline").prepend("</br> \u2764 Your HP: " + stats.life);
-  $("#stats-data").text("\u2764"+ " " +stats.life);
+  $("#storyline").prepend("</br> \uD83D\uDC9B Your HP: " + stats.life);
+  $("#stats-data").text("\uD83D\uDC9B"+ " " +stats.life);
   if ((beast.position.indexOf(sprite.position) <= -1)){ //no longer on same tile
     clearInterval(interval);
   }
@@ -1121,7 +1121,7 @@ var sprite = {
           else if (beast.position.indexOf(sprite.position) > -1 && my_inv["sword"]["qty"] > 0){ //if on a beast tile
             determineHit(beast.hp)
             if (beast.hp > 0){
-              $("#storyline").prepend("</br> \uD83D\uDC32 \u2764 Monster HP: " + beast.hp);
+              $("#storyline").prepend("</br> \uD83D\uDC32 \uD83D\uDC9B Monster HP: " + beast.hp);
             }
             else if (beast.hp <= 0){ //beast dead
               let beastLocation = beast.position.indexOf(sprite.position);
@@ -1390,7 +1390,7 @@ var buildStats = function(){
                                       .append("<div class = 'stat' id = 'stats-bears'></div>")
   $("#stats-monsters").text("\uD83D\uDC32" + "  " + stats.monstersKilled);
   $("#stats-bears").text("\uD83D\uDC3B" + " " + bears.bearsKilled + "/6");
-  $("#stats-data").text("\u2764"+ " " +stats.life);
+  $("#stats-data").text("\uD83D\uDC9B"+ " " +stats.life);
 }
 var buildInventory= function(){
   $("#inventory").append("<h3>Inventory</h3>").append("<div id='inventory-grid'></div>");
