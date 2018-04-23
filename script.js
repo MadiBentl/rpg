@@ -1273,7 +1273,7 @@ var initializeBoardElements = function(){
 }
 var my_inv = {
   wood:{
-    qty: 4,
+    qty: 0,
     symbol: "\uD83C\uDF32"
   },
   money: {
@@ -1285,7 +1285,7 @@ var my_inv = {
     symbol: "\uD83D\uDCD5"
   },
   water:{
-    qty: 3,
+    qty: 0,
     symbol: "\uD83C\uDF0A"
   },
   alembic:{
