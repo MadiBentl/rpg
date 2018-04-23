@@ -16,7 +16,7 @@ var stats = {
     stats.life = stats.life - qty;
     $("#stats-data").text("\u2764"+ " " +stats.life);
     if (stats.life <= 0){
-      $("#storyline").prepend("</br><span style='attacked'> sorry, you died!</span>");
+      $("#storyline").prepend("</br><span class='attacked'> sorry, you died!</span>");
     }
   },
   resetLife: function(qty){
@@ -166,22 +166,22 @@ var riverman = {
   questGiven: false,
   dialogue: function(){
     if (riverman.questGiven == false){
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC66 \uD83C\uDF0A: The bridge broke and my family lives on the other side! Can you help me build a bridge?</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC66 \uD83C\uDF0A: The bridge broke and my family lives on the other side! Can you help me build a bridge?</span>");
       $("#quests").append("</br> - Help the Riverman build a bridge");
       riverman.questGiven = true;
     }
     else if (riverman.questGiven == true && lumberjack.chatted == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: I don't know where to start");
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC66 \uD83C\uDF0A: Head to the forest South of your house!</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC66 \uD83C\uDF0A: Head to the forest South of your house!</span>");
     }
     else if (riverman.questGiven == true && lumberjack.chatted == true ){
       $("#storyline").prepend("</br> \uD83D\uDC72: That's one grumpy lumberjack!");
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC66 \uD83C\uDF0A: He's the only one who knows how to build a bridge! Ask around and see if you can find something to sweeten him up!</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC66 \uD83C\uDF0A: He's the only one who knows how to build a bridge! Ask around and see if you can find something to sweeten him up!</span>");
       lumberjack.questGiven = true;
     }
     else if (riverman.questGiven == true && my_inv["wood"]["qty"] >= 15){
       $("#storyline").prepend("</br> \uD83D\uDC72: I got all the wood I need!");
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC66 \uD83C\uDF0A: It takes more than that to build a bridge!</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC66 \uD83C\uDF0A: It takes more than that to build a bridge!</span>");
     }
   }
 }
@@ -310,11 +310,11 @@ let oldwoman = {
   questGiven: false,
   dialogue: function(){
     if (lumberjack.questGiven != true){
-      $("#storyline").prepend("</br> \uD83D\uDC75 \u26F0: Hello dear, I am the guardian of these mountains!");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC75 \u26F0: Hello dear, I am the guardian of these mountains!</span>");
     }
     else if (lumberjack.questGiven == true && oldwoman.bookGiven == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: Do you know anything about Fisherman's Stew?");
-      $("#storyline").prepend("</br> \uD83D\uDC75 \u26F0: I haven't heard about Fisherman's Stew in years! I believe I have a RiverPeople Recipe Book right here! Unfortunately it's not written in English. Maybe it'll help you out!");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC75 \u26F0: I haven't heard about Fisherman's Stew in years! I believe I have a RiverPeople Recipe Book right here! Unfortunately it's not written in English. Maybe it'll help you out!</span>");
       $("#storyline").prepend("</br><span class='objChange'> The Old Woman gives you a book written in a strange language \uD83D\uDCD5</span>");
       oldwoman.bookGiven = true;
       my_inv["book"]["qty"] += 1;
@@ -339,7 +339,7 @@ let ghost = {
   bookTranslated: false,
   dialogue: function(){
     if (ghost.questGiven == false && oldwoman.bookGiven == false){
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC7B : OOooooo OOooooOOoOOO!</span>")
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC7B : OOooooo OOooooOOoOOO!</span>")
     }
     else if (ghost.questGiven == false && oldwoman.bookGiven == true && ghost.bookTranslated == false){
       $("#storyline").prepend("</br> The ghost makes some ghost-y noises and returns to you a translated book.");
@@ -347,19 +347,19 @@ let ghost = {
       ghost.bookTranslated = true;
     }
     else if (ghost.bookTranslated == true && oracle.beadsGiven == false){
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC7B : BOO! OooOOooO Ooo! ooO!! OO!!</span>")
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC7B : BOO! OooOOooO Ooo! ooO!! OO!!</span>")
                      .prepend("</br> \uD83D\uDC72: I think he's trying to tell me something...");
     }
     else if (oracle.beadsGiven == true && ghost.questGiven == false){
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC7B : I'm so lonely!!</span>")
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC7B : I'm so lonely!!</span>")
                      .prepend("</br> \uD83D\uDC72: Do you know how I can get out of here?")
-                     .prepend("</br><span style='conversation'> \uD83D\uDC7B: You can understand me! Please help me cross over to the other side. If you do that for me, I'll tell you how to get out of here.</span>");
+                     .prepend("</br><span class='conversation'> \uD83D\uDC7B: You can understand me! Please help me cross over to the other side. If you do that for me, I'll tell you how to get out of here.</span>");
      ghost.questGiven = true;
      $("#quest").prepend("<br> - Help the ghost cross over to the other side.")
     }
     else if (ghost.questFinished == true && my_inv["key"]["qty"] == 0){
       my_inv["key"]["qty"]+= 1;
-      $("#storyline").prepend("</br><span style='conversation'>\uD83D\uDC7B : Thank you for saving me! You can use this key \uD83D\uDDDD to help you get home.</span>")
+      $("#storyline").prepend("</br><span class='conversation'>\uD83D\uDC7B : Thank you for saving me! You can use this key \uD83D\uDDDD to help you get home.</span>")
       inventory.displayInventory();
     }
   }
@@ -376,7 +376,7 @@ let farmer = {
   },
   dialogue: function(){
     if (fruitTree.isSafe == false && farmer.questGiven == false){
-      $("#storyline").prepend("</br><span style='conversation'>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1</span>")
+      $("#storyline").prepend("</br><span class='conversation'>\uD83D\uDC69 \uD83C\uDF3E: My orchard is full of bears! I need your protection! Here, take this sword \uD83D\uDDE1</span>")
                      .prepend("</br><span class='objChange'> New Item: Sword \uD83D\uDDE1</span>");
       my_inv["sword"]["qty"] += 1;
       inventory.displayInventory();
@@ -384,10 +384,10 @@ let farmer = {
       farmer.questGiven = true;
     }
     else if (fruitTree.isSafe == false && farmer.questGiven == true){
-      $("#storyline").prepend("</br><span style='conversation'>\uD83D\uDC69 \uD83C\uDF3E: Hurry up and kill the bears!</span>");
+      $("#storyline").prepend("</br><span class='conversation'>\uD83D\uDC69 \uD83C\uDF3E: Hurry up and kill the bears!</span>");
     }
     else if (fruitTree.isSafe == true){
-      $("#storyline").prepend(`</br><span style='conversation'> \uD83D\uDC69 \uD83C\uDF3E: Thank you so much for saving my orchard from
+      $("#storyline").prepend(`</br><span class='conversation'> \uD83D\uDC69 \uD83C\uDF3E: Thank you so much for saving my orchard from
         those evil bears - please feel free to pick peaches from my trees whenever you like! Peaches will give you +10hp - press P to eat a peach.
         You can keep the sword too!</span>`);
       fruitTree.canPick = true;
@@ -498,19 +498,19 @@ var lumberjack = {
   soupMade:false,
   dialogue:function(){
     if (lumberjack.questGiven == false && riverman.questGiven == false){
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC68 \uD83C\uDF32: You there! Get away from my trees!</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC68 \uD83C\uDF32: You there! Get away from my trees!</span>");
     }
     else if (lumberjack.questGiven == false && riverman.questGiven == true){
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC68 \uD83C\uDF32: Hrumph! Why do you think I'd want ta talk to the likes of you!</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC68 \uD83C\uDF32: Hrumph! Why do you think I'd want ta talk to the likes of you!</span>");
       lumberjack.chatted = true;
     }
     else if (lumberjack.questGiven == true && riverman.questGiven == true && lumberjack.soupMade == false){
       $("#storyline").prepend("</br> \uD83D\uDC72: When was the last time you had Fisherman's Stew?");
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC68 \uD83C\uDF32: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC68 \uD83C\uDF32: I haven't had Fisherman's Stew since the recipe was lost! If you can find out the recipe and make me the stew I'll do anything ye like!</span>");
       lumberjack.soupMade = true;
     }
     else if (my_inv["stew"]["qty"] >= 1){
-      $("#storyline").prepend("</br><span style='conversation'> \uD83D\uDC66 \uD83C\uDF0A \uD83C\uDF72: You made me Fisherman's Stew! Thank you, brave adventurer! Bring me 15 pieces of wood and I will make a bridge for you.</span>");
+      $("#storyline").prepend("</br><span class='conversation'> \uD83D\uDC66 \uD83C\uDF0A \uD83C\uDF72: You made me Fisherman's Stew! Thank you, brave adventurer! Bring me 15 pieces of wood and I will make a bridge for you.</span>");
       my_inv["stew"]["qty"] -= 1;
       lumberjack.soupMade = true;
       inventory.displayInventory();
@@ -758,7 +758,7 @@ var interact = function(){
     lumberjack.dialogue();
   }
   else if (beast.position.indexOf(sprite.position) > -1){
-    $("#storyline").prepend("</br><span style='attacked'>\u2694 \uD83D\uDC32 You are being attacked!</span>");
+    $("#storyline").prepend("</br><span class='attacked'>\u2694 \uD83D\uDC32 You are being attacked!</span>");
     if (beast.hp > 0){
       attackSprite();
     }
@@ -845,7 +845,7 @@ var interact = function(){
           }
         }
         else if (bag.position.indexOf(sprite.position) > -1){
-          $("#storyline").prepend("</br><span style='objChange'>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0</span>");
+          $("#storyline").prepend("</br><span class='objChange'>\uD83D\uDC5B The bag contains 5 coins \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0 \uD83D\uDCB0</span>");
             my_inv["money"]["qty"] += 5;
             bag.position = [];
             inventory.displayInventory();
@@ -1087,7 +1087,7 @@ var attacking = function(){
     clearInterval(interval);
   }
   if (stats.life <= 0){ //you die
-    $("#storyline").prepend("</br><span style='attacked'> You died!</span>");
+    $("#storyline").prepend("</br><span class='attacked'> You died!</span>");
     clearInterval(interval);
   }
 }
